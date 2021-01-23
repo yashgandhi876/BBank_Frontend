@@ -33,7 +33,7 @@ class Header extends Component {
             </div>);
         return (
             <div>
-                <nav className={"navbar navbar-expand-sm navbar-dark bg-primary mb-4"}>
+                <nav className={"navbar navbar-expand-sm navbar-dark navbar-bg-custom mb-4 navbar-sticky"}>
                     <a className={"navbar-brand"}>BBank</a>
                     {/*<div className={"container"}>*/}
                     {/*    Blood Bank Management System*/}
@@ -44,7 +44,15 @@ class Header extends Component {
 
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <a className="nav-link" href="#footer">Contact</a></li>
+                                <a className="nav-link" href="#">Home</a></li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#">Donate Now</a></li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#">Nearby Blood Banks</a></li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#">My Profile</a></li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#footer">Logout</a></li>
 
                         </ul>
                     </div>

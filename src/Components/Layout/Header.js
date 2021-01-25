@@ -35,7 +35,7 @@ class Header extends Component {
         return (
             <div>
                 <nav className={"navbar navbar-expand-sm navbar-dark navbar-bg-custom navbar-sticky"}>
-                    <a className={"navbar-brand"}> <img src={AppLogo} alt="Logo" id={"navbar-brand-logo"}/> BBank</a>
+                    <a className={"navbar-brand"} href={"#"}> <img src={AppLogo} alt="Logo" id={"navbar-brand-logo"}/> BBank</a>
                     {/*<div className={"container"}>*/}
                     {/*    Blood Bank Management System*/}
 

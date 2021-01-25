@@ -76,7 +76,9 @@
 #mobile-nav {
     padding-right: 25px;
 }
-
+.landing-div{
+    background: white;
+}
 /*Title Section*/
 /*Headings*/
 .big-heading {
@@ -88,24 +90,37 @@
 .colored-section {
     background-color: #DC143C;
     color: #fff;
+    padding-bottom: 50px;
 }
 
+#title{
+    height: 100%;
+}
 /*Title Section*/
 #title .container-fluid {
     text-align: left;
     padding: 3% 15% 7%;
+
 }
 
-.container-search-bank-form {
+.nearby-city-bank-form {
     background: #fff;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     color: #000;
+    display: flex;
+    flex-direction: row;
+
 }
+.nearby-city-bank-form .form{
+    text-align: center;
+    margin:0 auto;
+}
+
+
 
 /*Footer*/
 #footer {
-    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -116,4 +131,9 @@
 
 .social-icon {
     margin: 20px 10px;
+}
+.white-section{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: white;
 }

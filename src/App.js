@@ -8,13 +8,6 @@ import Landing from "./Components/Layout/Landing";
 import Dashboard from "./Components/Dashboard";
 
 function App() {
-<<<<<<< HEAD
-  return (
-    <div className="App">
-      Hey
-    </div>
-  );
-=======
     return (
         <Router>
             <div className="App">
@@ -36,7 +29,6 @@ function App() {
             </div>
         </Router>
     );
->>>>>>> origin/header-footer
 }
 
 export default App;

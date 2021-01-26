@@ -16,7 +16,8 @@ function App() {
                 {
                     //Public Routes
                 }
-                <Route exact path={"/"} component={Landing}/>
+                <Landing/>
+                {/*<Route exact path={"/"} component={Landing}/>*/}
                 {/*<Route exact path={"/register"} component={Register}/>*/}
                 {/*<Route exact path={"/login"} component={Login}/>*/}
                 {/*{*/}

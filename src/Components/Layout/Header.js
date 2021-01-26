@@ -33,32 +33,31 @@ class Header extends Component {
         //         </ul>
         //     </div>);
         return (
-            <div>
-                <nav className={"navbar navbar-expand-sm navbar-dark navbar-bg-custom navbar-sticky"}>
-                    <a className={"navbar-brand"} href={"#"}> <img src={AppLogo} alt="Logo" id={"navbar-brand-logo"}/> BBank</a>
-                    {/*<div className={"container"}>*/}
-                    {/*    Blood Bank Management System*/}
+            <section id={"header"}>
+                <div>
+                    <nav className={"navbar navbar-expand-sm navbar-dark "}>
+                        <a className={"navbar-brand"} href={"#"}>BBank</a>
 
-                    {/*</div>*/}
-                    <div className={"collapse navbar-collapse"} id="mobile-nav">
+                        {/*</div>*/}
+                        <div className={"collapse navbar-collapse"} id="mobile-nav">
 
 
-                        <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Home</a></li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Donate Now</a></li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Nearby Blood Banks</a></li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">My Profile</a></li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#footer">Logout</a></li>
-
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+                            <ul className="nav navbar-nav ml-auto">
+                                <li className="nav-item">
+                                    <a className="nav-link " href="#">Home</a></li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Donate Now</a></li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Nearby Blood Banks</a></li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">My Profile</a></li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#footer">Logout</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </section>
         );
     }
 

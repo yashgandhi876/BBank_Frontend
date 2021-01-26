@@ -5,7 +5,7 @@ import {faFacebookF, faInstagram, faTwitter, faFacebookMessenger} from '@fortawe
 class Footer extends Component {
     render() {
         return (
-            <section className="white-section" id="footer">
+            <section  id="footer">
 
                 <div className={"container"}>
                     <div className="row text-center text-xs-center text-sm-left text-md-left justify-content-center">

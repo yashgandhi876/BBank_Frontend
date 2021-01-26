@@ -1,5 +1,6 @@
 .App {
     text-align: center;
+
 }
 
 .App-logo {
@@ -38,47 +39,52 @@
 }
 
 
-/*Navigation Bar*/
-.navbar {
-    padding: 0 0 4.5rem;
+body {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
 }
 
-#navbar-brand-logo {
-    width: 40px;
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
 }
+
+/*Navigation Bar*/
+.nav {
+    margin: 0 auto;
+}
+
 
 .navbar-brand {
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: "Ubuntu", sans-serif;
     font-size: 2.5rem;
     font-weight: bold;
-    padding: 3% 15% 7%;
+    padding: 3% 15%;
 }
 
 .nav-item {
     padding: 0 15px;
 }
 
-.navbar-bg-custom {
-    background-color: #DC143C;
-}
-
-.navbar-sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
 .nav-link {
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
+    color: blue;
 }
 
-#mobile-nav {
-    padding-right: 25px;
+#header {
+    width: 100%;
+    background: #DC143C;
+    padding: 10px 0;
+    /*z-index: 3;*/
+    top: 0;
 }
-.landing-div{
-    background: white;
+
+#footer {
+    bottom: 0;
+    height: auto;
 }
+
+
 /*Title Section*/
 /*Headings*/
 .big-heading {
@@ -93,36 +99,48 @@
     padding-bottom: 50px;
 }
 
-#title{
-    height: 100%;
+
+.container-fluid {
+    padding: 7% 15%;
 }
+
 /*Title Section*/
 #title .container-fluid {
-    text-align: left;
+    /*text-align: left;*/
     padding: 3% 15% 7%;
 
 }
 
-.nearby-city-bank-form {
+.landing-nearby-div {
+    justify-content: center;
+    position: absolute;
     background: #fff;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     color: #000;
     display: flex;
     flex-direction: row;
-
+    width: 60%;
+    padding-left: 15%;
+    margin: 0 auto;
 }
-.nearby-city-bank-form .form{
+
+.landing-nearby-div .form {
     text-align: center;
-    margin:0 auto;
+
+    padding: 5%;
+
 }
 
-
+.nearby-city-bank-form input {
+    margin: 5%;
+}
 
 /*Footer*/
 #footer {
     bottom: 0;
     width: 100%;
+    padding-top: 40px;
 }
 
 .footer-quick-links {
@@ -132,7 +150,8 @@
 .social-icon {
     margin: 20px 10px;
 }
-.white-section{
+
+.white-section {
     padding-top: 15px;
     padding-bottom: 15px;
     background: white;

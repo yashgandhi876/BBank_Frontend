@@ -49,10 +49,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*Navigation Bar*/
+@media (min-width: 768px) {
+    .navbar-toggle {
+        display: none;
+    }
+
+    .navbar-header button {
+        display: block;
+    }
+}
+
 .nav {
     margin: 0 auto;
 }
-
 
 .navbar-brand {
     font-family: "Ubuntu", sans-serif;
@@ -79,11 +88,6 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
 }
 
-#footer {
-    bottom: 0;
-    height: auto;
-}
-
 
 /*Title Section*/
 /*Headings*/
@@ -91,25 +95,26 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 3.5rem;
     line-height: 1.5;
     font-weight: 900;
+    color: white;
+}
+
+.white-section {
+    background: white;
 }
 
 .colored-section {
     background-color: #DC143C;
-    color: #fff;
-    padding-bottom: 50px;
 }
 
-
-.container-fluid {
-    padding: 7% 15%;
-}
 
 /*Title Section*/
 
 #title .container-fluid {
-    /*text-align: left;*/
+    text-align: left;
     padding: 3% 15% 7%;
-
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.ibb.co/4YgFkbK/blood-donation-bg.jpg");
+    background-size: cover;
+    height: 80vh;
 
 }
 
@@ -118,67 +123,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .landing-div {
-    background: #DC143C;
     height: 100vh;
 }
 
-#landing-nearby-div {
-
-    position: absolute;
-    background: #fff;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    color: #000;
-    display: flex;
-    flex-direction: row;
-    width: 60%;
-    padding-left: 15%;
-    margin: 0 auto;
-}
-
-.landing-nearby-div .form {
-    text-align: center;
-    padding: 5%;
+.big-heading {
+    font-size: 4.5rem;
+    font-weight: 900;
 
 }
 
-.sliderFeatures {
-    position: absolute;
-    width: fit-content;
-    height: 50%;
-    right: 10%;
-    top: 25%;
-    background-size: cover;
-    padding: 10px 45px;
-    z-index: 5;
-    text-align: center;
-    background: #fff;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    color: #000;
+#features .row {
     justify-content: center;
-    display: flex;
-    flex-direction: row;
-
-    margin: 0 auto;
-}
-
-.searchForm {
-    margin-top: 30px;
-}
-
-
-.nearby-city-bank-form-search {
-    border: 2px solid #ca1414;
-    border-radius: 5px;
-    width: 75%;
-    margin: 0 auto;
 
 }
+
+
+/*Section: Services*/
+#services .row {
+    justify-content: center;
+    padding: 1% 15% 5%;
+}
+
 
 /*Footer*/
+
 #footer {
     bottom: 0;
+    height: auto;
     width: 100%;
     padding-top: 30px;
 }
@@ -199,8 +170,3 @@ h1, h2, h3, h4, h5, h6 {
     margin: 20px 10px;
 }
 
-.white-section {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background: white;
-}

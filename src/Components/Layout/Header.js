@@ -34,21 +34,28 @@ class Header extends Component {
         //     </div>);
         return (
             <section id={"header"}>
-                <div>
-                    <nav className={"navbar navbar-expand-sm navbar-dark "}>
+                <div className={"navbar-header"}>
+                    <nav className={"navbar navbar-toggleable-md navbar-expand-md navbar-dark "}>
+                        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                                data-target="#navbarNav" aria-controls="navbar" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"/>
+                        </button>
                         <a className={"navbar-brand"} href={"#"}>BBank</a>
 
                         {/*</div>*/}
                         <div className={"collapse navbar-collapse"} id="mobile-nav">
 
 
-                            <ul className="nav navbar-nav ml-auto">
-                                <li className="nav-item">
+                            <ul className="nav navbar-nav">
+                                <li className="active nav-item">
                                     <a className="nav-link " href="#">Home</a></li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">Donate Now</a></li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">Nearby Blood Banks</a></li>
+                            </ul>
+                            <ul className="nav navbar-nav navbar-right">
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">My Profile</a></li>
                                 <li className="nav-item">

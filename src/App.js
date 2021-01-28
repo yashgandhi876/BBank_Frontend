@@ -26,10 +26,12 @@ function App() {
                 {/*<Switch>*/}
                 {/*    <Route exact path={"/dashboard"} component={Dashboard}/>*/}
                 {/*</Switch>*/}
-                <Footer/>
 
+                <Footer/>
             </div>
+
         </Router>
+
     );
 
 }

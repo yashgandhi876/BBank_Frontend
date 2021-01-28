@@ -2,13 +2,15 @@ import React, {Component} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFacebookF, faInstagram, faTwitter, faFacebookMessenger} from '@fortawesome/free-brands-svg-icons';
 import {List} from "semantic-ui-react";
+import {Link} from "react-router-dom";
 
 class Footer extends Component {
     render() {
         return (
             <section id="footer">
+                <div className={"empty-container"}/>
 
-                <div className={"container"}>
+                <footer className={"container"}>
                     <div className="row text-center text-xs-center text-sm-left text-md-left justify-content-center">
                         <div className="col-md-4 col-xl-5 p-2 flex-fill bd-highlight mb-5 mb-md-0">
                             <h3>BBank</h3>
@@ -37,13 +39,21 @@ class Footer extends Component {
                             </ul>
                         </div>
                     </div>
-                    <div className="justify-content-center">
-                        <FontAwesomeIcon className={"social-icon fa-1x social"} icon={faTwitter}/>
-                        <FontAwesomeIcon className={"social-icon fa-1x social"} icon={faFacebookF}/>
-                        <FontAwesomeIcon className={"social-icon fa-1x social"} icon={faInstagram}/>
-                        <FontAwesomeIcon className={"social-icon fa-1x social"} icon={faFacebookMessenger}/>
+                    <div>
+                        <a href={"https://www.twitter.com"} target={"/"}><FontAwesomeIcon
+                            className={"social-icon fa-1x social"}
+                            icon={faTwitter}/></a>
+                        <a href={"https://www.facebook.com"} target={"/"}><FontAwesomeIcon
+                            className={"social-icon fa-1x social"}
+                            icon={faFacebookF}/></a>
+                        <a href={"https://www.instagram.com"} target={"/"}><FontAwesomeIcon
+                            className={"social-icon fa-1x social"}
+                            icon={faInstagram}/></a>
+                        <a href="mailto: abc@example.com"><FontAwesomeIcon
+                            className={"social-icon fa-1x social"}
+                            icon={faFacebookMessenger}/></a>
                     </div>
-                </div>
+                </footer>
             </section>
         );
     }

@@ -132,18 +132,33 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+
 #features .row {
     justify-content: center;
-
+    margin: 3%;
 }
 
 
 /*Section: Services*/
 #services .row {
     justify-content: center;
-    padding: 1% 15% 5%;
+    padding: 3% 15%;
 }
 
+#services h1 {
+    padding-top: 2%;
+    color: white;
+}
+
+#services-description {
+    padding-bottom: 2%;
+    color: white;
+}
+
+.row .card {
+    padding: 1%;
+    margin: 5%;
+}
 
 /*Footer*/
 
@@ -168,5 +183,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .social-icon {
     margin: 20px 10px;
+    color: black;
 }
 

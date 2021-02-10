@@ -150,9 +150,19 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
+#join-us h1 {
+    padding-top: 2%;
+    color: black;
+}
+
 #services-description {
     padding-bottom: 2%;
     color: white;
+}
+
+#join-us-description {
+    padding-bottom: 2%;
+    color: black;
 }
 
 .row .card {

@@ -3,6 +3,28 @@ import AppLogo from "./AppLogo.png";
 
 class Header extends Component {
     render() {
+        
+        const isLoggedIn = false;
+
+        function renderConditionallyNavBarElem() {
+            if (isLoggedIn) {
+                return <ul className="nav navbar-nav navbar-right">
+                    <li className="nav-item">
+                        <a className="nav-link" href="#">Dashboard</a></li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#">User's Name</a></li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#">Logout</a></li>
+                </ul>
+            } else {
+                return <ul className="nav navbar-nav navbar-right">
+                    <li className="nav-item">
+                        <a className="nav-link" href="#">Sign Up</a></li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#">Log in</a></li>
+                </ul>
+            }
+        }
 
         // const userIsAuthenticated = (
         //     <div className={"collapse navbar-collapse"} id="mobile-nav">
@@ -55,12 +77,7 @@ class Header extends Component {
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">Nearby Blood Banks</a></li>
                             </ul>
-                            <ul className="nav navbar-nav navbar-right">
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">My Profile</a></li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#footer">Logout</a></li>
-                            </ul>
+                            {renderConditionallyNavBarElem()}
                         </div>
                     </nav>
                 </div>

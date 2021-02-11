@@ -16,23 +16,22 @@ function App() {
                 {
                     //Public Routes
                 }
+
                 <Route exact path={"/"} component={Landing}/>
                 {/*<Route exact path={"/register"} component={Register}/>*/}
-<<<<<<< HEAD
-                {/* <Route exact path={"/login"} component={Login}/> */}
-=======
                 <Route exact path={"/login"} component={SignUp} />
->>>>>>> signup
                 {/*{*/}
                 {/*    //Private Routes*/}
                 {/*}*/}
                 {/*<Switch>*/}
                 {/*    <Route exact path={"/dashboard"} component={Dashboard}/>*/}
                 {/*</Switch>*/}
-                <Footer/>
 
+                {/*<Footer/>*/}
             </div>
+
         </Router>
+
     );
 }
 

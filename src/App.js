@@ -6,6 +6,7 @@ import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Landing from "./Components/Layout/Landing";
 import Dashboard from "./Components/Dashboard";
+import SignUp from "./Components/SignUp";
 
 function App() {
     return (
@@ -17,7 +18,11 @@ function App() {
                 }
                 <Route exact path={"/"} component={Landing}/>
                 {/*<Route exact path={"/register"} component={Register}/>*/}
+<<<<<<< HEAD
                 {/* <Route exact path={"/login"} component={Login}/> */}
+=======
+                <Route exact path={"/login"} component={SignUp} />
+>>>>>>> signup
                 {/*{*/}
                 {/*    //Private Routes*/}
                 {/*}*/}

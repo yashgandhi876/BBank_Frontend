@@ -112,8 +112,7 @@ class Landing extends Component {
                         <div className="col-lg-6 d-flex align-items-stretch justify-content-center"><a href="#"
                                                                                                        className="btn btn-primary">Register</a>
                         </div>
-                        <div className="col-lg-6 d-flex align-items-stretch justify-content-center"><a href="#"
-                                                                                                       className="btn btn-primary">Login</a>
+                        <div className="col-lg-6 d-flex align-items-stretch justify-content-center"><a href="#" className="btn btn-primary">Login</a>
                         </div>
                     </div>
                 </section>

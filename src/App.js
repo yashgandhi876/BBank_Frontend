@@ -1,38 +1,29 @@
-import './App.css';
+import "./App.css";
 import Header from "./Components/Layout/Header";
-// import Footer from "./Components/Layout/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./Components/Layout/Landing";
-// import Dashboard from "./Components/Dashboard";
+import Dashboard from "./Components/Dashboard";
 import SignUp from "./Components/SignUp";
 
 function App() {
-    return (
-        <Router>
-            <div className="App">
-                <Header/>
-                {
-                    //Public Routes
-                }
+  return (
+    <Router>
+      <div className="App">
+        <Header />
+        {/* {Public Routes} */}
+        <Route exact path={"/"} component={Landing} />
+        <Route exact path={"/signup"} component={SignUp} />
+        {/* <Route exact path={"/login"} component={Login} /> */}
 
-                <Route exact path={"/"} component={Landing}/>
-                {/*<Route exact path={"/register"} component={Register}/>*/}
-                <Route exact path={"/login"} component={SignUp} />
-                {/*{*/}
-                {/*    //Private Routes*/}
-                {/*}*/}
-                {/*<Switch>*/}
-                {/*    <Route exact path={"/dashboard"} component={Dashboard}/>*/}
-                {/*</Switch>*/}
-
-                {/*<Footer/>*/}
-            </div>
-
-        </Router>
-
-    );
+        {/* {Private Routes} */}
+        {/*<Switch>*/}
+        <Route exact path={"/dashboard"} component={Dashboard} />
+        {/*</Switch>*/}
+      </div>
+    </Router>
+  );
 }
 
 export default App;

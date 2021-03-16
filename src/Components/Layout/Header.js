@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import AppLogo from "./AppLogo.png";
 
 class Header extends Component {
   render() {

@@ -3,9 +3,10 @@ import Header from "./Components/Layout/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Landing from "./Components/Layout/Landing";
-import Dashboard from "./Components/Dashboard";
+import Landing from "./pages/Landing";
+import Dashboard from "./pages/Dashboard";
 import SignUp from "./Components/SignUp";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
@@ -18,9 +19,11 @@ function App() {
         {/* <Route exact path={"/login"} component={Login} /> */}
 
         {/* {Private Routes} */}
-        {/*<Switch>*/}
         <Route exact path={"/dashboard"} component={Dashboard} />
-        {/*</Switch>*/}
+        <Navbar />
+        <Switch>
+          <Route exact path={"/nb"}/>
+        </Switch>
       </div>
     </Router>
   );

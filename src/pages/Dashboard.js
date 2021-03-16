@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Footer from "./Layout/Footer";
-import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import "react-pro-sidebar/dist/css/styles.css";
+import Footer from "../Components/Layout/Footer";
+
 class Dashboard extends Component {
   render() {
     return (

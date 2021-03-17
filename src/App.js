@@ -3,9 +3,9 @@ import Header from "./Components/Layout/Header";
 // import Footer from "./Components/Layout/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import Landing from "./pages/Landing";
-
+import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 
 
@@ -20,14 +20,11 @@ function App() {
 
                 <Route exact path={"/"} component={Landing}/>
                 {/*<Route exact path={"/register"} component={Register}/>*/}
-                <Route exact path={"/login"} component={SignUp} />
+                <Route exact path={"/signup"} component={SignUp} />
+                <Route exact path={"/login"} component={Login} />
                 {/*{*/}
                 {/*    //Private Routes*/}
                 {/*}*/}
-                {/*<Switch>*/}
-                {/*    <Route exact path={"/dashboard"} component={Dashboard}/>*/}
-                {/*</Switch>*/}
-
                 {/*<Footer/>*/}
             </div>
 

@@ -12,6 +12,7 @@ class SignUp extends Component {
             bbank:{
                 name: "",
                 email: "",
+                password:"",
                 mobileNumber: "",
                 stocks: "",
                 country: "",
@@ -22,6 +23,7 @@ class SignUp extends Component {
             user:{
                 name: "",
                 email: "",
+                password:"",
                 mobileNumber: "",
                 gender:"",
                 blood_group:"",
@@ -105,6 +107,7 @@ class SignUp extends Component {
                 <div>
                     <input type="text" className="inputBox" value={this.state.bbank.name} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,name:e.target.value} })}} placeholder="Blood Bank Name" required/>
                     <br /><input type="email" className="inputBox" value={this.state.bbank.email} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,email:e.target.value} })}} placeholder="Email" required/>
+                    <br /><input type="password" className="inputBox" value={this.state.bbank.password} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,password:e.target.value} })}} placeholder="password" required/>
                     <br /><input type="tel" className="inputBox" value={this.state.bbank.mobileNumber} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,mobileNumber:e.target.value} })}} placeholder="Phone Number" required/>
                     <br /><input type="text" className="inputBox" value={this.state.bbank.stocks} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,stocks:e.target.value} })}} placeholder="Stocks" required/>
                     <br /><input type="text" className="inputBox" value={this.state.bbank.address} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,address:e.target.value} })}} placeholder="Address" required/>
@@ -135,6 +138,7 @@ class SignUp extends Component {
                 <div>
                     <input type="text" className="inputBox" value={this.state.user.name} onChange={(e)=>{this.setState({...this.state, user:{...this.state.user,name:e.target.value} })}} placeholder="User Name" required/>
                     <br /><input type="email" className="inputBox" value={this.state.user.email} onChange={(e)=>{this.setState({...this.state, user:{...this.state.user,email:e.target.value} })}} placeholder="Email" required/>
+                    <br /><input type="password" className="inputBox" value={this.state.user.password} onChange={(e)=>{this.setState({...this.state, user:{...this.state.user,password:e.target.value} })}} placeholder="Password" required/>
                     <br /><input type="tel" className="inputBox" value={this.state.user.mobileNumber} onChange={(e)=>{this.setState({...this.state, user:{...this.state.user,mobileNumber:e.target.value} })}} placeholder="Phone Number" required/>
                     <br /><input type="number" className="inputBox" value={this.state.user.age} onChange={(e)=>{this.setState({...this.state, user:{...this.state.user,age:e.target.value} })}} placeholder="Age" required/>
                     <br/> <select className="locationdropdown" name="gender" id="">

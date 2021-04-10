@@ -1,0 +1,37 @@
+.bloodcamps{
+    width: 80%;
+    height: 100%;
+    margin: 20px auto;
+    padding: 5px 5px;
+}
+
+.campCard{
+    width: 80%;
+    border: none;
+    margin: 5px auto;
+    padding: 15px;
+    display: flex;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.inter{
+    margin: auto auto;
+    padding: 5px;
+}
+
+.interestedbtn{
+    width: 150%;
+    padding: 15px;
+    background-color: #4BB543;
+    color: white;
+    font-size: 20px;
+    box-shadow: #4BB543;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border: none;
+}
+
+.data{
+    text-align: justify;
+}

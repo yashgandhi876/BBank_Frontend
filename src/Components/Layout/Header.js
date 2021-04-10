@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Header extends Component {
     render() {
-        
+
         const isLoggedIn = false;
 
         function renderConditionallyNavBarElem() {
@@ -18,9 +18,9 @@ class Header extends Component {
             } else {
                 return <ul className="nav navbar-nav navbar-right">
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Sign Up</a></li>
+                        <a className="nav-link" href="/signup">Sign Up</a></li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Log in</a></li>
+                        <a className="nav-link" href="/login">Log in</a></li>
                 </ul>
             }
         }
@@ -70,11 +70,12 @@ class Header extends Component {
 
                             <ul className="nav navbar-nav">
                                 <li className="active nav-item">
-                                    <a className="nav-link " href="#">Home</a></li>
+                                    <a className="nav-link " href="/">Home</a></li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Donate Now</a></li>
+                                    <a className="nav-link" href="/bloodcamps">Blood Donation Camps</a></li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Nearby Blood Banks</a></li>
+                                    <a className="nav-link" href="#">Blood Banks</a></li>
+
                             </ul>
                             {renderConditionallyNavBarElem()}
                         </div>

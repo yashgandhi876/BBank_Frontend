@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import Landing from "./pages/Landing";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
+import BloodCamps from "./Components/BloodCamps";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                 {/*<Route exact path={"/register"} component={Register}/>*/}
                 <Route exact path={"/signup"} component={SignUp} />
                 <Route exact path={"/login"} component={Login} />
+                <Route exact path={"/bloodcamps"} component={BloodCamps} />
                 {/*{*/}
                 {/*    //Private Routes*/}
                 {/*}*/}

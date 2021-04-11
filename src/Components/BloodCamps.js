@@ -7,7 +7,6 @@ function BloodCamps(){
 
     function handleClick(){
         setActive(true);
-        
     }
 
     return (

@@ -8,6 +8,7 @@ import Landing from "./pages/Landing";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import BloodCamps from "./Components/BloodCamps";
+import RegisterBloodCamps from "./Components/RegisterBloodCamps";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                 <Route exact path={"/signup"} component={SignUp} />
                 <Route exact path={"/login"} component={Login} />
                 <Route exact path={"/bloodcamps"} component={BloodCamps} />
+                <Route exact path={"/registerbloodcamps"} component={RegisterBloodCamps} />
                 {/*{*/}
                 {/*    //Private Routes*/}
                 {/*}*/}

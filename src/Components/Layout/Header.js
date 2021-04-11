@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import {Link} from "react-router-dom";
 class Header extends Component {
     render() {
 
@@ -9,18 +9,18 @@ class Header extends Component {
             if (isLoggedIn) {
                 return <ul className="nav navbar-nav navbar-right">
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Dashboard</a></li>
+                        <Link className="nav-link" to="#">Dashboard</Link></li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">User's Name</a></li>
+                        <Link className="nav-link" to="#">User's Name</Link></li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Logout</a></li>
+                        <Link className="nav-link" to="#">Logout</Link></li>
                 </ul>
             } else {
                 return <ul className="nav navbar-nav navbar-right">
                     <li className="nav-item">
-                        <a className="nav-link" href="/signup">Sign Up</a></li>
+                        <Link className="nav-link" to="/signup">Sign Up</Link></li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/login">Log in</a></li>
+                        <Link className="nav-link" to="/login">Log in</Link></li>
                 </ul>
             }
         }
@@ -62,7 +62,7 @@ class Header extends Component {
                                 aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"/>
                         </button>
-                        <a className={"navbar-brand"} href={"#"}>BBank</a>
+                        <a className={"navbar-brand"} href="/">BBank</a>
 
                         {/*</div>*/}
                         <div className={"collapse navbar-collapse"} id="mobile-nav">
@@ -70,11 +70,11 @@ class Header extends Component {
 
                             <ul className="nav navbar-nav">
                                 <li className="active nav-item">
-                                    <a className="nav-link " href="/">Home</a></li>
+                                    <Link className="nav-link " to="/">Home</Link></li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/bloodcamps">Blood Donation Camps</a></li>
+                                    <Link className="nav-link" to="/bloodcamps">Blood Donation Camps</Link></li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Blood Banks</a></li>
+                                    <Link className="nav-link" to="/">Blood Banks</Link></li>
 
                             </ul>
                             {renderConditionallyNavBarElem()}

@@ -1,204 +1,210 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Lato,sans-serif";
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato,sans-serif";
 }
 .App {
-    text-align: center;
-
+  text-align: center;
 }
 
 .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
-    color: #61dafb;
+  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
 
 body {
-    font-family: "Montserrat", sans-serif;
-    text-align: center;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
 }
 
 /*Navigation Bar*/
 @media (min-width: 768px) {
-    .navbar-toggle {
-        display: none;
-    }
+  .navbar-toggle {
+    display: none;
+  }
 
-    .navbar-header button {
-        display: block;
-    }
+  .navbar-header button {
+    display: block;
+  }
 }
 
 .nav {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .navbar-brand {
-    font-family: "Ubuntu", sans-serif;
-    font-size: 2.5rem;
-    font-weight: bold;
-    padding: 3% 15%;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 3% 15%;
 }
 
 .nav-item {
-    padding: 0 15px;
+  padding: 0 15px;
 }
 
 .nav-link {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    color: blue;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: blue;
 }
 
 #header {
-    width: 100%;
-    background: #DC143C;
-    padding: 10px 0;
-    /*z-index: 3;*/
-    top: 0;
+  width: 100%;
+  background: #dc143c;
+  padding: 10px 0;
+  /*z-index: 3;*/
+  top: 0;
 }
-
 
 /*Title Section*/
 /*Headings*/
 .big-heading {
-    font-size: 3.5rem;
-    line-height: 1.5;
-    font-weight: 900;
-    color: white;
+  font-size: 3.5rem;
+  line-height: 1.5;
+  font-weight: 900;
+  color: white;
 }
 
 .white-section {
-    background: white;
+  background: white;
 }
 
 .colored-section {
-    background-color: #DC143C;
+  background-color: #dc143c;
 }
-
 
 /*Title Section*/
 
 #title .container-fluid {
-    text-align: left;
-    padding: 3% 15% 7%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.ibb.co/4YgFkbK/blood-donation-bg.jpg");
-    background-size: cover;
-    height: 80vh;
-
+  text-align: left;
+  padding: 3% 15% 7%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://i.ibb.co/4YgFkbK/blood-donation-bg.jpg");
+  background-size: cover;
+  height: 80vh;
 }
 
 .landing .row {
-    text-align: start;
+  text-align: start;
 }
 
 .landing-div {
-    height: 100vh;
+  height: 100vh;
 }
 
 .big-heading {
-    font-size: 4.5rem;
-    font-weight: 900;
-
+  font-size: 4.5rem;
+  font-weight: 900;
 }
-
 
 #features .row {
-    justify-content: center;
-    margin: 3%;
+  justify-content: center;
+  margin: 3%;
 }
-
 
 /*Section: Services*/
 #services .row {
-    justify-content: center;
-    padding: 3% 15%;
+  justify-content: center;
+  padding: 3% 15%;
 }
 
 #services h1 {
-    padding-top: 2%;
-    color: white;
+  padding-top: 2%;
+  color: white;
 }
 
 #join-us h1 {
-    padding-top: 2%;
-    color: black;
+  padding-top: 2%;
+  color: black;
 }
 
 #services-description {
-    padding-bottom: 2%;
-    color: white;
+  padding-bottom: 2%;
+  color: white;
 }
 
 #join-us-description {
-    padding-bottom: 2%;
-    color: black;
+  padding-bottom: 2%;
+  color: black;
 }
 
 .row .card {
-    padding: 1%;
-    margin: 5%;
+  padding: 1%;
+  margin: 5%;
 }
 
 /*Footer*/
 
 #footer {
-    bottom: 0;
-    height: auto;
-    width: 100%;
-    padding-top: 30px;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+  padding-top: 30px;
 }
 
-
 .footer-list {
-    padding-inline-start: 0;
+  padding-inline-start: 0;
 }
 
 .footer-list .no-bullets {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .social-icon {
-    margin: 20px 10px;
-    color: black;
+  margin: 20px 10px;
+  color: black;
+}
+hr {
+  counter-increment: hr;
+  text-align: center;
+  position: relative;
+  background: none;
+  margin: 5em 1em;
+  border: 0;
+  border-top: dashed 1px #dddddd;
+  
 }

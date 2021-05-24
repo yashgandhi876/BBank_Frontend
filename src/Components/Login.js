@@ -12,10 +12,12 @@ function Login() {
 	}
 
 	async function submitUserForm() {
-		// console.log(selectCat + " " + email + "  " + password);
+		console.log(selectCat + " " + email + "  " + password);
         const cred = {
-            selectCat, email, password
-        }
+			category: selectCat,
+			emailId:email,
+			password,
+		};
         const data = await axios.post("http://localhost:5000/auth/login", cred);
         console.log("data: " + data);
 	}
@@ -24,8 +26,8 @@ function Login() {
 		<div className="LoginForm">
 			<select className="catigoresdropdown" name="catigores" onChange={handleChangeCat} id="">
 				<option value="None">categories</option>
-				<option value="BloodBank">Blood Bank</option>
-				<option value="User">User</option>
+				<option value="bbank">Blood Bank</option>
+				<option value="user">User</option>
 			</select>
 			<div className="loginform">
 				<input

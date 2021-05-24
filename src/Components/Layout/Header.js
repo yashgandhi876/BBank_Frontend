@@ -62,7 +62,7 @@ class Header extends Component {
                                 aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"/>
                         </button>
-                        <a className={"navbar-brand"} href="/">BBank</a>
+                        <Link className={"navbar-brand"} to="/">BBank</Link>
 
                         {/*</div>*/}
                         <div className={"collapse navbar-collapse"} id="mobile-nav">

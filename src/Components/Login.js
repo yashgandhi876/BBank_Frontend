@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./SignUp.css";
+import { injectStyle } from "react-toastify/dist/inject-style";
+import { ToastContainer, toast } from "react-toastify";
+
+if (typeof window !== "undefined") {
+	injectStyle();
+}
 
 function Login() {
 	const [selectCat, setSelectCat] = useState("");
@@ -13,13 +19,35 @@ function Login() {
 
 	async function submitUserForm() {
 		console.log(selectCat + " " + email + "  " + password);
-        const cred = {
+		const cred = {
 			category: selectCat,
-			emailId:email,
+			emailId: email,
 			password,
 		};
-        const data = await axios.post("http://localhost:5000/auth/login", cred);
-        console.log("data: " + data);
+		try {
+			const data = await axios.post("http://localhost:5000/auth/login", cred);
+			// const d = await data.json();
+			toast.success("login successful", {
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
+		} catch (e) {
+			console.log(e);
+			toast.error('Invalid credentials', {
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
+		}
 	}
 
 	return (
@@ -38,7 +66,7 @@ function Login() {
 						setEmail(e.target.value);
 					}}
 					placeholder="Email"
-                    autoComplete='true'
+					autoComplete="true"
 					required
 				/>
 				<br />
@@ -57,6 +85,7 @@ function Login() {
 					Login
 				</button>
 			</div>
+			<ToastContainer position="bottom-right" />
 		</div>
 	);
 }

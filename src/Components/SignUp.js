@@ -4,6 +4,12 @@ import StateData from "../assets/json/states.json";
 import CityData from "../assets/json/cities.json";
 import "./SignUp.css";
 import axios from "axios";
+import { injectStyle } from "react-toastify/dist/inject-style";
+import { ToastContainer, toast } from "react-toastify";
+
+if (typeof window !== "undefined") {
+	injectStyle();
+}
 class SignUp extends Component {
 	constructor(props) {
 		super(props);
@@ -64,8 +70,26 @@ class SignUp extends Component {
         try{
             const result = await axios.post("http://localhost:5000/auth/signup", data);
             console.log(result);
+			toast.success("signup successful", {
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
         }catch (e){
-            console.log(e);
+            console.dir(e.response.data.message);
+			toast.error(e.response.data.message, {
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
         }
 	}
 
@@ -89,8 +113,26 @@ class SignUp extends Component {
         try{
             const result = await axios.post("http://localhost:5000/auth/signup", data);
             console.log(result);
+			toast.success("signup successful", {
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
         }catch (e){
-            console.log(e);
+            console.dir(e);
+			toast.error(e.response.data.message, {
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
         }
 	}
 
@@ -422,6 +464,7 @@ class SignUp extends Component {
 					<option value="user">User</option>
 				</select>
 				{this.checkCat(this.state.selectCat)}
+				<ToastContainer position="bottom-right" />
 			</div>
 		);
 	}

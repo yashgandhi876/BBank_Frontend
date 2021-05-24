@@ -13,6 +13,70 @@ function BloodCamps(){
         <div className="bloodcamps">
             <div className="campCard">
                 <div className="data">
+                    <h1>Blood Camp Name 1</h1>
+                    <p>Address: Near Shivaji nagar, Pune</p>
+                    <p>Date: 20th may to 30th may 2021</p>
+                    <p>Phone Number: 9876543210</p>
+                    <p>Email: bloodcamps@gmail.com</p>
+                </div>
+                <div className="inter">
+                    <button onClick={handleClick} disabled={active} className="interestedbtn">
+                    Interested
+                    <i className="ml-3 fa fa-hand-peace-o" style={{fontSize:"28px", color:"white"}}></i>
+                    </button>
+                </div>
+
+            </div>
+            <div className="campCard">
+                <div className="data">
+                    <h1>Blood Camp Name 2</h1>
+                    <p>Address: kondhwa, Pune</p>
+                    <p>Date: 20th may to 30th may 2021</p>
+                    <p>Phone Number: 9876543210</p>
+                    <p>Email: bloodcamps@gmail.com</p>
+                </div>
+                <div className="inter">
+                    <button onClick={handleClick} disabled={active} className="interestedbtn">
+                    Interested
+                    <i className="ml-3 fa fa-hand-peace-o" style={{fontSize:"28px", color:"white"}}></i>
+                    </button>
+                </div>
+
+            </div>
+            <div className="campCard">
+                <div className="data">
+                    <h1>Blood Camp Name 3</h1>
+                    <p>Address: kothurd, Pune</p>
+                    <p>Date: 20th may to 30th may 2021</p>
+                    <p>Phone Number: 9876543210</p>
+                    <p>Email: bloodcamps@gmail.com</p>
+                </div>
+                <div className="inter">
+                    <button onClick={handleClick} disabled={active} className="interestedbtn">
+                    Interested
+                    <i className="ml-3 fa fa-hand-peace-o" style={{fontSize:"28px", color:"white"}}></i>
+                    </button>
+                </div>
+
+            </div>
+            <div className="campCard">
+                <div className="data">
+                    <h1>Blood Camp Name 4</h1>
+                    <p>Address: sambaji nagar, Pune</p>
+                    <p>Date: 20th may to 30th may 2021</p>
+                    <p>Phone Number: 9876543210</p>
+                    <p>Email: bloodcamps@gmail.com</p>
+                </div>
+                <div className="inter">
+                    <button onClick={handleClick} disabled={active} className="interestedbtn">
+                    Interested
+                    <i className="ml-3 fa fa-hand-peace-o" style={{fontSize:"28px", color:"white"}}></i>
+                    </button>
+                </div>
+
+            </div>
+            <div className="campCard">
+                <div className="data">
                     <h1>Blood Camp Name</h1>
                     <p>Address: Near Shivaji nagar, Pune</p>
                     <p>Date: 20th may to 30th may 2021</p>

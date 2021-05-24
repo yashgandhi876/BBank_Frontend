@@ -1,202 +1,430 @@
-import React, { Component } from 'react'
-import CountryData from "../assets/json/countries.json"
-import StateData from "../assets/json/states.json"
-import CityData from "../assets/json/cities.json"
-import "./SignUp.css"
-
+import React, { Component } from "react";
+import CountryData from "../assets/json/countries.json";
+import StateData from "../assets/json/states.json";
+import CityData from "../assets/json/cities.json";
+import "./SignUp.css";
+import axios from "axios";
 class SignUp extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectCat:"None",
-            bbank:{
-                name: "",
-                email: "",
-                password:"",
-                mobileNumber: "",
-                stocks: "",
-                country: "",
-                state: "",
-                city: "",
-                address:"",
-            },
-            user:{
-                name: "",
-                email: "",
-                password:"",
-                mobileNumber: "",
-                gender:"",
-                blood_group:"",
-                age:"",
-                country: "",
-                state: "",
-                city: "",
-                address:"",
-            },
-            countryCode:0,
-            stateCode:0,
-            cityCode:0
+	constructor(props) {
+		super(props);
+		this.state = {
+			selectCat: "None",
+			bbank: {
+				name: "",
+				email: "",
+				password: "",
+				mobileNumber: "",
+				stocks: "",
+				country: "",
+				state: "",
+				city: "",
+				address: "",
+				pincode: "",
+			},
+			user: {
+				name: "",
+				email: "",
+				password: "",
+				mobileNumber: "",
+				gender: "",
+				bloodGroup: "",
+				birthDate: "",
+				country: "",
+				state: "",
+				city: "",
+				address: "",
+				pincode: "",
+			},
+			countryCode: 0,
+			stateCode: 0,
+			cityCode: 0,
+		};
+		this.submitBloodBankForm = this.submitBloodBankForm.bind(this);
+		this.submitUserForm = this.submitUserForm.bind(this);
+		this.handleChangeCat = this.handleChangeCat.bind(this);
+		this.handleCountry = this.handleCountry.bind(this);
+		this.handleState = this.handleState.bind(this);
+		this.handleCity = this.handleCity.bind(this);
+		this.listState = this.listState.bind(this);
+		this.listCity = this.listCity.bind(this);
+	}
 
-         };
-        this.submitBloodBankForm = this.submitBloodBankForm.bind(this);
-        this.submitUserForm = this.submitUserForm.bind(this);
-        this.handleChangeCat = this.handleChangeCat.bind(this);
-        this.handleCountry = this.handleCountry.bind(this);
-        this.handleState = this.handleState.bind(this);
-        this.listState = this.listState.bind(this);
-        this.listCity = this.listCity.bind(this);
-    }
+	async submitBloodBankForm() {
+		 const data = {
+			category: ""+this.state.selectCat,
+			bloodBankName: ""+this.state.bbank.name,
+			emailId: ""+this.state.bbank.email,
+			password: ""+this.state.bbank.password,
+			mobile: ""+this.state.bbank.mobileNumber ,
+			pincode: ""+this.state.bbank.pincode ,
+			city: ""+this.state.bbank.city ,
+			state: ""+this.state.bbank.state ,
+			country: ""+this.state.bbank.country ,
+		};
+        try{
+            const result = await axios.post("http://localhost:5000/auth/signup", data);
+            console.log(result);
+        }catch (e){
+            console.log(e);
+        }
+	}
 
-    handleChangeCat(e){
-        this.setState({
-            selectCat:e.target.value
-        })
-    }
+	async submitUserForm() {
+		//add code
 
-    handleCountry(e){
-        this.setState({...this.state, bbank:{...this.state.bbank,country:e.target.value}, countryCode:101 });
+        const data = {
+			category: ""+this.state.selectCat,
+			userName: ""+this.state.user.name,
+			emailId: ""+this.state.user.email,
+			password: ""+this.state.user.password,
+			mobile: ""+this.state.user.mobileNumber ,
+			dateofbirth: ""+this.state.user.birthDate,
+			gender: ""+this.state.user.gender ,
+			bloodGr: ""+this.state.user.bloodGroup ,
+			pincode: ""+this.state.user.pincode ,
+			city: ""+this.state.user.city ,
+			state: ""+this.state.user.state ,
+			country: ""+this.state.user.country ,
+		};
+        try{
+            const result = await axios.post("http://localhost:5000/auth/signup", data);
+            console.log(result);
+        }catch (e){
+            console.log(e);
+        }
+	}
 
-    }
+	handleChangeCat(e) {
+		this.setState({
+			...this.state,
+			selectCat: e.target.value,
+		});
+	}
 
-    handleState(e){
-        this.setState({...this.state, bbank:{...this.state.bbank,state:e.target.value}, stateCode:e.target.selectedIndex });
-    }
+	handleCountry(e) {
+		if (this.state.selectCat === "bbank") {
+			this.setState({ ...this.state, bbank: { ...this.state.bbank, country: e.target.value }, countryCode: 101 });
+		} else if (this.state.selectCat === "user") {
+			this.setState({ ...this.state, user: { ...this.state.user, country: e.target.value }, countryCode: 101 });
+		}
+	}
 
-    handleCity(e){
-        this.setState({...this.state, bbank:{...this.state.bbank,city:e.target.value}, cityCode:e.target.selectedIndex });
-    }
+	handleState(e) {
+		if (this.state.selectCat === "bbank") {
+			this.setState({
+				...this.state,
+				bbank: { ...this.state.bbank, state: e.target.value },
+				stateCode: e.target.selectedIndex,
+			});
+		} else if (this.state.selectCat === "user") {
+			this.setState({
+				...this.state,
+				user: { ...this.state.user, state: e.target.value },
+				stateCode: e.target.selectedIndex,
+			});
+		}
+	}
 
-    listState(countryCode){
-        console.log(countryCode);
-        let newStateArr =  StateData.states.filter(state=>(state.country_id == countryCode));
+	handleCity(e) {
+		if (this.state.selectCat === "bbank") {
+			this.setState({
+				...this.state,
+				bbank: { ...this.state.bbank, city: e.target.value },
+				cityCode: e.target.selectedIndex,
+			});
+		} else if (this.state.selectCat === "user") {
+			this.setState({
+				...this.state,
+				user: { ...this.state.user, city: e.target.value },
+				cityCode: e.target.selectedIndex,
+			});
+		}
+	}
 
-        return (
-            <select className="locationdropdown" name="State"  onChange={this.handleState}id="" required>
-                <option>Select State</option>
-                {
-                    newStateArr.map(state=><option key={state.id} countryCode={state.id} value={state.name}> {state.name}</option>)
-                }
-            </select>
-        );
-    }
+	listState(countryCode) {
+		let newStateArr = StateData.states.filter((state) => state.country_id === "" + countryCode);
+		return (
+			<select className="locationdropdown" name="State" onChange={this.handleState} id="" required>
+				<option>Select State</option>
+				{newStateArr.map((state) => (
+					<option key={state.id} value={state.name}>
+						{" "}
+						{state.name}
+					</option>
+				))}
+			</select>
+		);
+	}
 
-    listCity(stateCode){
-        let newCityArr =  CityData.cities.filter(city=>(city.state_id == stateCode));
+	listCity(stateCode) {
+		let newCityArr = CityData.cities.filter((city) => city.state_id === "" + stateCode);
 
-        return (
-            <select className="locationdropdown W-80" name="City"  onChange={this.handlecity} id="" required>
-                <option>Select City</option>
-                {
-                    newCityArr.map(city=><option key={city.id} countryCode={city.id} value={city.name}> {city.name}</option>)
-                }
-            </select>
-        );
-    }
+		return (
+			<select className="locationdropdown W-80" name="City" onChange={this.handleCity} id="" required>
+				<option>Select City</option>
+				{newCityArr.map((city) => (
+					<option key={city.id} value={city.name}>
+						{" "}
+						{city.name}
+					</option>
+				))}
+			</select>
+		);
+	}
 
-    submitBloodBankForm(){
-        // add code
-    }
+	checkCat(value) {
+		if (value === "bbank")
+			return (
+				<div>
+					<input
+						type="text"
+						className="inputBox"
+						value={this.state.bbank.name}
+						onChange={(e) => {
+							this.setState({ ...this.state, bbank: { ...this.state.bbank, name: e.target.value } });
+						}}
+						placeholder="Blood Bank Name"
+						required
+					/>
+					<br />
+					<input
+						type="email"
+						className="inputBox"
+						value={this.state.bbank.email}
+						onChange={(e) => {
+							this.setState({ ...this.state, bbank: { ...this.state.bbank, email: e.target.value } });
+						}}
+						placeholder="Email"
+						required
+					/>
+					<br />
+					<input
+						type="password"
+						className="inputBox"
+						value={this.state.bbank.password}
+						onChange={(e) => {
+							this.setState({ ...this.state, bbank: { ...this.state.bbank, password: e.target.value } });
+						}}
+						placeholder="password"
+						required
+					/>
+					<br />
+					<input
+						type="tel"
+						className="inputBox"
+						value={this.state.bbank.mobileNumber}
+						onChange={(e) => {
+							this.setState({
+								...this.state,
+								bbank: { ...this.state.bbank, mobileNumber: e.target.value },
+							});
+						}}
+						placeholder="Phone Number"
+						required
+					/>
+					<br />
+					<input
+						type="text"
+						className="inputBox"
+						value={this.state.bbank.stocks}
+						onChange={(e) => {
+							this.setState({ ...this.state, bbank: { ...this.state.bbank, stocks: e.target.value } });
+						}}
+						placeholder="Stocks"
+						required
+					/>
+					<br />
+					<input
+						type="text"
+						className="inputBox"
+						value={this.state.bbank.address}
+						onChange={(e) => {
+							this.setState({ ...this.state, bbank: { ...this.state.bbank, address: e.target.value } });
+						}}
+						placeholder="Address"
+						required
+					/>
+					<br />
+					<input
+						type="number"
+						className="inputBox"
+						value={this.state.bbank.pincode}
+						onChange={(e) => {
+							this.setState({ ...this.state, bbank: { ...this.state.bbank, pincode: e.target.value } });
+						}}
+						placeholder="pincode"
+						required
+					/>
+					<br />
+					<select className="locationdropdown" name="Country" onChange={this.handleCountry} id="" required>
+						<option value="">Select Country</option>
+						{CountryData.countries.map((country) => (
+							<option key={country.id} countryCode={country.id} value={country.name}>
+								{" "}
+								{country.name}
+							</option>
+						))}
+					</select>
+					<br />
+					{this.listState(this.state.countryCode)}
+					<br />
+					{this.listCity(this.state.stateCode)}
+					<br />
+					<button onClick={this.submitBloodBankForm} className="submitbtn" type="submit">
+						Sign Up
+					</button>
+				</div>
+			);
+		else if (value === "user")
+			return (
+				<div>
+					<input
+						type="text"
+						className="inputBox"
+						value={this.state.user.name}
+						onChange={(e) => {
+							this.setState({ ...this.state, user: { ...this.state.user, name: e.target.value } });
+						}}
+						placeholder="User Name"
+						required
+					/>
+					<br />
+					<input
+						type="email"
+						className="inputBox"
+						value={this.state.user.email}
+						onChange={(e) => {
+							this.setState({ ...this.state, user: { ...this.state.user, email: e.target.value } });
+						}}
+						placeholder="Email"
+						required
+					/>
+					<br />
+					<input
+						type="password"
+						className="inputBox"
+						value={this.state.user.password}
+						onChange={(e) => {
+							this.setState({ ...this.state, user: { ...this.state.user, password: e.target.value } });
+						}}
+						placeholder="Password"
+						required
+					/>
+					<br />
+					<input
+						type="tel"
+						className="inputBox"
+						value={this.state.user.mobileNumber}
+						onChange={(e) => {
+							this.setState({
+								...this.state,
+								user: { ...this.state.user, mobileNumber: e.target.value },
+							});
+						}}
+						placeholder="Phone Number"
+						required
+					/>
+					<br />
+					<input
+						type="date"
+						className="inputBox"
+						value={this.state.user.birthDate}
+						onChange={(e) => {
+							// console.log(e);
+							this.setState({ ...this.state, user: { ...this.state.user, birthDate: e.target.value } });
+						}}
+						placeholder="Date"
+						required
+					/>
+					<br />{" "}
+					<select
+						className="locationdropdown"
+						onChange={(e) => {
+							this.setState({ ...this.state, user: { ...this.state.user, gender: e.target.value } });
+						}}
+						name="gender"
+						id=""
+					>
+						<option value="Gender">gender</option>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+						<option value="other">other</option>
+					</select>
+					<br />{" "}
+					<select
+						className="locationdropdown"
+						onChange={(e) => {
+							this.setState({ ...this.state, user: { ...this.state.user, bloodGroup: e.target.value } });
+						}}
+						name="bloodgroup"
+						id=""
+					>
+						<option value="Blood Group">Blood Group</option>
+						<option value="Apos">A+</option>
+						<option value="Aneg">A-</option>
+						<option value="Bpos">B+</option>
+						<option value="Bneg">B-</option>
+						<option value="Opos">O+</option>
+						<option value="Oneg">O-</option>
+						<option value="ABpos">AB+</option>
+						<option value="ABneg">AB-</option>
+					</select>
+					<br />
+					<input
+						type="text"
+						className="inputBox"
+						value={this.state.user.address}
+						onChange={(e) => {
+							this.setState({ ...this.state, user: { ...this.state.user, address: e.target.value } });
+						}}
+						placeholder="Address"
+						required
+					/>
+					<br />
+					<input
+						type="number"
+						className="inputBox"
+						value={this.state.user.pincode}
+						onChange={(e) => {
+							this.setState({ ...this.state, user: { ...this.state.user, pincode: e.target.value } });
+						}}
+						placeholder="Pincode"
+						required
+					/>
+					<br />
+					<select className="locationdropdown" name="Country" onChange={this.handleCountry} id="" required>
+						<option value="">Select Country</option>
+						{CountryData.countries.map((country) => (
+							<option key={country.id} countrycode={country.id} value={country.name}>
+								{" "}
+								{country.name}
+							</option>
+						))}
+					</select>
+					<br />
+					{this.listState(this.state.countryCode)}
+					<br />
+					{this.listCity(this.state.stateCode)}
+					<br />
+					<button onClick={this.submitUserForm} className="submitbtn" type="submit">
+						Sign Up
+					</button>
+				</div>
+			);
+	}
 
-    submitUserForm(){
-        //add code
-    }
-
-    checkCat(value){
-        if( value === "BloodBank")
-            return (
-                <div>
-                    <input type="text" className="inputBox" value={this.state.bbank.name} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,name:e.target.value} })}} placeholder="Blood Bank Name" required/>
-                    <br /><input type="email" className="inputBox" value={this.state.bbank.email} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,email:e.target.value} })}} placeholder="Email" required/>
-                    <br /><input type="password" className="inputBox" value={this.state.bbank.password} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,password:e.target.value} })}} placeholder="password" required/>
-                    <br /><input type="tel" className="inputBox" value={this.state.bbank.mobileNumber} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,mobileNumber:e.target.value} })}} placeholder="Phone Number" required/>
-                    <br /><input type="text" className="inputBox" value={this.state.bbank.stocks} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,stocks:e.target.value} })}} placeholder="Stocks" required/>
-                    <br /><input type="text" className="inputBox" value={this.state.bbank.address} onChange={(e)=>{this.setState({...this.state, bbank:{...this.state.bbank,address:e.target.value} })}} placeholder="Address" required/>
-                    <br /><select className="locationdropdown" name="Country"  onChange={this.handleCountry}id="" required>
-                        <option value="">Select Country</option>
-                        {
-                            CountryData.countries.map(country =>
-                                 <option key={country.id} countryCode={country.id} value={country.name}> {country.name}</option>
-                            )
-                        }
-                    </select>
-                    <br />
-                    {
-
-                        this.listState(this.state.countryCode)
-                    }
-                    <br />
-                    {
-                        this.listCity(this.state.stateCode)
-                    }
-                    <br/>
-                    <button onClick={this.submitBloodBankForm} className="submitbtn" type="submit">Sign Up</button>
-                </div>
-            );
-
-        else if( value === "User")
-            return (
-                <div>
-                    <input type="text" className="inputBox" value={this.state.user.name} onChange={(e)=>{this.setState({...this.state, user:{...this.state.user,name:e.target.value} })}} placeholder="User Name" required/>
-                    <br /><input type="email" className="inputBox" value={this.state.user.email} onChange={(e)=>{this.setState({...this.state, user:{...this.state.user,email:e.target.value} })}} placeholder="Email" required/>
-                    <br /><input type="password" className="inputBox" value={this.state.user.password} onChange={(e)=>{this.setState({...this.state, user:{...this.state.user,password:e.target.value} })}} placeholder="Password" required/>
-                    <br /><input type="tel" className="inputBox" value={this.state.user.mobileNumber} onChange={(e)=>{this.setState({...this.state, user:{...this.state.user,mobileNumber:e.target.value} })}} placeholder="Phone Number" required/>
-                    <br /><input type="number" className="inputBox" value={this.state.user.age} onChange={(e)=>{this.setState({...this.state, user:{...this.state.user,age:e.target.value} })}} placeholder="Age" required/>
-                    <br/> <select className="locationdropdown" name="gender" id="">
-                        <option value="Gender">gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="other">other</option>
-                    </select>
-                    <br/> <select className="locationdropdown" name="bloodgroup" id="">
-                        <option value="Blood Group">Blood Group</option>
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="O+">O+</option>
-                        <option value="O-">O-</option>
-                        <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
-                    </select>
-                    <br /><input type="text" className="inputBox" value={this.state.user.address} onChange={(e)=>{this.setState({...this.state, user:{...this.state.user,address:e.target.value} })}} placeholder="Address" required/>
-                    <br /><select className="locationdropdown" name="Country"  onChange={this.handleCountry}id="" required>
-                        <option value="">Select Country</option>
-                        {
-                            CountryData.countries.map(country =>
-                                 <option key={country.id} countryCode={country.id} value={country.name}> {country.name}</option>
-                            )
-                        }
-                    </select>
-                    <br />
-                    {
-
-                        this.listState(this.state.countryCode)
-                    }
-                    <br />
-                    {
-                        this.listCity(this.state.stateCode)
-                    }
-                    <br/>
-                    <button onClick={this.submitUserForm} className="submitbtn" type="submit">Sign Up</button>
-                </div>
-            );
-    }
-
-
-    render() {
-        return (
-            <div className="signUpform">
-                <select className="catigoresdropdown" name="catigores" onChange={this.handleChangeCat} id="">
-                    <option value="None">catigores</option>
-                    <option value="BloodBank">Blood Bank</option>
-                    <option value="User">User</option>
-                </select>
-                {
-                    this.checkCat(this.state.selectCat)
-                }
-            </div>
-         );
-    }
+	render() {
+		return (
+			<div className="signUpform">
+				<select className="catigoresdropdown" name="catigores" onChange={this.handleChangeCat} id="">
+					<option value="None">categories</option>
+					<option value="bbank">Blood Bank</option>
+					<option value="user">User</option>
+				</select>
+				{this.checkCat(this.state.selectCat)}
+			</div>
+		);
+	}
 }
 
 export default SignUp;

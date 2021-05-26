@@ -9,32 +9,31 @@ import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import BloodCamps from "./Components/BloodCamps";
 import RegisterBloodCamps from "./Components/RegisterBloodCamps";
-
+import BloodBanks from "./Components/BloodBanks";
 
 function App() {
     return (
-        <Router>
-            <div className="App">
-                <Header/>
-                {
-                    //Public Routes
-                }
+		<Router>
+			<div className="App">
+				<Header />
+				{
+					//Public Routes
+				}
 
-                <Route exact path={"/"} component={Landing}/>
-                {/*<Route exact path={"/register"} component={Register}/>*/}
-                <Route exact path={"/signup"} component={SignUp} />
-                <Route exact path={"/login"} component={Login} />
-                <Route exact path={"/bloodcamps"} component={BloodCamps} />
-                <Route exact path={"/registerbloodcamps"} component={RegisterBloodCamps} />
-                {/*{*/}
-                {/*    //Private Routes*/}
-                {/*}*/}
-                {/*<Footer/>*/}
-            </div>
-
-        </Router>
-
-    );
+				<Route exact path={"/"} component={Landing} />
+				{/*<Route exact path={"/register"} component={Register}/>*/}
+				<Route exact path={"/signup"} component={SignUp} />
+				<Route exact path={"/login"} component={Login} />
+				<Route exact path={"/bloodcamps"} component={BloodCamps} />
+				<Route exact path={"/bloodbanks"} component={BloodBanks} />
+				<Route exact path={"/registerbloodcamps"} component={RegisterBloodCamps} />
+				{/*{*/}
+				{/*    //Private Routes*/}
+				{/*}*/}
+				{/*<Footer/>*/}
+			</div>
+		</Router>
+	);
 }
 
 export default App;

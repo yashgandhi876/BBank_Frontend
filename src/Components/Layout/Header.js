@@ -74,7 +74,7 @@ class Header extends Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/bloodcamps">Blood Donation Camps</Link></li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/">Blood Banks</Link></li>
+                                    <Link className="nav-link" to="/bloodbanks">Blood Banks</Link></li>
 
                             </ul>
                             {renderConditionallyNavBarElem()}

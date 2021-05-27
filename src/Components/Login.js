@@ -9,7 +9,7 @@ if (typeof window !== "undefined") {
 }
 
 function Login() {
-	const [selectCat, setSelectCat] = useState("");
+	const [selectCat, setSelectCat] = useState("None");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -18,6 +18,20 @@ function Login() {
 	}
 
 	async function submitUserForm() {
+		console.log(selectCat);
+		if (selectCat === "None") {
+			toast.error("Select Category first", {
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
+			return;
+		}
+
 		console.log(selectCat + " " + email + "  " + password);
 		const cred = {
 			category: selectCat,
@@ -38,7 +52,7 @@ function Login() {
 			});
 		} catch (e) {
 			console.log(e);
-			toast.error('Invalid credentials', {
+			toast.error("Invalid credentials", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -65,6 +79,8 @@ function Login() {
 					onChange={(e) => {
 						setEmail(e.target.value);
 					}}
+					pattern="[A-Za-z0-9._-]{1,}@[A-Za-z._-]{1,}\.[A-Za-z._-]{1,}"
+					title="Enter valid email address"
 					placeholder="Email"
 					autoComplete="true"
 					required

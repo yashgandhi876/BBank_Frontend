@@ -27,7 +27,7 @@ function BloodBanks() {
 			<div className="campCard">
 				<div className="data">
 					<h1>{temp.name}</h1>
-					<p>{`Address: ${temp.address}, ${temp.city}, ${temp.state}, ${temp.country}, ${temp.pincode}`}</p>
+					<p>{`Address: ${temp.address}, ${temp.city}, ${temp.state}, ${temp.country}, ${temp.pincode}`}</p>``
 					<p>Phone Number: {temp.mobile}</p>
 					<p>Email: {temp.emailId}</p>
 				</div>

@@ -38,7 +38,6 @@ class RegisterBloodCamps extends Component {
 
 	async submitHandler() {
 		// add code
-		console.log(this.state);
 
 		const data = {
             name: "" + this.state.bloodCampName,
@@ -66,7 +65,7 @@ class RegisterBloodCamps extends Component {
 				progress: undefined,
 			});
 		} catch (e) {
-			console.dir(e.response.data.message);
+			console.dir(e);
 			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -92,7 +91,6 @@ class RegisterBloodCamps extends Component {
 	}
 
 	listState(countryCode) {
-		console.log(countryCode);
 		let newStateArr = StateData.states.filter((state) => state.country_id == countryCode);
 
 		return (

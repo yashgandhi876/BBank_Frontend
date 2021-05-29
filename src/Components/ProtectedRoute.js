@@ -2,9 +2,22 @@ import React from "react";
 import { Route } from "react-router-dom";
 import NotAuth from "./NotAuth";
 
-export const ProtectedRoute = ({ component: Component, login, ...rest }) => {
+export const ProtectedRoute = ({ component: Component, login, access, ...rest }) => {
 	console.log("login: " + login);
-	if (login) {
+	if (access === "both") {
+		if (login) {
+			return (
+				<Route
+					{...rest}
+					render={(props) => {
+						return <Component {...props} />;
+					}}
+				/>
+			);
+		} else {
+			return <Route render={() => <NotAuth />} />;
+		}
+	} else if (access === login) {
 		return (
 			<Route
 				{...rest}
@@ -13,11 +26,7 @@ export const ProtectedRoute = ({ component: Component, login, ...rest }) => {
 				}}
 			/>
 		);
-	}else{
-        return (
-			<Route
-				render={()=><NotAuth />}
-			/>
-		);
-    }
+	} else {
+		return <Route render={() => <NotAuth />} />;
+	}
 };

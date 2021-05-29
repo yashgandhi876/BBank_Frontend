@@ -56,20 +56,20 @@ class SignUp extends Component {
 	}
 
 	async submitBloodBankForm() {
-		 const data = {
-			category: ""+this.state.selectCat,
-			bloodBankName: ""+this.state.bbank.name,
-			emailId: ""+this.state.bbank.email,
-			password: ""+this.state.bbank.password,
-			mobile: ""+this.state.bbank.mobileNumber ,
-			pincode: ""+this.state.bbank.pincode ,
-			address:""+this.state.bbank.address,
-			city: ""+this.state.bbank.city ,
-			state: ""+this.state.bbank.state ,
-			country: ""+this.state.bbank.country ,
+		const data = {
+			category: "" + this.state.selectCat,
+			bloodBankName: "" + this.state.bbank.name,
+			emailId: "" + this.state.bbank.email,
+			password: "" + this.state.bbank.password,
+			mobile: "" + this.state.bbank.mobileNumber,
+			pincode: "" + this.state.bbank.pincode,
+			address: "" + this.state.bbank.address,
+			city: "" + this.state.bbank.city,
+			state: "" + this.state.bbank.state,
+			country: "" + this.state.bbank.country,
 		};
-        try{
-            const result = await axios.post("/auth/signup", data);
+		try {
+			const result = await axios.post("/auth/signup", data);
 			console.log("bbank token: " + result.data.token);
 			toast.success("signup successful", {
 				position: "bottom-right",
@@ -80,10 +80,10 @@ class SignUp extends Component {
 				draggable: true,
 				progress: undefined,
 			});
-			this.props.auth.loggedIn();
-
-        }catch (e){
-            console.dir(e.response.data.message);
+			this.props.auth.loggedIn(this.state.selectCat);
+			this.props.history.push('/');
+		} catch (e) {
+			console.dir(e.response.data.message);
 			this.props.auth.notLoggedIn();
 			toast.error(e.response.data.message, {
 				position: "bottom-right",
@@ -94,30 +94,30 @@ class SignUp extends Component {
 				draggable: true,
 				progress: undefined,
 			});
-        }
+		}
 	}
 
 	async submitUserForm() {
 		//add code
 
-        const data = {
-			category: ""+this.state.selectCat,
-			userName: ""+this.state.user.name,
-			emailId: ""+this.state.user.email,
-			password: ""+this.state.user.password,
-			mobile: ""+this.state.user.mobileNumber ,
-			dateofbirth: ""+this.state.user.birthDate,
-			gender: ""+this.state.user.gender ,
-			bloodGr: ""+this.state.user.bloodGroup ,
-			pincode: ""+this.state.user.pincode ,
-			address:""+this.state.user.address,
-			city: ""+this.state.user.city ,
-			state: ""+this.state.user.state ,
-			country: ""+this.state.user.country ,
+		const data = {
+			category: "" + this.state.selectCat,
+			userName: "" + this.state.user.name,
+			emailId: "" + this.state.user.email,
+			password: "" + this.state.user.password,
+			mobile: "" + this.state.user.mobileNumber,
+			dateofbirth: "" + this.state.user.birthDate,
+			gender: "" + this.state.user.gender,
+			bloodGr: "" + this.state.user.bloodGroup,
+			pincode: "" + this.state.user.pincode,
+			address: "" + this.state.user.address,
+			city: "" + this.state.user.city,
+			state: "" + this.state.user.state,
+			country: "" + this.state.user.country,
 		};
-        try{
-            const result = await axios.post("/auth/signup", data);
-            console.log("user token: " + result.data.token);
+		try {
+			const result = await axios.post("/auth/signup", data);
+			console.log("user token: " + result.data.token);
 			toast.success("signup successful", {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -127,8 +127,9 @@ class SignUp extends Component {
 				draggable: true,
 				progress: undefined,
 			});
-			this.props.auth.loggedIn();
-        }catch (e){
+			this.props.auth.loggedIn(this.state.selectCat);
+			this.props.history.push("/");
+		} catch (e) {
 			this.props.auth.notLoggedIn();
 			toast.error(e.response.data.message, {
 				position: "bottom-right",
@@ -139,7 +140,7 @@ class SignUp extends Component {
 				draggable: true,
 				progress: undefined,
 			});
-        }
+		}
 	}
 
 	handleChangeCat(e) {

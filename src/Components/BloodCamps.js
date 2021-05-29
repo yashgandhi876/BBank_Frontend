@@ -16,10 +16,7 @@ function BloodCamps(props) {
 				let { data } = await axios.get("/user/getCamp");
 				setCamps(Array.from(data));
 				// let arr = Array.from(data);
-				props.auth.loggedIn();
 			} catch (e) {
-				console.log("not autheticated user");
-				props.auth.notLoggedIn();
 				console.dir(e);
 			}
 		}

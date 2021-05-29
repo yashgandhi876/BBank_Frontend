@@ -19,16 +19,16 @@ axios.defaults.baseURL = "http://localhost:5000";
 axios.defaults.headers.common["authorization"] = "bareer " + localStorage.getItem("token");
 
 function App() {
-	const [loggedIn, setLoggedIn] = useState(false);
+	const [loggedIn, setLoggedIn] = useState("");
 
 	const auth = {
-		loggedIn: () => {
+		loggedIn: (value) => {
 			console.log("in loggedIn: ");
-			setLoggedIn(true);
+			setLoggedIn(value);
 		},
 		notLoggedIn: () => {
 			console.log("in not loggedIn: ");
-			setLoggedIn(false);
+			setLoggedIn("");
 		},
 	};
 
@@ -48,15 +48,23 @@ function App() {
 						login={loggedIn}
 						exact
 						path={"/bloodcamps"}
-						component={() => <BloodCamps auth={auth} />}
+						access="both"
+						component={() => <BloodCamps />}
 					/>
 					<ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/bloodbanks"}
-						component={() => <BloodBanks auth={auth} />}
+						access="both"
+						component={() => <BloodBanks />}
 					/>
-					<Route exact path={"/registerbloodcamps"} component={RegisterBloodCamps} />
+					<ProtectedRoute
+						login={loggedIn}
+						exact
+						path={"/registerbloodcamps"}
+						access="bbank"
+						component={() => <RegisterBloodCamps />}
+					/>
 					<Route exact path={"/logout"} component={() => <Logout auth={auth} />} />
 				</Switch>
 				{/*{*/}

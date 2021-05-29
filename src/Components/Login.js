@@ -51,7 +51,7 @@ function Login(props) {
 			});
 			localStorage.setItem("token", data.data.token);
 			history.push("/");
-			props.auth.loggedIn();
+			props.auth.loggedIn(selectCat);
 		} catch (e) {
 			props.auth.notLoggedIn();
 			console.dir(e);

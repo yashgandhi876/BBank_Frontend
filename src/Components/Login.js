@@ -3,12 +3,12 @@ import axios from "axios";
 import "./SignUp.css";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 if (typeof window !== "undefined") {
 	injectStyle();
 }
 
-function Login() {
+function Login(props) {
 	const history = useHistory();
 	const [selectCat, setSelectCat] = useState("None");
 	const [email, setEmail] = useState("");
@@ -39,7 +39,7 @@ function Login() {
 			password,
 		};
 		try {
-			const data = await axios.post("http://localhost:5000/auth/login", cred);
+			const data = await axios.post("/auth/login", cred);
 			toast.success("login successful", {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -51,9 +51,11 @@ function Login() {
 			});
 			localStorage.setItem("token", data.data.token);
 			history.push("/");
+			props.auth.loggedIn();
 		} catch (e) {
-			console.log(e);
-			toast.error(e.message, {
+			props.auth.notLoggedIn();
+			console.dir(e);
+			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,

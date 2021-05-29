@@ -13,9 +13,10 @@ function BloodBanks() {
 	useEffect(() => {
 		async function getData() {
 			try {
-				let { data } = await axios.get("http://localhost:5000/user/getCamp");
+				let { data } = await axios.get("/user/getCamp");
 				setBanks(Array.from(data));
 			} catch (e) {
+				console.log("not autheticated user");
 				console.dir(e);
 			}
 		}

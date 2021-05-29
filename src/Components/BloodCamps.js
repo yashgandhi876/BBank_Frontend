@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./BloodCamps.css";
 
-function BloodCamps() {
+function BloodCamps(props) {
 	const [active, setActive] = useState(false);
 	const [camps, setCamps] = useState([]);
 
@@ -13,10 +13,13 @@ function BloodCamps() {
 	useEffect(() => {
 		async function getData() {
 			try {
-				let { data } = await axios.get("http://localhost:5000/user/getCamp");
+				let { data } = await axios.get("/user/getCamp");
 				setCamps(Array.from(data));
 				// let arr = Array.from(data);
+				props.auth.loggedIn();
 			} catch (e) {
+				console.log("not autheticated user");
+				props.auth.notLoggedIn();
 				console.dir(e);
 			}
 		}

@@ -69,7 +69,7 @@ class SignUp extends Component {
 			country: ""+this.state.bbank.country ,
 		};
         try{
-            const result = await axios.post("http://localhost:5000/auth/signup", data);
+            const result = await axios.post("/auth/signup", data);
 			console.log("bbank token: " + result.data.token);
 			toast.success("signup successful", {
 				position: "bottom-right",
@@ -80,8 +80,11 @@ class SignUp extends Component {
 				draggable: true,
 				progress: undefined,
 			});
+			this.props.auth.loggedIn();
+
         }catch (e){
             console.dir(e.response.data.message);
+			this.props.auth.notLoggedIn();
 			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -113,7 +116,7 @@ class SignUp extends Component {
 			country: ""+this.state.user.country ,
 		};
         try{
-            const result = await axios.post("http://localhost:5000/auth/signup", data);
+            const result = await axios.post("/auth/signup", data);
             console.log("user token: " + result.data.token);
 			toast.success("signup successful", {
 				position: "bottom-right",
@@ -124,8 +127,9 @@ class SignUp extends Component {
 				draggable: true,
 				progress: undefined,
 			});
-
+			this.props.auth.loggedIn();
         }catch (e){
+			this.props.auth.notLoggedIn();
 			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,

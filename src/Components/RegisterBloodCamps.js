@@ -54,7 +54,7 @@ class RegisterBloodCamps extends Component {
 		};
         console.log(data);
 		try {
-			const result = await axios.post("http://localhost:5000/bloodbank/organizeCamp", data);
+			const result = await axios.post("/bloodbank/organizeCamp", data);
 			console.log(result);
 			toast.success("registered successfully", {
 				position: "bottom-right",

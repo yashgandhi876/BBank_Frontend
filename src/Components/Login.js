@@ -3,12 +3,13 @@ import axios from "axios";
 import "./SignUp.css";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
-
+import {useHistory} from "react-router-dom";
 if (typeof window !== "undefined") {
 	injectStyle();
 }
 
 function Login() {
+	const history = useHistory();
 	const [selectCat, setSelectCat] = useState("None");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -18,7 +19,6 @@ function Login() {
 	}
 
 	async function submitUserForm() {
-		console.log(selectCat);
 		if (selectCat === "None") {
 			toast.error("Select Category first", {
 				position: "bottom-right",
@@ -40,7 +40,6 @@ function Login() {
 		};
 		try {
 			const data = await axios.post("http://localhost:5000/auth/login", cred);
-			// const d = await data.json();
 			toast.success("login successful", {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -50,9 +49,11 @@ function Login() {
 				draggable: true,
 				progress: undefined,
 			});
+			localStorage.setItem("token", data.data.token);
+			history.push("/");
 		} catch (e) {
 			console.log(e);
-			toast.error("Invalid credentials", {
+			toast.error(e.message, {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,

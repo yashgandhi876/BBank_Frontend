@@ -15,6 +15,7 @@ function BloodCamps() {
 			try {
 				let { data } = await axios.get("http://localhost:5000/user/getCamp");
 				setCamps(Array.from(data));
+				// let arr = Array.from(data);
 			} catch (e) {
 				console.dir(e);
 			}

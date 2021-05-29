@@ -63,13 +63,14 @@ class SignUp extends Component {
 			password: ""+this.state.bbank.password,
 			mobile: ""+this.state.bbank.mobileNumber ,
 			pincode: ""+this.state.bbank.pincode ,
+			address:""+this.state.bbank.address,
 			city: ""+this.state.bbank.city ,
 			state: ""+this.state.bbank.state ,
 			country: ""+this.state.bbank.country ,
 		};
         try{
             const result = await axios.post("http://localhost:5000/auth/signup", data);
-            console.log(result);
+			console.log("bbank token: " + result.data.token);
 			toast.success("signup successful", {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -106,13 +107,14 @@ class SignUp extends Component {
 			gender: ""+this.state.user.gender ,
 			bloodGr: ""+this.state.user.bloodGroup ,
 			pincode: ""+this.state.user.pincode ,
+			address:""+this.state.user.address,
 			city: ""+this.state.user.city ,
 			state: ""+this.state.user.state ,
 			country: ""+this.state.user.country ,
 		};
         try{
             const result = await axios.post("http://localhost:5000/auth/signup", data);
-            console.log(result);
+            console.log("user token: " + result.data.token);
 			toast.success("signup successful", {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -122,8 +124,8 @@ class SignUp extends Component {
 				draggable: true,
 				progress: undefined,
 			});
+
         }catch (e){
-            console.dir(e);
 			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -372,7 +374,6 @@ class SignUp extends Component {
 						className="inputBox"
 						value={this.state.user.birthDate}
 						onChange={(e) => {
-							// console.log(e);
 							this.setState({ ...this.state, user: { ...this.state.user, birthDate: e.target.value } });
 						}}
 						placeholder="Date"

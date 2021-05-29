@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import CountryData from "../assets/json/countries.json";
 import StateData from "../assets/json/states.json";
 import CityData from "../assets/json/cities.json";
@@ -6,67 +6,58 @@ import "./SignUp.css";
 import axios from "axios";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 if (typeof window !== "undefined") {
 	injectStyle();
 }
-class SignUp extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			selectCat: "None",
-			bbank: {
-				name: "",
-				email: "",
-				password: "",
-				mobileNumber: "",
-				stocks: "",
-				country: "",
-				state: "",
-				city: "",
-				address: "",
-				pincode: "",
-			},
-			user: {
-				name: "",
-				email: "",
-				password: "",
-				mobileNumber: "",
-				gender: "",
-				bloodGroup: "",
-				birthDate: "",
-				country: "",
-				state: "",
-				city: "",
-				address: "",
-				pincode: "",
-			},
-			countryCode: 0,
-			stateCode: 0,
-			cityCode: 0,
-		};
-		this.submitBloodBankForm = this.submitBloodBankForm.bind(this);
-		this.submitUserForm = this.submitUserForm.bind(this);
-		this.handleChangeCat = this.handleChangeCat.bind(this);
-		this.handleCountry = this.handleCountry.bind(this);
-		this.handleState = this.handleState.bind(this);
-		this.handleCity = this.handleCity.bind(this);
-		this.listState = this.listState.bind(this);
-		this.listCity = this.listCity.bind(this);
-	}
+function SignUp(props) {
+	let history = useHistory();
+	const [state, setState] = useState({
+		selectCat: "None",
+		bbank: {
+			name: "",
+			email: "",
+			password: "",
+			mobileNumber: "",
+			stocks: "",
+			country: "",
+			state: "",
+			city: "",
+			address: "",
+			pincode: "",
+		},
+		user: {
+			name: "",
+			email: "",
+			password: "",
+			mobileNumber: "",
+			gender: "",
+			bloodGroup: "",
+			birthDate: "",
+			country: "",
+			state: "",
+			city: "",
+			address: "",
+			pincode: "",
+		},
+		countryCode: 0,
+		stateCode: 0,
+		cityCode: 0,
+	});
 
-	async submitBloodBankForm() {
+	async function submitBloodBankForm() {
 		const data = {
-			category: "" + this.state.selectCat,
-			bloodBankName: "" + this.state.bbank.name,
-			emailId: "" + this.state.bbank.email,
-			password: "" + this.state.bbank.password,
-			mobile: "" + this.state.bbank.mobileNumber,
-			pincode: "" + this.state.bbank.pincode,
-			address: "" + this.state.bbank.address,
-			city: "" + this.state.bbank.city,
-			state: "" + this.state.bbank.state,
-			country: "" + this.state.bbank.country,
+			category: "" + state.selectCat,
+			bloodBankName: "" + state.bbank.name,
+			emailId: "" + state.bbank.email,
+			password: "" + state.bbank.password,
+			mobile: "" + state.bbank.mobileNumber,
+			pincode: "" + state.bbank.pincode,
+			address: "" + state.bbank.address,
+			city: "" + state.bbank.city,
+			state: "" + state.bbank.state,
+			country: "" + state.bbank.country,
 		};
 		try {
 			const result = await axios.post("/auth/signup", data);
@@ -80,12 +71,12 @@ class SignUp extends Component {
 				draggable: true,
 				progress: undefined,
 			});
-			this.props.auth.loggedIn(this.state.selectCat);
-			this.props.history.push('/');
+			props.auth.loggedIn(state.selectCat);
+			history.push("/");
 		} catch (e) {
 			console.dir(e.response.data.message);
-			this.props.auth.notLoggedIn();
-			toast.error(e.response.data.message, {
+			props.auth.notLoggedIn();
+			toast.error("invalide credentials", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -97,23 +88,23 @@ class SignUp extends Component {
 		}
 	}
 
-	async submitUserForm() {
+	async function submitUserForm() {
 		//add code
 
 		const data = {
-			category: "" + this.state.selectCat,
-			userName: "" + this.state.user.name,
-			emailId: "" + this.state.user.email,
-			password: "" + this.state.user.password,
-			mobile: "" + this.state.user.mobileNumber,
-			dateofbirth: "" + this.state.user.birthDate,
-			gender: "" + this.state.user.gender,
-			bloodGr: "" + this.state.user.bloodGroup,
-			pincode: "" + this.state.user.pincode,
-			address: "" + this.state.user.address,
-			city: "" + this.state.user.city,
-			state: "" + this.state.user.state,
-			country: "" + this.state.user.country,
+			category: "" + state.selectCat,
+			userName: "" + state.user.name,
+			emailId: "" + state.user.email,
+			password: "" + state.user.password,
+			mobile: "" + state.user.mobileNumber,
+			dateofbirth: "" + state.user.birthDate,
+			gender: "" + state.user.gender,
+			bloodGr: "" + state.user.bloodGroup,
+			pincode: "" + state.user.pincode,
+			address: "" + state.user.address,
+			city: "" + state.user.city,
+			state: "" + state.user.state,
+			country: "" + state.user.country,
 		};
 		try {
 			const result = await axios.post("/auth/signup", data);
@@ -127,11 +118,13 @@ class SignUp extends Component {
 				draggable: true,
 				progress: undefined,
 			});
-			this.props.auth.loggedIn(this.state.selectCat);
-			this.props.history.push("/");
+			props.auth.loggedIn(state.selectCat);
+			console.log(props);
+			history.push("/");
 		} catch (e) {
-			this.props.auth.notLoggedIn();
-			toast.error(e.response.data.message, {
+			props.auth.notLoggedIn();
+			console.log(e);
+			toast.error("invalide credentials", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -143,57 +136,57 @@ class SignUp extends Component {
 		}
 	}
 
-	handleChangeCat(e) {
-		this.setState({
-			...this.state,
+	function handleChangeCat(e) {
+		setState({
+			...state,
 			selectCat: e.target.value,
 		});
 	}
 
-	handleCountry(e) {
-		if (this.state.selectCat === "bbank") {
-			this.setState({ ...this.state, bbank: { ...this.state.bbank, country: e.target.value }, countryCode: 101 });
-		} else if (this.state.selectCat === "user") {
-			this.setState({ ...this.state, user: { ...this.state.user, country: e.target.value }, countryCode: 101 });
+	function handleCountry(e) {
+		if (state.selectCat === "bbank") {
+			setState({ ...state, bbank: { ...state.bbank, country: e.target.value }, countryCode: 101 });
+		} else if (state.selectCat === "user") {
+			setState({ ...state, user: { ...state.user, country: e.target.value }, countryCode: 101 });
 		}
 	}
 
-	handleState(e) {
-		if (this.state.selectCat === "bbank") {
-			this.setState({
-				...this.state,
-				bbank: { ...this.state.bbank, state: e.target.value },
+	function handleState(e) {
+		if (state.selectCat === "bbank") {
+			setState({
+				...state,
+				bbank: { ...state.bbank, state: e.target.value },
 				stateCode: e.target.selectedIndex,
 			});
-		} else if (this.state.selectCat === "user") {
-			this.setState({
-				...this.state,
-				user: { ...this.state.user, state: e.target.value },
+		} else if (state.selectCat === "user") {
+			setState({
+				...state,
+				user: { ...state.user, state: e.target.value },
 				stateCode: e.target.selectedIndex,
 			});
 		}
 	}
 
-	handleCity(e) {
-		if (this.state.selectCat === "bbank") {
-			this.setState({
-				...this.state,
-				bbank: { ...this.state.bbank, city: e.target.value },
+	function handleCity(e) {
+		if (state.selectCat === "bbank") {
+			setState({
+				...state,
+				bbank: { ...state.bbank, city: e.target.value },
 				cityCode: e.target.selectedIndex,
 			});
-		} else if (this.state.selectCat === "user") {
-			this.setState({
-				...this.state,
-				user: { ...this.state.user, city: e.target.value },
+		} else if (state.selectCat === "user") {
+			setState({
+				...state,
+				user: { ...state.user, city: e.target.value },
 				cityCode: e.target.selectedIndex,
 			});
 		}
 	}
 
-	listState(countryCode) {
+	function listState(countryCode) {
 		let newStateArr = StateData.states.filter((state) => state.country_id === "" + countryCode);
 		return (
-			<select className="locationdropdown" name="State" onChange={this.handleState} id="" required>
+			<select className="locationdropdown" name="State" onChange={handleState} id="" required>
 				<option>Select State</option>
 				{newStateArr.map((state) => (
 					<option key={state.id} value={state.name}>
@@ -205,11 +198,11 @@ class SignUp extends Component {
 		);
 	}
 
-	listCity(stateCode) {
+	function listCity(stateCode) {
 		let newCityArr = CityData.cities.filter((city) => city.state_id === "" + stateCode);
 
 		return (
-			<select className="locationdropdown W-80" name="City" onChange={this.handleCity} id="" required>
+			<select className="locationdropdown W-80" name="City" onChange={handleCity} id="" required>
 				<option>Select City</option>
 				{newCityArr.map((city) => (
 					<option key={city.id} value={city.name}>
@@ -221,16 +214,16 @@ class SignUp extends Component {
 		);
 	}
 
-	checkCat(value) {
+	function checkCat(value) {
 		if (value === "bbank")
 			return (
 				<div>
 					<input
 						type="text"
 						className="inputBox"
-						value={this.state.bbank.name}
+						value={state.bbank.name}
 						onChange={(e) => {
-							this.setState({ ...this.state, bbank: { ...this.state.bbank, name: e.target.value } });
+							setState({ ...state, bbank: { ...state.bbank, name: e.target.value } });
 						}}
 						placeholder="Blood Bank Name"
 						required
@@ -239,9 +232,9 @@ class SignUp extends Component {
 					<input
 						type="email"
 						className="inputBox"
-						value={this.state.bbank.email}
+						value={state.bbank.email}
 						onChange={(e) => {
-							this.setState({ ...this.state, bbank: { ...this.state.bbank, email: e.target.value } });
+							setState({ ...state, bbank: { ...state.bbank, email: e.target.value } });
 						}}
 						placeholder="Email"
 						required
@@ -250,9 +243,9 @@ class SignUp extends Component {
 					<input
 						type="password"
 						className="inputBox"
-						value={this.state.bbank.password}
+						value={state.bbank.password}
 						onChange={(e) => {
-							this.setState({ ...this.state, bbank: { ...this.state.bbank, password: e.target.value } });
+							setState({ ...state, bbank: { ...state.bbank, password: e.target.value } });
 						}}
 						placeholder="password"
 						required
@@ -261,11 +254,11 @@ class SignUp extends Component {
 					<input
 						type="tel"
 						className="inputBox"
-						value={this.state.bbank.mobileNumber}
+						value={state.bbank.mobileNumber}
 						onChange={(e) => {
-							this.setState({
-								...this.state,
-								bbank: { ...this.state.bbank, mobileNumber: e.target.value },
+							setState({
+								...state,
+								bbank: { ...state.bbank, mobileNumber: e.target.value },
 							});
 						}}
 						placeholder="Phone Number"
@@ -275,9 +268,9 @@ class SignUp extends Component {
 					<input
 						type="text"
 						className="inputBox"
-						value={this.state.bbank.stocks}
+						value={state.bbank.stocks}
 						onChange={(e) => {
-							this.setState({ ...this.state, bbank: { ...this.state.bbank, stocks: e.target.value } });
+							setState({ ...state, bbank: { ...state.bbank, stocks: e.target.value } });
 						}}
 						placeholder="Stocks"
 						required
@@ -286,9 +279,9 @@ class SignUp extends Component {
 					<input
 						type="text"
 						className="inputBox"
-						value={this.state.bbank.address}
+						value={state.bbank.address}
 						onChange={(e) => {
-							this.setState({ ...this.state, bbank: { ...this.state.bbank, address: e.target.value } });
+							setState({ ...state, bbank: { ...state.bbank, address: e.target.value } });
 						}}
 						placeholder="Address"
 						required
@@ -297,15 +290,15 @@ class SignUp extends Component {
 					<input
 						type="number"
 						className="inputBox"
-						value={this.state.bbank.pincode}
+						value={state.bbank.pincode}
 						onChange={(e) => {
-							this.setState({ ...this.state, bbank: { ...this.state.bbank, pincode: e.target.value } });
+							setState({ ...state, bbank: { ...state.bbank, pincode: e.target.value } });
 						}}
 						placeholder="pincode"
 						required
 					/>
 					<br />
-					<select className="locationdropdown" name="Country" onChange={this.handleCountry} id="" required>
+					<select className="locationdropdown" name="Country" onChange={handleCountry} id="" required>
 						<option value="">Select Country</option>
 						{CountryData.countries.map((country) => (
 							<option key={country.id} countryCode={country.id} value={country.name}>
@@ -315,11 +308,11 @@ class SignUp extends Component {
 						))}
 					</select>
 					<br />
-					{this.listState(this.state.countryCode)}
+					{listState(state.countryCode)}
 					<br />
-					{this.listCity(this.state.stateCode)}
+					{listCity(state.stateCode)}
 					<br />
-					<button onClick={this.submitBloodBankForm} className="submitbtn" type="submit">
+					<button onClick={submitBloodBankForm} className="submitbtn" type="submit">
 						Sign Up
 					</button>
 				</div>
@@ -330,9 +323,9 @@ class SignUp extends Component {
 					<input
 						type="text"
 						className="inputBox"
-						value={this.state.user.name}
+						value={state.user.name}
 						onChange={(e) => {
-							this.setState({ ...this.state, user: { ...this.state.user, name: e.target.value } });
+							setState({ ...state, user: { ...state.user, name: e.target.value } });
 						}}
 						placeholder="User Name"
 						required
@@ -341,9 +334,9 @@ class SignUp extends Component {
 					<input
 						type="email"
 						className="inputBox"
-						value={this.state.user.email}
+						value={state.user.email}
 						onChange={(e) => {
-							this.setState({ ...this.state, user: { ...this.state.user, email: e.target.value } });
+							setState({ ...state, user: { ...state.user, email: e.target.value } });
 						}}
 						placeholder="Email"
 						required
@@ -352,9 +345,9 @@ class SignUp extends Component {
 					<input
 						type="password"
 						className="inputBox"
-						value={this.state.user.password}
+						value={state.user.password}
 						onChange={(e) => {
-							this.setState({ ...this.state, user: { ...this.state.user, password: e.target.value } });
+							setState({ ...state, user: { ...state.user, password: e.target.value } });
 						}}
 						placeholder="Password"
 						required
@@ -363,11 +356,11 @@ class SignUp extends Component {
 					<input
 						type="tel"
 						className="inputBox"
-						value={this.state.user.mobileNumber}
+						value={state.user.mobileNumber}
 						onChange={(e) => {
-							this.setState({
-								...this.state,
-								user: { ...this.state.user, mobileNumber: e.target.value },
+							setState({
+								...state,
+								user: { ...state.user, mobileNumber: e.target.value },
 							});
 						}}
 						placeholder="Phone Number"
@@ -377,9 +370,9 @@ class SignUp extends Component {
 					<input
 						type="date"
 						className="inputBox"
-						value={this.state.user.birthDate}
+						value={state.user.birthDate}
 						onChange={(e) => {
-							this.setState({ ...this.state, user: { ...this.state.user, birthDate: e.target.value } });
+							setState({ ...state, user: { ...state.user, birthDate: e.target.value } });
 						}}
 						placeholder="Date"
 						required
@@ -388,7 +381,7 @@ class SignUp extends Component {
 					<select
 						className="locationdropdown"
 						onChange={(e) => {
-							this.setState({ ...this.state, user: { ...this.state.user, gender: e.target.value } });
+							setState({ ...state, user: { ...state.user, gender: e.target.value } });
 						}}
 						name="gender"
 						id=""
@@ -402,7 +395,7 @@ class SignUp extends Component {
 					<select
 						className="locationdropdown"
 						onChange={(e) => {
-							this.setState({ ...this.state, user: { ...this.state.user, bloodGroup: e.target.value } });
+							setState({ ...state, user: { ...state.user, bloodGroup: e.target.value } });
 						}}
 						name="bloodgroup"
 						id=""
@@ -421,9 +414,9 @@ class SignUp extends Component {
 					<input
 						type="text"
 						className="inputBox"
-						value={this.state.user.address}
+						value={state.user.address}
 						onChange={(e) => {
-							this.setState({ ...this.state, user: { ...this.state.user, address: e.target.value } });
+							setState({ ...state, user: { ...state.user, address: e.target.value } });
 						}}
 						placeholder="Address"
 						required
@@ -432,15 +425,15 @@ class SignUp extends Component {
 					<input
 						type="number"
 						className="inputBox"
-						value={this.state.user.pincode}
+						value={state.user.pincode}
 						onChange={(e) => {
-							this.setState({ ...this.state, user: { ...this.state.user, pincode: e.target.value } });
+							setState({ ...state, user: { ...state.user, pincode: e.target.value } });
 						}}
 						placeholder="Pincode"
 						required
 					/>
 					<br />
-					<select className="locationdropdown" name="Country" onChange={this.handleCountry} id="" required>
+					<select className="locationdropdown" name="Country" onChange={handleCountry} id="" required>
 						<option value="">Select Country</option>
 						{CountryData.countries.map((country) => (
 							<option key={country.id} countrycode={country.id} value={country.name}>
@@ -450,30 +443,28 @@ class SignUp extends Component {
 						))}
 					</select>
 					<br />
-					{this.listState(this.state.countryCode)}
+					{listState(state.countryCode)}
 					<br />
-					{this.listCity(this.state.stateCode)}
+					{listCity(state.stateCode)}
 					<br />
-					<button onClick={this.submitUserForm} className="submitbtn" type="submit">
+					<button onClick={submitUserForm} className="submitbtn" type="submit">
 						Sign Up
 					</button>
 				</div>
 			);
 	}
 
-	render() {
-		return (
-			<div className="signUpform">
-				<select className="catigoresdropdown" name="catigores" onChange={this.handleChangeCat} id="">
-					<option value="None">categories</option>
-					<option value="bbank">Blood Bank</option>
-					<option value="user">User</option>
-				</select>
-				{this.checkCat(this.state.selectCat)}
-				<ToastContainer position="bottom-right" />
-			</div>
-		);
-	}
+	return (
+		<div className="signUpform">
+			<select className="catigoresdropdown" name="catigores" onChange={handleChangeCat} id="">
+				<option value="None">categories</option>
+				<option value="bbank">Blood Bank</option>
+				<option value="user">User</option>
+			</select>
+			{checkCat(state.selectCat)}
+			<ToastContainer position="bottom-right" />
+		</div>
+	);
 }
 
 export default SignUp;

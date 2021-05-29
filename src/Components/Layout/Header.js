@@ -9,6 +9,11 @@ const Header = (props) => {
             return (
 				<ul className="nav navbar-nav navbar-right">
 					<li className="nav-item">
+						<Link className="nav-link" to="/updatestocks">
+							Update Blood Stocks
+						</Link>
+					</li>
+					<li className="nav-item">
 						<Link className="nav-link" to="/registerbloodcamps">
 							register blood camp
 						</Link>

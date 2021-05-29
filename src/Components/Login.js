@@ -49,6 +49,7 @@ function Login(props) {
 				draggable: true,
 				progress: undefined,
 			});
+			console.log("token: " + data.data.token);
 			localStorage.setItem("token", data.data.token);
 			history.push("/");
 			props.auth.loggedIn(selectCat);

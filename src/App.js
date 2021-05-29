@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./Components/Layout/Header";
 // import Footer from "./Components/Layout/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Login from "./Components/Login";
@@ -13,13 +13,17 @@ import BloodBanks from "./Components/BloodBanks";
 import axios from "axios";
 import { ProtectedRoute } from "./Components/ProtectedRoute";
 import Logout from "./Components/Logout";
-
+import UpdateStock from "./Components/UpdateStock";
 
 axios.defaults.baseURL = "http://localhost:5000";
-axios.defaults.headers.common["authorization"] = "bareer " + localStorage.getItem("token");
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState("");
+
+	useEffect(() => {
+		console.log("token app: " + localStorage.getItem("token"));
+		axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
+	});
 
 	const auth = {
 		loggedIn: (value) => {
@@ -64,6 +68,13 @@ function App() {
 						path={"/registerbloodcamps"}
 						access="bbank"
 						component={() => <RegisterBloodCamps />}
+					/>
+					<ProtectedRoute
+						login={loggedIn}
+						exact
+						path={"/updatestocks"}
+						access="bbank"
+						component={() => <UpdateStock />}
 					/>
 					<Route exact path={"/logout"} component={() => <Logout auth={auth} />} />
 				</Switch>

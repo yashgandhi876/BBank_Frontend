@@ -1,10 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-function Logout({ auth }) {
+function Logout(props) {
 	let history = useHistory();
 	localStorage.removeItem("token");
-	auth.notLoggedIn();
+	props.auth.notLoggedIn();
 	history.push("/");
 	return <></>;
 }

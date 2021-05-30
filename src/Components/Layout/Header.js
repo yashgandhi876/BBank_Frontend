@@ -101,7 +101,7 @@ const Header = (props) => {
 					>
 						<span className="navbar-toggler-icon" />
 					</button>
-					<Link className="navbar-brand" style={{ width: "30%", margin: "auto" }} to="/">
+					<Link className="navbar-brand" style={{ width: "30%", margin: "auto", padding: "0" }} to="/">
 						BBank
 					</Link>
 

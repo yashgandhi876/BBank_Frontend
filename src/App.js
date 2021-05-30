@@ -1,6 +1,5 @@
 import "./App.css";
 import Header from "./Components/Layout/Header";
-// import Footer from "./Components/Layout/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -14,8 +13,9 @@ import axios from "axios";
 import { ProtectedRoute } from "./Components/ProtectedRoute";
 import Logout from "./Components/Logout";
 import UpdateStock from "./Components/UpdateStock";
+import BloodStocks from "./Components/BloodStocks";
 
-axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "https://bbank-application.herokuapp.com/";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState("");
@@ -40,9 +40,6 @@ function App() {
 		<Router>
 			<div className="App">
 				<Header isLoggedIn={loggedIn} />
-				{
-					//Public Routes
-				}
 				<Switch>
 					<Route exact path={"/"} component={Landing} />
 					{/*<Route exact path={"/register"} component={Register}/>*/}
@@ -55,14 +52,14 @@ function App() {
 						access="both"
 						component={() => <BloodCamps />}
 					/>
-					{/* <ProtectedRoute
+					<ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/bloodbanks"}
 						access="both"
 						component={() => <BloodBanks />}
-					/> */}
-					<Route exact path={"/bloodbanks"} component={BloodBanks} />
+					/>
+					{/* <Route exact path={"/bloodbanks"} component={BloodBanks} /> */}
 					<ProtectedRoute
 						login={loggedIn}
 						exact
@@ -77,12 +74,9 @@ function App() {
 						access="bbank"
 						component={() => <UpdateStock />}
 					/>
+					<Route exact path={"/bloodstocks"} component={() => <BloodStocks />} />
 					<Route exact path={"/logout"} component={() => <Logout auth={auth} />} />
 				</Switch>
-				{/*{*/}
-				{/*    //Private Routes*/}
-				{/*}*/}
-				{/*<Footer/>*/}
 			</div>
 		</Router>
 	);

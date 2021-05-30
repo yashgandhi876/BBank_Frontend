@@ -102,7 +102,7 @@ const Header = (props) => {
 					>
 						<span className="navbar-toggler-icon" />
 					</button>
-					<Link className={"navbar-brand"} to="/">
+					<Link className="navbar-brand p-auto m-auto" to="/">
 						BBank
 					</Link>
 

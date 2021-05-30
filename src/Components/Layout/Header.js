@@ -5,8 +5,8 @@ const Header = (props) => {
 	const isLoggedIn = props.isLoggedIn;
 
 	function renderConditionallyNavBarElem() {
-        if(isLoggedIn === 'bbank'){
-            return (
+		if (isLoggedIn === "bbank") {
+			return (
 				<ul className="nav navbar-nav navbar-right">
 					<li className="nav-item">
 						<Link className="nav-link" to="/updatestocks">
@@ -25,8 +25,7 @@ const Header = (props) => {
 					</li>
 				</ul>
 			);
-        }
-		else if (isLoggedIn === "user") {
+		} else if (isLoggedIn === "user") {
 			return (
 				<ul className="nav navbar-nav navbar-right">
 					<li className="nav-item">
@@ -102,7 +101,7 @@ const Header = (props) => {
 					>
 						<span className="navbar-toggler-icon" />
 					</button>
-					<Link className="navbar-brand p-auto m-auto" to="/">
+					<Link className="navbar-brand" style={{ width: "30%", margin: "auto" }} to="/">
 						BBank
 					</Link>
 

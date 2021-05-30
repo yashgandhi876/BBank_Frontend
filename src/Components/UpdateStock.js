@@ -51,7 +51,7 @@ function UpdateStock() {
 		try {
 			console.log(stocks);
 			let tempData = stocks;
-			const result = await axios.post("/bloodbank/updateStock", tempData);
+			const result = await axios.put("/bloodbank/updateStock", tempData);
 			console.log(result);
 			toast.success("Stock updated successfully", {
 				position: "bottom-right",

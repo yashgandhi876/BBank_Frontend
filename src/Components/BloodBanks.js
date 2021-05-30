@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import StockModel from "./StockModel";
 import "./BloodCamps.css";
 
 function BloodBanks() {
-	const [active, setActive] = useState(false);
 	const [banks, setBanks] = useState([]);
+	const [showModel, setShowModel] = useState(false);
 
 	function handleClick() {
-		setActive(true);
+		setShowModel(true);
 	}
 
 	useEffect(() => {
@@ -24,6 +25,10 @@ function BloodBanks() {
 		getData();
 	}, []);
 
+	function hideModel() {
+		setShowModel(false);
+	}
+
 	return banks.map((temp) => (
 		<div key={temp.bankId} className="bloodcamps">
 			<div className="campCard">
@@ -33,7 +38,13 @@ function BloodBanks() {
 					<p>Phone Number: {temp.mobile}</p>
 					<p>Email: {temp.emailId}</p>
 				</div>
+				<div className="inter">
+					<button onClick={handleClick} className="interestedbtn pointer">
+						Show Blood Stocks
+					</button>
+				</div>
 			</div>
+			{showModel && <StockModel hideModel={hideModel} />}
 		</div>
 	));
 }

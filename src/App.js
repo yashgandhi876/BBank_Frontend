@@ -55,13 +55,14 @@ function App() {
 						access="both"
 						component={() => <BloodCamps />}
 					/>
-					<ProtectedRoute
+					{/* <ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/bloodbanks"}
 						access="both"
 						component={() => <BloodBanks />}
-					/>
+					/> */}
+					<Route exact path={"/bloodbanks"} component={BloodBanks} />
 					<ProtectedRoute
 						login={loggedIn}
 						exact

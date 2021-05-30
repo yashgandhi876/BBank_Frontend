@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom";
 if (typeof window !== "undefined") {
 	injectStyle();
 }
+
 function SignUp(props) {
 	let history = useHistory();
 	const [state, setState] = useState({

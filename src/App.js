@@ -15,7 +15,7 @@ import Logout from "./Components/Logout";
 import UpdateStock from "./Components/UpdateStock";
 import BloodStocks from "./Components/BloodStocks";
 
-axios.defaults.baseURL = "https://bbank-application.herokuapp.com/";
+axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState("");

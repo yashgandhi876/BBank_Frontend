@@ -134,7 +134,7 @@ function Landing() {
 							<div className="card-body">
 								<h5 className="card-title">Blood Camps</h5>
 								<p className="card-text">Check blood camps so you can also donate blood.</p>
-								<Link href="/bloodcamps" className="btn btn-primary">
+								<Link to="/bloodcamps" className="btn btn-primary">
 									Blood Donation Camps
 								</Link>
 							</div>

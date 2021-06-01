@@ -74,7 +74,14 @@ function App() {
 						access="bbank"
 						component={() => <UpdateStock />}
 					/>
-					<Route exact path={"/bloodstocks"} component={() => <BloodStocks />} />
+					<ProtectedRoute
+						login={loggedIn}
+						exact
+						path={"/bloodstocks"}
+						access="both"
+						component={() => <BloodStocks />}
+					/>
+					{/* <Route exact path={"/bloodstocks"} component={() => <BloodStocks />} /> */}
 					<Route exact path={"/logout"} component={() => <Logout auth={auth} />} />
 				</Switch>
 			</div>

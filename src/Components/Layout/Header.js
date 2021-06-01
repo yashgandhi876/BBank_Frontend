@@ -123,6 +123,11 @@ const Header = (props) => {
 									Blood Banks
 								</Link>
 							</li>
+							<li className="nav-item">
+								<Link className="nav-link" to="/bloodstocks">
+									Blood Stocks
+								</Link>
+							</li>
 						</ul>
 						{renderConditionallyNavBarElem()}
 					</div>

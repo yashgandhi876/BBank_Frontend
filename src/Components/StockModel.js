@@ -8,7 +8,7 @@ function StockModel(props) {
 		async function getData() {
 			try {
 				console.log(`in get data of ${props.id}`);
-				const data = await axios.get(`/bloodbank/getStockOfBank/:${props.id}`);
+				const data = await axios.get(`/bloodbank/getStockOfBank/${props.id}`);
 				console.log("data: ");
 				console.log(data.data);
 				let obj = {

@@ -115,7 +115,7 @@ const Header = (props) => {
 							</li>
 							<li className="nav-item">
 								<Link className="nav-link" to="/bloodcamps">
-									Blood Donation Camps
+									Blood Camps
 								</Link>
 							</li>
 							<li className="nav-item">

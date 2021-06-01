@@ -7,7 +7,9 @@ function StockModel(props) {
 	useEffect(() => {
 		async function getData() {
 			try {
+				console.log(`in get data of ${props.id}`);
 				const data = await axios.get(`/bloodbank/getStockOfBank/:${props.id}`);
+				console.log("data: ");
 				console.log(data.data);
 				let obj = {
 					Apos: data.data.Apos,
@@ -26,7 +28,7 @@ function StockModel(props) {
 			}
 		}
 		getData();
-	}, []);
+	}, [props.id]);
 
 	return (
 		<div

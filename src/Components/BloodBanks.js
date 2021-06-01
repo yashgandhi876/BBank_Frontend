@@ -6,9 +6,11 @@ import "./BloodCamps.css";
 function BloodBanks() {
 	const [banks, setBanks] = useState([]);
 	const [showModel, setShowModel] = useState(false);
+	const [id, setId] = useState(0)
 
-	function handleClick() {
+	function handleClick(id) {
 		setShowModel(true);
+		setId(id);
 	}
 
 	useEffect(() => {
@@ -39,12 +41,12 @@ function BloodBanks() {
 					<p>Email: {temp.emailId}</p>
 				</div>
 				<div className="inter">
-					<button onClick={handleClick} className="interestedbtn pointer">
+					<button onClick={()=>handleClick(temp.bankId)} className="interestedbtn pointer">
 						Show Blood Stocks
 					</button>
 				</div>
 			</div>
-			{showModel && <StockModel hideModel={hideModel} />}
+			{showModel && <StockModel id={id} hideModel={hideModel} />}
 		</div>
 	));
 }

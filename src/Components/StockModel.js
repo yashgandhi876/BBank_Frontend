@@ -95,22 +95,22 @@ function StockModel(props) {
 					<hr />
 					<div style={{ display: "flex", justifyContent: "space-around", width: "80%", margin: "auto" }}>
 						<h5 htmlFor=""> O+</h5>
-						<h5 htmlFor=""> {blood.ABpos}</h5>
-					</div>
-					<hr />
-					<div style={{ display: "flex", justifyContent: "space-around", width: "80%", margin: "auto" }}>
-						<h5 htmlFor=""> O-</h5>
-						<h5 htmlFor=""> {blood.ABneg}</h5>
-					</div>
-					<hr />
-					<div style={{ display: "flex", justifyContent: "space-around", width: "80%", margin: "auto" }}>
-						<h5 htmlFor=""> AB+</h5>
 						<h5 htmlFor=""> {blood.Opos}</h5>
 					</div>
 					<hr />
 					<div style={{ display: "flex", justifyContent: "space-around", width: "80%", margin: "auto" }}>
-						<h5 htmlFor=""> AB-</h5>
+						<h5 htmlFor=""> O-</h5>
 						<h5 htmlFor=""> {blood.Oneg}</h5>
+					</div>
+					<hr />
+					<div style={{ display: "flex", justifyContent: "space-around", width: "80%", margin: "auto" }}>
+						<h5 htmlFor=""> AB+</h5>
+						<h5 htmlFor=""> {blood.ABpos}</h5>
+					</div>
+					<hr />
+					<div style={{ display: "flex", justifyContent: "space-around", width: "80%", margin: "auto" }}>
+						<h5 htmlFor=""> AB-</h5>
+						<h5 htmlFor=""> {blood.ABneg}</h5>
 					</div>
 					<hr />
 				</div>

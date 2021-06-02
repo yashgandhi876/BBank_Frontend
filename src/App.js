@@ -19,10 +19,10 @@ import Plasmadonors from "./Components/Plasmadonors";
 import RegisterPlasmaDonors from "./Components/RegisterPlasmaDonors";
 
 //heroku
-// axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
+axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
 
 //localhost
-axios.defaults.baseURL = "http://localhost:5000/";
+// axios.defaults.baseURL = "http://localhost:5000/";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState("");

@@ -15,6 +15,9 @@ import Logout from "./Components/Logout";
 import UpdateStock from "./Components/UpdateStock";
 import BloodStocks from "./Components/BloodStocks";
 import Profile from "./Components/Profile";
+import Plasmadonors from "./Components/Plasmadonors";
+import RegisterPlasmaDonors from "./Components/RegisterPlasmaDonors";
+
 //heroku
 // axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
 
@@ -118,7 +121,20 @@ function App() {
 						access="both"
 						component={() => <Profile loggedIn={loggedIn} email={email} id={id} />}
 					/>
-					{/* <Route exact path={"/bloodstocks"} component={() => <BloodStocks />} /> */}
+					<ProtectedRoute
+						login={loggedIn}
+						exact
+						path={"/plasmadonors"}
+						access="both"
+						component={() => <Plasmadonors />}
+					/>
+					<ProtectedRoute
+						login={loggedIn}
+						exact
+						path={"/registerplasmadonors"}
+						access="user"
+						component={() => <RegisterPlasmaDonors />}
+					/>
 					<Route exact path={"/logout"} component={() => <Logout auth={auth} />} />
 				</Switch>
 			</div>

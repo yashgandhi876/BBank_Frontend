@@ -15,7 +15,7 @@ const Header = (props) => {
 					</li>
 					<li className="nav-item">
 						<Link className="nav-link" to="/registerbloodcamps">
-							register camp
+							Register Camp
 						</Link>
 					</li>
 					<li className="nav-item">
@@ -33,6 +33,11 @@ const Header = (props) => {
 		} else if (isLoggedIn === "user") {
 			return (
 				<ul className="nav navbar-nav navbar-right">
+					<li className="nav-item">
+						<Link className="nav-link" to="/registerplasmadonors">
+							Register Plasma Donor
+						</Link>
+					</li>
 					<li className="nav-item">
 						<Link className="nav-link" to="/profile">
 							Update Profile
@@ -63,34 +68,7 @@ const Header = (props) => {
 		}
 	}
 
-	// const userIsAuthenticated = (
-	//     <div className={"collapse navbar-collapse"} id="mobile-nav">
-	//         <ul className={"navbar-nav mr-auto"}>
-	//             <li className={"nav-item"}>
-	//                 Dashboard
-	//             </li>
-	//         </ul>
-	//         <ul className={"navbar-nav ml-auto"}>
-	//             <li className={"nav-item"}>
-	//                 <i className="fas fa-user-circle mr-1"/>USER's Name
-	//             </li>
-	//             <li className={"nav-item"}>
-	//                 Logout
-	//             </li>
-	//         </ul>
-	//     </div>);
-	//
-	// const userNotAuthenticated = (
-	//     <div className={"collapse navbar-collapse"} id="mobile-nav">
-	//         <ul className={"navbar-nav ml-auto"}>
-	//             <li className={"nav-item"}>
-	//                 Sign Up
-	//             </li>
-	//             <li className={"nav-item"}>
-	//                 Login
-	//             </li>
-	//         </ul>
-	//     </div>);
+
 	return (
 		<section id={"header"}>
 			<div className={"navbar-header"}>
@@ -106,7 +84,7 @@ const Header = (props) => {
 					>
 						<span className="navbar-toggler-icon" />
 					</button>
-					<Link className="navbar-brand" style={{ width: "30%", margin: "auto", padding: "0" }} to="/">
+					<Link className="navbar-brand" style={{ width: "20%", margin: "auto", padding: "0" }} to="/">
 						BBank
 					</Link>
 
@@ -131,6 +109,11 @@ const Header = (props) => {
 							<li className="nav-item">
 								<Link className="nav-link" to="/bloodstocks">
 									Blood Stocks
+								</Link>
+							</li>
+							<li className="nav-item">
+								<Link className="nav-link" to="/plasmadonors">
+									Plasma Donors
 								</Link>
 							</li>
 						</ul>

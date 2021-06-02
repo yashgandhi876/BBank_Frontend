@@ -137,6 +137,7 @@ function RegisterBloodCamps({email}) {
 				// onChange={(e) => {
 				// 	setState({ ...state, email: e.target.value });
 				// }}
+				readOnly
 				placeholder="Email"
 				required
 			/>

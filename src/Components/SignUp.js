@@ -61,7 +61,9 @@ function SignUp(props) {
 		};
 		try {
 			const result = await axios.post("/auth/signup", data);
-			console.log("bbank token: " + result.data.token);
+			console.log("bbank token: ");
+			console.log(result);
+			console.log(result.data.token);
 			toast.success("signup successful", {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -71,6 +73,8 @@ function SignUp(props) {
 				draggable: true,
 				progress: undefined,
 			});
+			localStorage.setItem("token", result.data.token);
+			axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
 			props.auth.loggedIn(state.selectCat);
 			history.push("/");
 		} catch (e) {
@@ -118,8 +122,9 @@ function SignUp(props) {
 				draggable: true,
 				progress: undefined,
 			});
+			localStorage.setItem("token", result.data.token);
+			axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
 			props.auth.loggedIn(state.selectCat);
-			console.log(props);
 			history.push("/");
 		} catch (e) {
 			props.auth.notLoggedIn();

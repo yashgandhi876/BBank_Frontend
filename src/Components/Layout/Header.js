@@ -15,7 +15,12 @@ const Header = (props) => {
 					</li>
 					<li className="nav-item">
 						<Link className="nav-link" to="/registerbloodcamps">
-							register blood camp
+							register camp
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link className="nav-link" to="/profile">
+							Update Profile
 						</Link>
 					</li>
 					<li className="nav-item">
@@ -29,8 +34,8 @@ const Header = (props) => {
 			return (
 				<ul className="nav navbar-nav navbar-right">
 					<li className="nav-item">
-						<Link className="nav-link" to="#">
-							User's Name
+						<Link className="nav-link" to="/profile">
+							Update Profile
 						</Link>
 					</li>
 					<li className="nav-item">

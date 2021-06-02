@@ -14,12 +14,12 @@ import { ProtectedRoute } from "./Components/ProtectedRoute";
 import Logout from "./Components/Logout";
 import UpdateStock from "./Components/UpdateStock";
 import BloodStocks from "./Components/BloodStocks";
-
+import Profile from "./Components/Profile";
 //heroku
-axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
+// axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
 
 //localhost
-// axios.defaults.baseURL = "http://localhost:5000/";
+axios.defaults.baseURL = "http://localhost:5000/";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState("");
@@ -44,8 +44,8 @@ function App() {
 	useEffect(() => {
 		console.log("in use effect 1");
 		let token = localStorage.getItem("token");
-		console.log("token app: " + token);
-		axios.defaults.headers.common["authorization"] = "Bearer " + token;
+		console.log("token app.js: " + token);
+		axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
 		async function onLoggedIn() {
 			if (token) {
 				try {
@@ -110,6 +110,13 @@ function App() {
 						path={"/bloodstocks"}
 						access="both"
 						component={() => <BloodStocks />}
+					/>
+					<ProtectedRoute
+						login={loggedIn}
+						exact
+						path={"/profile"}
+						access="both"
+						component={() => <Profile loggedIn={loggedIn} email={email} id={id} />}
 					/>
 					{/* <Route exact path={"/bloodstocks"} component={() => <BloodStocks />} /> */}
 					<Route exact path={"/logout"} component={() => <Logout auth={auth} />} />

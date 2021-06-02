@@ -51,6 +51,7 @@ function Login(props) {
 			});
 			console.log("token: " + data.data.token);
 			localStorage.setItem("token", data.data.token);
+			axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
 			history.push("/");
 			props.auth.loggedIn(selectCat);
 		} catch (e) {

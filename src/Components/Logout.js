@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 function Logout(props) {
 	let history = useHistory();
 	localStorage.removeItem("token");
-	props.auth.notLoggedIn();
 	history.push("/");
+	props.auth.notLoggedIn();
 	return <></>;
 }
 

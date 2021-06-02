@@ -3,14 +3,13 @@ import React, { useState, useEffect } from "react";
 import StockModel from "./StockModel";
 import "./BloodCamps.css";
 
-function BloodBanks() {
+function BloodBanks({ id, updateId }) {
 	const [banks, setBanks] = useState([]);
 	const [showModel, setShowModel] = useState(false);
-	const [id, setId] = useState(0)
 
 	function handleClick(id) {
 		setShowModel(true);
-		setId(id);
+		updateId(id);
 	}
 
 	useEffect(() => {
@@ -41,7 +40,7 @@ function BloodBanks() {
 					<p>Email: {temp.emailId}</p>
 				</div>
 				<div className="inter">
-					<button onClick={()=>handleClick(temp.bankId)} className="interestedbtn pointer">
+					<button onClick={() => handleClick(temp.bankId)} className="interestedbtn pointer">
 						Show Blood Stocks
 					</button>
 				</div>

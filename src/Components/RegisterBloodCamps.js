@@ -11,11 +11,11 @@ import { useHistory } from "react-router-dom";
 if (typeof window !== "undefined") {
 	injectStyle();
 }
-function RegisterBloodCamps() {
+function RegisterBloodCamps({email}) {
 	let history = useHistory();
 	const [state, setState] = useState({
 		bloodCampName: "",
-		email: "",
+		email: email,
 		mobileNumber: "",
 		fromDate: "",
 		toDate: "",
@@ -134,9 +134,9 @@ function RegisterBloodCamps() {
 				type="email"
 				className="inputBox"
 				value={state.email}
-				onChange={(e) => {
-					setState({ ...state, email: e.target.value });
-				}}
+				// onChange={(e) => {
+				// 	setState({ ...state, email: e.target.value });
+				// }}
 				placeholder="Email"
 				required
 			/>

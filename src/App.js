@@ -15,15 +15,20 @@ import Logout from "./Components/Logout";
 import UpdateStock from "./Components/UpdateStock";
 import BloodStocks from "./Components/BloodStocks";
 
-axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
+//heroku
+// axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
+
+//localhost
+axios.defaults.baseURL = "http://localhost:5000/";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState("");
+	const [id, setId] = useState(0);
+	const [email, setEmail] = useState("");
 
-	useEffect(() => {
-		console.log("token app: " + localStorage.getItem("token"));
-		axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
-	});
+	function updateId(id) {
+		setId(id);
+	}
 
 	const auth = {
 		loggedIn: (value) => {
@@ -35,6 +40,31 @@ function App() {
 			setLoggedIn("");
 		},
 	};
+
+	useEffect(() => {
+		console.log("in use effect 1");
+		let token = localStorage.getItem("token");
+		console.log("token app: " + token);
+		axios.defaults.headers.common["authorization"] = "Bearer " + token;
+		async function onLoggedIn() {
+			if (token) {
+				try {
+					let details = await axios.get("/auth/checkReauth");
+					console.log("details: ");
+					console.log(details);
+					if (details.data) {
+						auth.loggedIn(details.data.decodedToken.user);
+						setId(details.data.decodedToken.id);
+						setEmail(details.data.decodedToken.email);
+					}
+				} catch (e) {
+					console.dir(e);
+					auth.notLoggedIn();
+				}
+			}
+		}
+		onLoggedIn();
+	}, []);
 
 	return (
 		<Router>
@@ -57,7 +87,7 @@ function App() {
 						exact
 						path={"/bloodbanks"}
 						access="both"
-						component={() => <BloodBanks />}
+						component={() => <BloodBanks id={id} updateId={updateId} />}
 					/>
 					{/* <Route exact path={"/bloodbanks"} component={BloodBanks} /> */}
 					<ProtectedRoute
@@ -65,14 +95,14 @@ function App() {
 						exact
 						path={"/registerbloodcamps"}
 						access="bbank"
-						component={() => <RegisterBloodCamps />}
+						component={() => <RegisterBloodCamps email={email} />}
 					/>
 					<ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/updatestocks"}
 						access="bbank"
-						component={() => <UpdateStock />}
+						component={() => <UpdateStock id={id} />}
 					/>
 					<ProtectedRoute
 						login={loggedIn}

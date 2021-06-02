@@ -8,7 +8,7 @@ if (typeof window !== "undefined") {
 	injectStyle();
 }
 
-function UpdateStock() {
+function UpdateStock({id}) {
 	// let history = useHistory();
 	const [stocks, setStocks] = useState({
 		Apos: 0,
@@ -26,7 +26,7 @@ function UpdateStock() {
 		console.log("in use effect ");
 		async function getData() {
 			try {
-				data = await axios.get("/bloodbank/getStockOfBank");
+				data = await axios.get(`/bloodbank/getStockOfBank/${id}`);
 				console.log(data.data);
 				let obj = {
 					Apos: data.data.Apos,

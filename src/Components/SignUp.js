@@ -21,7 +21,6 @@ function SignUp(props) {
 			email: "",
 			password: "",
 			mobileNumber: "",
-			stocks: "",
 			country: "",
 			state: "",
 			city: "",
@@ -266,17 +265,7 @@ function SignUp(props) {
 						required
 					/>
 					<br />
-					<input
-						type="text"
-						className="inputBox"
-						value={state.bbank.stocks}
-						onChange={(e) => {
-							setState({ ...state, bbank: { ...state.bbank, stocks: e.target.value } });
-						}}
-						placeholder="Stocks"
-						required
-					/>
-					<br />
+
 					<input
 						type="text"
 						className="inputBox"

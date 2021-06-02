@@ -23,8 +23,8 @@ function BloodCamps(props) {
 		getData();
 	}, []);
 
-	return camps.map((temp) => (
-		<div className="bloodcamps">
+	return camps.map((temp, index) => (
+		<div key={index} className="bloodcamps">
 			<div className="campCard">
 				<div className="data">
 					<h1>{temp.name}</h1>

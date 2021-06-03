@@ -27,7 +27,7 @@ const RegisterPlasmaDonors = lazy(() => import("./Components/RegisterPlasmaDonor
 // axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
 
 //localhost
-axios.defaults.baseURL = "http://192.168.56.1:5000/";
+axios.defaults.baseURL = "http://192.168.1.5:5000/";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState("");
@@ -50,7 +50,7 @@ function App() {
 	};
 
 	useEffect(() => {
-		console.log("in use effect 1");
+		console.log("in use effect 1 done");
 		let token = localStorage.getItem("token");
 		console.log("token app.js: " + token);
 		axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");

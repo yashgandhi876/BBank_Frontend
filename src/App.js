@@ -50,7 +50,7 @@ function App() {
 	};
 
 	useEffect(() => {
-		console.log("in use effect 1 done");
+		console.log("in use effect 1 final");
 		let token = localStorage.getItem("token");
 		console.log("token app.js: " + token);
 		axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");

@@ -322,7 +322,7 @@ function SignUp(props) {
 						onChange={(e) => {
 							setState({ ...state, user: { ...state.user, name: e.target.value } });
 						}}
-						placeholder="User Name"
+						placeholder="Your Name"
 						required
 					/>
 					<br />
@@ -333,7 +333,7 @@ function SignUp(props) {
 						onChange={(e) => {
 							setState({ ...state, user: { ...state.user, email: e.target.value } });
 						}}
-						placeholder="Email"
+						placeholder="Your Email"
 						required
 					/>
 					<br />
@@ -362,16 +362,21 @@ function SignUp(props) {
 						required
 					/>
 					<br />
-					<input
-						type="date"
-						className="inputBox"
-						value={state.user.birthDate}
-						onChange={(e) => {
-							setState({ ...state, user: { ...state.user, birthDate: e.target.value } });
-						}}
-						placeholder="Date"
-						required
-					/>
+					<div className="inputbox">
+						<p style={{display:"flex", margin:"0 auto !important", width:"35%"}} className="m-0 p-0 inputbox" htmlFor="">
+							Date of Birth
+						</p>
+						<input
+							type="date"
+							className="inputBox"
+							value={state.user.birthDate}
+							onChange={(e) => {
+								setState({ ...state, user: { ...state.user, birthDate: e.target.value } });
+							}}
+							placeholder="Date"
+							required
+						/>
+					</div>
 					<br />{" "}
 					<select
 						className="locationdropdown"

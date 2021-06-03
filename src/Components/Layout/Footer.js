@@ -16,17 +16,15 @@ function Footer() {
 							transfusion and digitize the process to streamline the workflow of blood banks across the
 							nation.
 						</p>
-						<p>©2021 BBank</p>
+						<p>Developed by ©2021 BBank</p>
 					</div>
 					<div className="p-2 flex-fill bd-highlight mb-3 mb-md-0">
 						<h5 className="footer-quick-links">Our Services</h5>
 						<ul className={"footer-list"}>
-							<li className={"no-bullets"}>Online Donation Appointment</li>
-							<li className={"no-bullets"}>Blood Request</li>
 							<li className={"no-bullets"}>Nearby Blood Banks</li>
-							<li className={"no-bullets"}>Stocks Availability</li>
-							<li className={"no-bullets"}>Upcoming Camps</li>
-							<li className={"no-bullets"}>My Donation History</li>
+							<li className={"no-bullets"}>Blood Stocks Availability</li>
+							<li className={"no-bullets"}>Blood Camps</li>
+							<li className={"no-bullets"}>Plasma Donors</li>
 						</ul>
 					</div>
 					<div className="p-2 flex-fill bd-highlight mb-3 mb-md-0">

@@ -1,23 +1,28 @@
-import "./App.css";
-import Header from "./Components/Layout/Header";
-import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import axios from "axios";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import Loader from "./Components/Loader";
-import Login from "./Components/Login";
-import SignUp from "./Components/SignUp";
-import BloodCamps from "./Components/BloodCamps";
-import RegisterBloodCamps from "./Components/RegisterBloodCamps";
-import BloodBanks from "./Components/BloodBanks";
-import { ProtectedRoute } from "./Components/ProtectedRoute";
-import Logout from "./Components/Logout";
-import UpdateStock from "./Components/UpdateStock";
-import BloodStocks from "./Components/BloodStocks";
-import Profile from "./Components/Profile";
-import Plasmadonors from "./Components/Plasmadonors";
-import RegisterPlasmaDonors from "./Components/RegisterPlasmaDonors";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import Header from "./Components/Layout/Header";
 const Landing = lazy(() => import("./pages/Landing"));
+// import Landing from "./pages/Landing";
+
+const Login = lazy(() => import("./Components/Login"));
+const SignUp = lazy(() => import("./Components/SignUp"));
+const BloodCamps = lazy(() => import("./Components/BloodCamps"));
+const RegisterBloodCamps = lazy(() => import("./Components/RegisterBloodCamps"));
+const BloodBanks = lazy(() => import("./Components/BloodBanks"));
+const Logout = lazy(() => import("./Components/Logout"));
+const UpdateStock = lazy(() => import("./Components/UpdateStock"));
+const BloodStocks = lazy(() => import("./Components/BloodStocks"));
+const Profile = lazy(() => import("./Components/Profile"));
+const Plasmadonors = lazy(() => import("./Components/Plasmadonors"));
+const RegisterPlasmaDonors = lazy(() => import("./Components/RegisterPlasmaDonors"));
+
 //heroku
 // axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
 
@@ -74,70 +79,132 @@ function App() {
 			<div className="App">
 				<Header isLoggedIn={loggedIn} />
 				<Switch>
-					<Suspense fallback={<Loader />}>
-						<Route exact path={"/"} component={Landing} />
-					</Suspense>
-					{/*<Route exact path={"/register"} component={Register}/>*/}
-					<Route exact path={"/signup"} component={() => <SignUp auth={auth} />} />
-					<Route exact path={"/login"} component={() => <Login auth={auth} />} />
+					<Route
+						exact
+						path={"/"}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<Landing />
+							</Suspense>
+						)}
+					/>
+					<Route
+						exact
+						path={"/signup"}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<SignUp auth={auth} />
+							</Suspense>
+						)}
+					/>
+					<Route
+						exact
+						path={"/login"}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<Login auth={auth} />
+							</Suspense>
+						)}
+					/>
 					<ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/bloodcamps"}
 						access="both"
-						component={() => <BloodCamps />}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<BloodCamps />
+							</Suspense>
+						)}
 					/>
 					<ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/bloodbanks"}
 						access="both"
-						component={() => <BloodBanks id={id} updateId={updateId} />}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<BloodBanks id={id} updateId={updateId} />
+							</Suspense>
+						)}
 					/>
-					{/* <Route exact path={"/bloodbanks"} component={BloodBanks} /> */}
 					<ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/registerbloodcamps"}
 						access="bbank"
-						component={() => <RegisterBloodCamps email={email} />}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<RegisterBloodCamps email={email} />
+							</Suspense>
+						)}
 					/>
 					<ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/updatestocks"}
 						access="bbank"
-						component={() => <UpdateStock id={id} />}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<UpdateStock id={id} />
+							</Suspense>
+						)}
 					/>
 					<ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/bloodstocks"}
 						access="both"
-						component={() => <BloodStocks />}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<BloodStocks />
+							</Suspense>
+						)}
 					/>
 					<ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/profile"}
 						access="both"
-						component={() => <Profile loggedIn={loggedIn} email={email} id={id} />}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<Profile loggedIn={loggedIn} email={email} id={id} />
+							</Suspense>
+						)}
 					/>
 					<ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/plasmadonors"}
 						access="both"
-						component={() => <Plasmadonors />}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<Plasmadonors />
+							</Suspense>
+						)}
 					/>
 					<ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/registerplasmadonors"}
 						access="user"
-						component={() => <RegisterPlasmaDonors />}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<RegisterPlasmaDonors />
+							</Suspense>
+						)}
 					/>
-					<Route exact path={"/logout"} component={() => <Logout auth={auth} />} />
+					<ProtectedRoute
+						login={loggedIn}
+						exact
+						path={"/logout"}
+						access="both"
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<Logout auth={auth} />
+							</Suspense>
+						)}
+					/>
 				</Switch>
 			</div>
 		</Router>

@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import NotAuth from "./NotAuth";
 
-export const ProtectedRoute = ({ component: Component, login, access, ...rest }) => {
+const ProtectedRoute = ({ component: Component, login, access, ...rest }) => {
        console.log("login: " + login);
 	if (access === "both") {
 		if (login) {
@@ -30,3 +30,6 @@ export const ProtectedRoute = ({ component: Component, login, access, ...rest })
 		return <Route render={() => <NotAuth />} />;
 	}
 }
+
+
+export default ProtectedRoute;

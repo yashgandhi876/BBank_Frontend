@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebookF, faFacebookMessenger, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -19,9 +17,9 @@ function Landing() {
 				console.log(data.data);
 				let obj = {
 					users: data.data.users || 0,
-					bbanks: data.data.users || 0,
-					camps: data.data.users || 0,
-					stocks: data.data.users || 0,
+					bbanks: data.data.bbanks || 0,
+					camps: data.data.camps || 0,
+					stocks: data.data.stocks || 0,
 				};
 				setCounts(obj);
 			} catch (e) {
@@ -180,17 +178,17 @@ function Landing() {
 								transfusion and digitize the process to streamline the workflow of blood banks across
 								the nation.
 							</p>
-							<p>©2021 BBank</p>
+							<p>
+								@2021 BBank
+							</p>
 						</div>
 						<div className="p-2 flex-fill bd-highlight mb-3 mb-md-0">
 							<h5 className="footer-quick-links">Our Services</h5>
 							<ul className={"footer-list"}>
-								<li className={"no-bullets"}>Online Donation Appointment</li>
-								<li className={"no-bullets"}>Blood Request</li>
-								<li className={"no-bullets"}>Nearby Blood Banks</li>
-								<li className={"no-bullets"}>Stocks Availability</li>
-								<li className={"no-bullets"}>Upcoming Camps</li>
-								<li className={"no-bullets"}>My Donation History</li>
+								<li className={"no-bullets"}><Link to="/bloodbanks">Nearby Blood Banks</Link></li>
+								<li className={"no-bullets"}><Link to="/bloodstocks">Blood Stocks Availability</Link></li>
+								<li className={"no-bullets"}><Link to="/bloodcamps">Blood Donation Camps</Link></li>
+								<li className={"no-bullets"}><Link to="/plasmadonors">Plasma Donors</Link></li>
 							</ul>
 						</div>
 						<div className="p-2 flex-fill bd-highlight mb-3 mb-md-0">
@@ -202,19 +200,37 @@ function Landing() {
 							</ul>
 						</div>
 					</div>
-					<div>
-						<a href={"https://www.twitter.com"} target={"/"}>
-							<FontAwesomeIcon className={"social-icon fa-1x social"} icon={faTwitter} />
-						</a>
-						<a href={"https://www.facebook.com"} target={"/"}>
-							<FontAwesomeIcon className={"social-icon fa-1x social"} icon={faFacebookF} />
-						</a>
-						<a href={"https://www.instagram.com"} target={"/"}>
-							<FontAwesomeIcon className={"social-icon fa-1x social"} icon={faInstagram} />
-						</a>
-						<a href="mailto: abc@example.com">
-							<FontAwesomeIcon className={"social-icon fa-1x social"} icon={faFacebookMessenger} />
-						</a>
+					<div className="mb-4">
+						<p className="mb-4 p-4">
+							Developed by {"  "}
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://www.linkedin.com/in/yashgandhi876"
+							>
+								Yash
+							</a>
+							,{"  "}
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://www.linkedin.com/in/shriram-rajdeo-b85677193/"
+							>
+								Shriram
+							</a>
+							,{"  "}
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://www.linkedin.com/in/harshal-dhake/"
+							>
+								Harshal
+							</a>
+							{" and "}
+							<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/gopal-mali/">
+								Gopal
+							</a>
+						</p>
 					</div>
 				</footer>
 			</section>

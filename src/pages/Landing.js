@@ -16,7 +16,14 @@ function Landing() {
 		async function getData() {
 			try {
 				let data = await axios.get("/bloodbank/count");
-				setCounts(data.data);
+				console.log(data.data);
+				let obj = {
+					users: data.data.users || 0,
+					bbanks: data.data.users || 0,
+					camps: data.data.users || 0,
+					stocks: data.data.users || 0,
+				};
+				setCounts(obj);
 			} catch (e) {
 				console.dir(e);
 			}
@@ -54,9 +61,9 @@ function Landing() {
 							}}
 							className="col-lg-12"
 						>
-							<h1 style={{width:"75%", margin:"auto"}} className="big-heading">
-								If you’re a blood donor, you’re a hero to someone, somewhere, who received your
-								gracious gift of life.
+							<h1 style={{ width: "75%", margin: "auto" }} className="big-heading">
+								If you’re a blood donor, you’re a hero to someone, somewhere, who received your gracious
+								gift of life.
 							</h1>
 						</div>
 					</div>

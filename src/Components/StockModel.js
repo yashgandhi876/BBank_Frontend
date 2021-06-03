@@ -28,7 +28,7 @@ function StockModel(props) {
 			}
 		}
 		getData();
-	}, [props.id]);
+	}, []);
 
 	return (
 		<div
@@ -37,10 +37,10 @@ function StockModel(props) {
 				alignItems: "center",
 				width: "100%",
 				height: "100vh",
-				position: "absolute",
+				position: "fixed",
 				top: "0",
 				left: "0",
-				backgroundColor: "rgba(0,0,0,0.5)",
+				backgroundColor: "rgba(0,0,0,0.2)",
 				margin: "auto",
 			}}
 			className="flex justify-content-center  border"

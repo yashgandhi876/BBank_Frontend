@@ -6,7 +6,6 @@ import "./BloodCamps.css";
 function BloodBanks({ id, updateId }) {
 	const [banks, setBanks] = useState([]);
 	const [showModel, setShowModel] = useState(false);
-
 	function handleClick(id) {
 		setShowModel(true);
 		updateId(id);
@@ -16,6 +15,7 @@ function BloodBanks({ id, updateId }) {
 		async function getData() {
 			try {
 				let { data } = await axios.get("/user/getBloodBanks");
+				console.log("data from blood bank use effect ")
 				console.log(data);
 				setBanks(Array.from(data));
 			} catch (e) {

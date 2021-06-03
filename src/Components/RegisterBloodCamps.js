@@ -13,6 +13,7 @@ if (typeof window !== "undefined") {
 }
 function RegisterBloodCamps({email}) {
 	let history = useHistory();
+	console.log(email);
 	const [state, setState] = useState({
 		bloodCampName: "",
 		email: email,

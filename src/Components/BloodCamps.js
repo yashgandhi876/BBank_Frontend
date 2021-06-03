@@ -32,12 +32,25 @@ function BloodCamps(props) {
 					<p>{`Address: ${temp.address}, ${temp.city}, ${temp.state}, ${temp.country}, ${temp.pincode}`}</p>
 					<p>{`Date: ${temp.fromDate} to ${temp.toDate}`}</p>
 					<p>Phone Number: {temp.mobile}</p>
-					<p>Email: {temp.emailId}</p>
 				</div>
 				<div className="inter">
-					<button onClick={handleClick} disabled={active} className="interestedbtn">
-						Interested
-						<i className="ml-3 fa fa-hand-peace-o" style={{ fontSize: "28px", color: "white" }}></i>
+					<button
+						onClick={handleClick}
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "center",
+							alignItems: "start",
+							width: "auto",
+						}}
+						disabled={true}
+						className="interestedbtn"
+					>
+						<h4>Interested ?</h4>
+						<p>
+							Register here: {temp.emailId}
+							{/* <i className="ml-3 fa fa-hand-peace-o" style={{ fontSize: "28px", color: "white" }}></i> */}
+						</p>
 					</button>
 				</div>
 			</div>

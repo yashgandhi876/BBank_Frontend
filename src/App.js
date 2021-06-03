@@ -27,7 +27,7 @@ const RegisterPlasmaDonors = lazy(() => import("./Components/RegisterPlasmaDonor
 // axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
 
 //localhost
-axios.defaults.baseURL = "http://192.168.1.5:5000/";
+axios.defaults.baseURL = "http://192.168.29.220:5000/";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState("");

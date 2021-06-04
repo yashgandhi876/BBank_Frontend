@@ -79,7 +79,7 @@ function Profile({ loggedIn, email, id }) {
 			});
 		} catch (e) {
 			console.dir(e);
-			toast.error("invalide credentials", {
+			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -121,7 +121,7 @@ function Profile({ loggedIn, email, id }) {
 			});
 		} catch (e) {
 			console.dir(e);
-			toast.error("invalide credentials", {
+			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -290,6 +290,7 @@ function Profile({ loggedIn, email, id }) {
 
 	return (
 		<div className="signUpform">
+			<h1 className="m-3">Update Profile</h1>
 			{checkCat(selectCat)}
 			<ToastContainer position="bottom-right" />
 		</div>

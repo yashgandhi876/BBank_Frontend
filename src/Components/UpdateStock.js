@@ -8,7 +8,7 @@ if (typeof window !== "undefined") {
 	injectStyle();
 }
 
-function UpdateStock({id}) {
+function UpdateStock({ id }) {
 	// let history = useHistory();
 	const [stocks, setStocks] = useState({
 		Apos: 0,
@@ -27,6 +27,7 @@ function UpdateStock({id}) {
 		async function getData() {
 			try {
 				data = await axios.get(`/bloodbank/getStockOfBank/${id}`);
+				console.log("data of data of stocks: ");
 				console.log(data.data);
 				let obj = {
 					Apos: data.data.Apos,
@@ -55,7 +56,7 @@ function UpdateStock({id}) {
 			console.log(result);
 			toast.success("Stock updated successfully", {
 				position: "bottom-right",
-				autoClose: 5000,
+				autoClose: 2000,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,
@@ -65,7 +66,7 @@ function UpdateStock({id}) {
 		} catch (e) {
 			console.log("in catch");
 			console.dir(e);
-			toast.error("invalide", {
+			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,

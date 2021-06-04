@@ -34,26 +34,28 @@ function BloodCamps(props) {
 						<p>{`Address: ${temp.address}, ${temp.city}, ${temp.state}, ${temp.country}, ${temp.pincode}`}</p>
 						<p>{`Date: ${temp.fromDate} to ${temp.toDate}`}</p>
 						<p>Phone Number: {temp.mobile}</p>
+						<p>Email: {temp.emailId}</p>
 					</div>
 					<div className="inter">
-						<button
-							onClick={handleClick}
-							style={{
-								display: "flex",
-								flexDirection: "column",
-								justifyContent: "center",
-								alignItems: "start",
-								width: "auto",
-							}}
-							disabled={true}
-							className="interestedbtn"
+						<a
+							style={{ textDecoration: "none" }}
+							href={`mailto:${temp.emailId}?subject=Interested in blood donation camp&body=Hi, %0d%0aI am <YOUR NAME> and I'm interested in your ${temp.name} that is to be organised from ${temp.fromDate} to ${temp.toDate} in ${temp.city}.  My blood group is <BLOOD GROUP> and I  am willing to volunteer to donate at your camp and help someone in need. %0d%0aThanks.`}
 						>
-							<h4>Interested ?</h4>
-							<p>
-								Register here: {temp.emailId}
-								{/* <i className="ml-3 fa fa-hand-peace-o" style={{ fontSize: "28px", color: "white" }}></i> */}
-							</p>
-						</button>
+							<button
+								onClick={handleClick}
+								style={{
+									display: "flex",
+									flexDirection: "column",
+									justifyContent: "center",
+									alignItems: "start",
+									width: "auto",
+								}}
+								disabled={true}
+								className="interestedbtn"
+							>
+								<h4>Interested ?????</h4>
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>

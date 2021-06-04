@@ -27,14 +27,17 @@ function RegisterPlasmaDonors() {
 			console.log(result);
 			toast.success("registered successfully", {
 				position: "bottom-right",
-				autoClose: 5000,
+				autoClose: 2000,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,
 				draggable: true,
 				progress: undefined,
 			});
-			history.push("/plasmadonors");
+
+			setTimeout(() => {
+				history.push("/plasmadonors");
+			}, 2000);
 		} catch (e) {
 			console.log("youarehere");
 			console.dir(e);
@@ -85,17 +88,30 @@ function RegisterPlasmaDonors() {
 				required
 			/>
 			<br />
-			<input
-				type="date"
-				className="inputBox"
-				value={plasma.dateOfRecovery}
-				onChange={(e) => {
-					setPlasma({ ...plasma, dateOfRecovery: e.target.value });
-				}}
-				placeholder="Date Of Recovery: DD/MM/YYYY"
-				required
-			/>
-			<br />
+			<div className="inputBox" style={{ display: "flex", justifyContent: "start", margin: "4PX auto" }}>
+				<p
+					style={{ display: "flex", alignItems: "center", margin: "0px 2px" }}
+					className="my-0 p-0 inputbox"
+					htmlFor=""
+				>
+					Date of recovery
+				</p>
+				<input
+					type="date"
+					className="inputBox"
+					style={{
+						height: "40px",
+						margin: "0 auto",
+						width: "75%",
+					}}
+					value={plasma.dateOfRecovery}
+					onChange={(e) => {
+						setPlasma({ ...plasma, dateOfRecovery: e.target.value });
+					}}
+					placeholder="Date"
+					required
+				/>
+			</div>
 			<select
 				className="locationdropdown"
 				onChange={(e) => {

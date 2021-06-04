@@ -51,14 +51,18 @@ function RegisterBloodCamps({email}) {
 			console.log(result);
 			toast.success("registered successfully", {
 				position: "bottom-right",
-				autoClose: 5000,
+				autoClose: 2000,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,
 				draggable: true,
 				progress: undefined,
 			});
-			history.push('/bloodcamps')
+
+			setTimeout(() => {
+
+				history.push('/bloodcamps')
+			}, 2000);
 		} catch (e) {
 			console.log("youarehere");
 			console.dir(e);
@@ -154,28 +158,54 @@ function RegisterBloodCamps({email}) {
 				required
 			/>
 			<br />
-			<input
-				type="date"
-				className="inputBox"
-				value={state.fromDate}
-				onChange={(e) => {
-					setState({ ...state, fromDate: e.target.value });
-				}}
-				placeholder="From Date: DD/MM/YYYY"
-				required
-			/>
-			<br />
-			<input
-				type="date"
-				className="inputBox"
-				value={state.toDate}
-				onChange={(e) => {
-					setState({ ...state, toDate: e.target.value });
-				}}
-				placeholder="To Date: DD/MM/YYYY"
-				required
-			/>
-			<br />
+			<div className="inputBox" style={{ display: "flex", justifyContent: "start", margin: "4PX auto" }}>
+				<p
+					style={{ display: "flex", alignItems: "center", margin: "0px 2px" }}
+					className="my-0 p-0 inputbox"
+					htmlFor=""
+				>
+					Camp starts on
+				</p>
+				<input
+					type="date"
+					className="inputBox"
+					style={{
+						height: "40px",
+						margin: "0 auto",
+						width: "80%",
+					}}
+					value={state.fromDate}
+					onChange={(e) => {
+						setState({ ...state, fromDate: e.target.value });
+					}}
+					placeholder="Date"
+					required
+				/>
+			</div>
+			<div className="inputBox" style={{ display: "flex", justifyContent: "start", margin: "4PX auto" }}>
+				<p
+					style={{ display: "flex", alignItems: "center", margin: "0px 2px" }}
+					className="my-0 p-0 inputbox"
+					htmlFor=""
+				>
+					Camp{ " "} ends  on
+				</p>
+				<input
+					type="date"
+					className="inputBox"
+					style={{
+						height: "40px",
+						margin: "0 auto",
+						width: "80%",
+					}}
+					value={state.toDate}
+					onChange={(e) => {
+						setState({ ...state, toDate: e.target.value });
+					}}
+					placeholder="Date"
+					required
+				/>
+			</div>
 			<input
 				type="text"
 				className="inputBox"

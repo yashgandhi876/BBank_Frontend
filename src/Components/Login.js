@@ -42,7 +42,7 @@ function Login(props) {
 			const data = await axios.post("/auth/login", cred);
 			toast.success("login successful", {
 				position: "bottom-right",
-				autoClose: 5000,
+				autoClose: 2000,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,
@@ -52,8 +52,10 @@ function Login(props) {
 			console.log("token: " + data.data.token);
 			localStorage.setItem("token", data.data.token);
 			axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
-			history.push("/");
-			props.auth.loggedIn(selectCat);
+			setTimeout(() => {
+				history.push("/");
+				props.auth.loggedIn(selectCat);
+			}, 2000);
 		} catch (e) {
 			props.auth.notLoggedIn();
 			console.dir(e);
@@ -72,9 +74,10 @@ function Login(props) {
 	return (
 		<div className="LoginForm">
 			<select className="catigoresdropdown" name="catigores" onChange={handleChangeCat} id="">
-				<option value="None">categories</option>
+				<option value="None">Select Account Type</option>
 				<option value="bbank">Blood Bank</option>
 				<option value="user">User</option>
+				<option value="admin">Admin</option>
 			</select>
 			<div className="loginform">
 				<input

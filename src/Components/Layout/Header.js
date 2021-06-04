@@ -50,6 +50,21 @@ const Header = (props) => {
 					</li>
 				</ul>
 			);
+		} else if (isLoggedIn === "admin") {
+			return (
+				<ul className="nav navbar-nav navbar-right">
+					<li className="nav-item">
+						<Link className="nav-link" to="/validatebbanks">
+							Validate Blood Banks
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link className="nav-link" to="/logout">
+							Logout
+						</Link>
+					</li>
+				</ul>
+			);
 		} else {
 			return (
 				<ul className="nav navbar-nav navbar-right">
@@ -67,7 +82,6 @@ const Header = (props) => {
 			);
 		}
 	}
-
 
 	return (
 		<section id={"header"}>

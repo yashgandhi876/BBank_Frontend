@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import Loader from "./Components/Loader";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Header from "./Components/Layout/Header";
+// import ValidateBBanks from "./Components/ValidateBBanks";
 const Landing = lazy(() => import("./pages/Landing"));
 // import Landing from "./pages/Landing";
 
@@ -22,12 +22,14 @@ const BloodStocks = lazy(() => import("./Components/BloodStocks"));
 const Profile = lazy(() => import("./Components/Profile"));
 const Plasmadonors = lazy(() => import("./Components/Plasmadonors"));
 const RegisterPlasmaDonors = lazy(() => import("./Components/RegisterPlasmaDonors"));
+const ValidateBBanks = lazy(() => import("./Components/ValidateBBanks"));
+
 
 //heroku
-axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
+// axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
 
 //localhost
-// axios.defaults.baseURL = "https://192.168.29.220:5000/";
+axios.defaults.baseURL = "http://localhost:5000/";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState("");
@@ -191,6 +193,26 @@ function App() {
 						component={() => (
 							<Suspense fallback={<Loader />}>
 								<RegisterPlasmaDonors />
+							</Suspense>
+						)}
+					/>
+					{/* <ProtectedRoute
+						login={loggedIn}
+						exact
+						path={"/validatebbanks"}
+						access="admin"
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<ValidateBBanks />
+							</Suspense>
+						)}
+					/> */}
+					<Route
+						exact
+						path={"/validatebbanks"}
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<ValidateBBanks  />
 							</Suspense>
 						)}
 					/>

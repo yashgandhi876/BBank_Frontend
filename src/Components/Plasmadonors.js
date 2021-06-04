@@ -29,14 +29,14 @@ function Plasmadonors() {
 						<p>{`Address: ${temp.address}`}</p>
 						<p>{`Blood Group: ${temp.bloodGr}`}</p>
 						<p>{`Date of Recovery: ${temp.dateOfRecovery}`}</p>
+						<p>Phone Number: {temp.mobile}</p>
 					</div>
 					<div className="inter">
 						<div
 							className="interestedbtn pointer px-4"
-							style={{ display: "flex", flexDirection: "column", alignItems: "start", width:"auto" }}
+							style={{ display: "flex", flexDirection: "column", alignItems: "start", width: "auto" }}
 						>
 							Contact Details:
-							<p>Phone Number: {temp.mobile}</p>
 							<p>Email: {temp.emailId}</p>
 						</div>
 					</div>

@@ -64,7 +64,7 @@ function SignUp(props) {
 			console.log("bbank token: ");
 			console.log(result);
 			console.log(result.data.token);
-			toast.success("signup successful", {
+			toast.success("signup successful, wait until admin verify's you.", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -73,14 +73,16 @@ function SignUp(props) {
 				draggable: true,
 				progress: undefined,
 			});
-			localStorage.setItem("token", result.data.token);
-			axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
-			props.auth.loggedIn(state.selectCat);
-			history.push("/");
+			// localStorage.setItem("token", result.data.token);
+			// axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
+			setTimeout(() => {
+				// props.auth.loggedIn(state.selectCat);
+				history.push("/");
+			}, 5000);
 		} catch (e) {
 			console.dir(e.response.data.message);
 			props.auth.notLoggedIn();
-			toast.error("invalide credentials", {
+			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -115,7 +117,7 @@ function SignUp(props) {
 			console.log("user token: " + result.data.token);
 			toast.success("signup successful", {
 				position: "bottom-right",
-				autoClose: 5000,
+				autoClose: 2000,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,
@@ -124,12 +126,15 @@ function SignUp(props) {
 			});
 			localStorage.setItem("token", result.data.token);
 			axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
-			props.auth.loggedIn(state.selectCat);
-			history.push("/");
+			setTimeout(() => {
+				props.auth.loggedIn(state.selectCat);
+				history.push("/");
+
+			}, 2000);
 		} catch (e) {
 			props.auth.notLoggedIn();
 			console.log(e);
-			toast.error("invalide credentials", {
+			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -362,13 +367,22 @@ function SignUp(props) {
 						required
 					/>
 					<br />
-					<div className="inputbox">
-						<p style={{display:"flex", margin:"0 auto !important", width:"35%"}} className="m-0 p-0 inputbox" htmlFor="">
+					<div className="inputBox" style={{ display: "flex", justifyContent: "start", margin: "4PX auto" }}>
+						<p
+							style={{ display: "flex", alignItems: "center", margin: "0px 2px" }}
+							className="my-0 p-0 inputbox"
+							htmlFor=""
+						>
 							Date of Birth
 						</p>
 						<input
 							type="date"
 							className="inputBox"
+							style={{
+								height: "40px",
+								margin: "0 auto",
+								width: "75%",
+							}}
 							value={state.user.birthDate}
 							onChange={(e) => {
 								setState({ ...state, user: { ...state.user, birthDate: e.target.value } });
@@ -377,7 +391,6 @@ function SignUp(props) {
 							required
 						/>
 					</div>
-					<br />{" "}
 					<select
 						className="locationdropdown"
 						onChange={(e) => {
@@ -386,7 +399,7 @@ function SignUp(props) {
 						name="gender"
 						id=""
 					>
-						<option value="Gender">gender</option>
+						<option value="Gender">Gender</option>
 						<option value="Male">Male</option>
 						<option value="Female">Female</option>
 						<option value="other">other</option>
@@ -457,7 +470,7 @@ function SignUp(props) {
 	return (
 		<div className="signUpform">
 			<select className="catigoresdropdown" name="catigores" onChange={handleChangeCat} id="">
-				<option value="None">categories</option>
+				<option value="None">Select Account Type</option>
 				<option value="bbank">Blood Bank</option>
 				<option value="user">User</option>
 			</select>

@@ -5,6 +5,7 @@ function StockModel(props) {
 	const [blood, setBlood] = useState([]);
 
 	useEffect(() => {
+		console.log('here in stock model');
 		async function getData() {
 			try {
 				// console.log(`in get data of ${props.id}`);

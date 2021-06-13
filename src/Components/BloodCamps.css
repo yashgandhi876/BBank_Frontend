@@ -1,39 +1,75 @@
-.bloodcamps{
-    width: 80%;
-    height: 100%;
-    margin: 20px auto;
-    padding: 5px 5px;
+.bloodcamps {
+	width: 80%;
+	height: 100%;
+	margin: 20px auto;
+	padding: 5px 5px;
 }
 
-.campCard{
-    width: 80%;
-    border: none;
-    border-radius: 5px;
-    margin: 25px auto;
-    padding: 15px;
-    display: flex;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+.campCard {
+	width: 80%;
+	border: none;
+	border-radius: 5px;
+	margin: 25px auto;
+	padding: 15px;
+	display: flex;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.inter{
-    margin: auto auto;
-    padding: 5px;
+.inter {
+	margin: auto auto;
+	padding: 5px;
 }
 
-.interestedbtn{
-    width: 150%;
-    padding: 15px;
-    background-color: #4BB543;
-    color: white;
-    font-size: 20px;
-    box-shadow: #4BB543;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    border: none;
-    border-radius: 5px;
+.interestedbtn {
+	width: 150%;
+	padding: 15px;
+	background-color: #4bb543;
+	color: white;
+	font-size: 20px;
+	box-shadow: #4bb543;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+	border: none;
+	border-radius: 5px;
 }
 
-.data{
-    text-align: justify;
+.data {
+	text-align: justify;
+}
+
+.selectdata {
+	width: 100px;
+	height: 50px;
+	margin: 10px;
+	padding: 10px;
+	color: green;
+	border-radius: 50px;
+	border: 3px solid green;
+	cursor: pointer;
+}
+
+.selected {
+	background-color: green;
+	color: white;
+}
+.notselected {
+	background-color: white;
+	color: green;
+}
+
+.selectdata:hover {
+    background-color: green;
+	color: white;
+	transform: scale(1.05);
+}
+
+.search{
+
+}
+
+.input{
+
+}
+
+.cat{
+	/* width:100%; */
 }

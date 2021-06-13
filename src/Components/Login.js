@@ -60,7 +60,7 @@ function Login(props) {
 		} catch (e) {
 			props.auth.notLoggedIn();
 			console.dir(e);
-			toast.error("e.response.data.message", {
+			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,

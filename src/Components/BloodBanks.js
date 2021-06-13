@@ -5,19 +5,25 @@ import "./BloodCamps.css";
 import NoDataFound from "./NoDataFound";
 
 function BloodBanks({ id, updateId }) {
+	const [allBank, setAllBanks] = useState([]);
 	const [banks, setBanks] = useState([]);
 	const [showModel, setShowModel] = useState(false);
+	const [search, setSearch] = useState("");
+	const [cat, setCat] = useState("name");
+
 	function handleClick(id) {
 		setShowModel(true);
 		updateId(id);
 	}
 
 	useEffect(() => {
+		console.log("here is use effect");
 		async function getData() {
 			try {
 				let { data } = await axios.get("/user/getBloodBanks");
 				console.log("data from blood bank use effect ");
 				console.log(data);
+				setAllBanks(Array.from(data));
 				setBanks(Array.from(data));
 			} catch (e) {
 				// console.log("not autheticated user");
@@ -31,28 +37,73 @@ function BloodBanks({ id, updateId }) {
 		setShowModel(false);
 	}
 
-	return banks.length !== 0 ? (
-		banks.map((temp) => (
-			<div key={temp.bankId} className="bloodcamps">
-				<div className="campCard">
-					<div className="data">
-						<h1>{temp.name}</h1>
-						<p>{`Address: ${temp.address}, ${temp.city}, ${temp.state}, ${temp.country}, ${temp.pincode}`}</p>
-						<p>Phone Number: {temp.mobile}</p>
-						<p>Email: {temp.emailId}</p>
-					</div>
-					<div className="inter">
-						<button onClick={() => handleClick(temp.bankId)} className="interestedbtn pointer">
-							Show Blood Stocks
-						</button>
-					</div>
+	function searchChangeHandler(e) {
+		setSearch(e.target.value);
+		console.log(cat);
+		const bbanks = allBank.filter(bank => {
+			console.log(bank)
+			if (bank[`${cat}`].toLowerCase().includes(e.target.value)) {
+				return bank;
+			}
+		})
+
+		setBanks(bbanks);
+
+	}
+
+	return (
+		<div>
+			<div style={{ display: "flex", width: "40%", justifyContent: "start", alignItems: "center", margin: "20px auto" }}>
+				<div className="cat" style={{
+					alignItems: "center",
+					display: "flex", margin: "10px", height: "40px"
+				}}>
+					<select
+						style={{ height: "30px", padding: "5px" }}
+						className="catdropdown"
+						onChange={(e) => {
+							setCat(e.target.value);
+						}}
+						name="bloodgroup"
+						id=""
+					>
+						<option value="name">Name</option>
+						<option value="mobile">Mobile Number</option>
+						<option value="emailId">Email</option>
+						<option value="city">City</option>
+						<option value="state">State</option>
+						<option value="country">Country</option>
+						<option value="pincode">pincode</option>
+					</select>
+					<br />
 				</div>
-				{showModel && <StockModel id={id} hideModel={hideModel} />}
+				<div style={{ widht: "13%" }} className="input" >
+					<input value={search} onChange={searchChangeHandler} style={{ padding: "2px", width: "190%", outline: "none" }} className="inputBox" placeholder="search blood bank" type="search" />
+				</div>
 			</div>
-		))
-	) : (
-		<NoDataFound />
-	);
+			{
+				banks.length !== 0 ? (
+					banks.map((temp) => (
+						<div key={temp.bankId} className="bloodcamps">
+							<div className="campCard">
+								<div className="data">
+									<h1>{temp.name}</h1>
+									<p>{`Address: ${temp.address}, ${temp.city}, ${temp.state}, ${temp.country}, ${temp.pincode}`}</p>
+									<p>Phone Number: {temp.mobile}</p>
+									<p>Email: {temp.emailId}</p>
+								</div>
+								<div className="inter">
+									<button onClick={() => handleClick(temp.bankId)} className="interestedbtn pointer">
+										Show Blood Stocks
+									</button>
+								</div>
+							</div>
+							{showModel && <StockModel id={id} hideModel={hideModel} />}
+						</div>
+					))) : <NoDataFound />
+			}
+		</div>
+	)
 }
 
 export default BloodBanks;

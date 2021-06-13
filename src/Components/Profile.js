@@ -3,11 +3,13 @@ import "./SignUp.css";
 import axios from "axios";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 if (typeof window !== "undefined") {
 	injectStyle();
 }
 
 function Profile({ loggedIn, email, id }) {
+	const history = useHistory();
 	const selectCat = loggedIn;
 	const [state, setState] = useState({
 		bbank: {
@@ -94,6 +96,9 @@ function Profile({ loggedIn, email, id }) {
 				draggable: true,
 				progress: undefined,
 			});
+			setTimeout(() => {
+				history.push("/");
+			}, 2000);
 		} catch (e) {
 			console.dir(e);
 			toast.error(e.response.data.message, {
@@ -141,7 +146,7 @@ function Profile({ loggedIn, email, id }) {
 			// console.log(result);
 			toast.success("Profile updated succefully", {
 				position: "bottom-right",
-				autoClose: 5000,
+				autoClose: 2000,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,

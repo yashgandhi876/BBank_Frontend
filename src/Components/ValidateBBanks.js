@@ -5,11 +5,13 @@ import "./BloodCamps.css";
 import NoDataFound from "./NoDataFound";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 if (typeof window !== "undefined") {
 	injectStyle();
 }
 
 function ValidateBBank() {
+	const history = useHistory();
 	const [banks, setBanks] = useState([]);
 
 	async function handleClick(idd) {
@@ -32,6 +34,9 @@ function ValidateBBank() {
 				draggable: true,
 				progress: undefined,
 			});
+			setTimeout(() => {
+				history.push("/bloodbanks");
+			}, 2000);
 		} catch (e) {
 			// console.log("in catch");
 			console.dir(e);

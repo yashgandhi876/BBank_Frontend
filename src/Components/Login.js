@@ -4,6 +4,7 @@ import "./SignUp.css";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
+import Footer from "./Layout/Footer";
 if (typeof window !== "undefined") {
 	injectStyle();
 }
@@ -32,7 +33,7 @@ function Login(props) {
 			return;
 		}
 
-		console.log(selectCat + " " + email + "  " + password);
+		// console.log(selectCat + " " + email + "  " + password);
 		const cred = {
 			category: selectCat,
 			emailId: email,
@@ -49,7 +50,7 @@ function Login(props) {
 				draggable: true,
 				progress: undefined,
 			});
-			console.log("token: " + data.data.token);
+			console.log(data);
 			localStorage.setItem("token", data.data.token);
 			axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
 			setTimeout(() => {
@@ -59,7 +60,7 @@ function Login(props) {
 		} catch (e) {
 			props.auth.notLoggedIn();
 			console.dir(e);
-			toast.error(e.response.data.message, {
+			toast.error("e.response.data.message", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -72,43 +73,47 @@ function Login(props) {
 	}
 
 	return (
-		<div className="LoginForm">
-			<select className="catigoresdropdown" name="catigores" onChange={handleChangeCat} id="">
-				<option value="None">Select Account Type</option>
-				<option value="bbank">Blood Bank</option>
-				<option value="user">User</option>
-				<option value="admin">Admin</option>
-			</select>
-			<div className="loginform">
-				<input
-					type="email"
-					className="inputBox"
-					value={email}
-					onChange={(e) => {
-						setEmail(e.target.value);
-					}}
-					pattern="[A-Za-z0-9._-]{1,}@[A-Za-z._-]{1,}\.[A-Za-z._-]{1,}"
-					title="Enter valid email address"
-					placeholder="Email"
-					autoComplete="true"
-					required
-				/>
-				<br />
-				<input
-					type="password"
-					className="inputBox"
-					value={password}
-					onChange={(e) => {
-						setPassword(e.target.value);
-					}}
-					placeholder="password"
-					required
-				/>
-				<br />
-				<button onClick={submitUserForm} className="submitbtn" type="submit">
-					Login
-				</button>
+		<div className="LoginForm" style={{ height: "100%" }}>
+			<div style={{height:"51vh"}}>
+
+				<select className="catigoresdropdown" name="catigores" onChange={handleChangeCat} id="">
+					<option value="None">Select Account Type</option>
+					<option value="bbank">Blood Bank</option>
+					<option value="user">User</option>
+					<option value="admin">Admin</option>
+				</select>
+				<div className="loginform">
+					<input
+						type="email"
+						className="inputBox"
+						value={email}
+						onChange={(e) => {
+							setEmail(e.target.value);
+						}}
+						pattern="[A-Za-z0-9._-]{1,}@[A-Za-z._-]{1,}\.[A-Za-z._-]{1,}"
+						title="Enter valid email address"
+						placeholder="Email"
+						autoComplete="true"
+						required
+					/>
+					<br />
+					<input
+						type="password"
+						className="inputBox"
+						value={password}
+						onChange={(e) => {
+							setPassword(e.target.value);
+						}}
+						placeholder="password"
+						required
+					/>
+					<br />
+					<button onClick={submitUserForm} className="submitbtn" type="submit">
+						Login
+					</button>
+				</div>
 			</div>
+			<Footer />
 			<ToastContainer position="bottom-right" />
 		</div>
 	);

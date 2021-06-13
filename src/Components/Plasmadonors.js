@@ -10,11 +10,11 @@ function Plasmadonors() {
 		async function getData() {
 			try {
 				let { data } = await axios.get("/user/getPlasmaDonors");
-				console.log(data);
+				// console.log(data);
 				setPlasma(Array.from(data));
 			} catch (e) {
-				console.log("not autheticated user");
-				console.dir(e);
+				// console.log("not autheticated user");
+				// console.dir(e);
 			}
 		}
 		getData();

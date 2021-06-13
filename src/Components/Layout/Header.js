@@ -9,22 +9,22 @@ const Header = (props) => {
 			return (
 				<ul className="nav navbar-nav navbar-right">
 					<li className="nav-item">
-						<Link className="nav-link" to="/updatestocks">
+						<Link style={{color:"white"}} className="nav-link" to="/updatestocks">
 							Update Blood Stocks
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link" to="/registerbloodcamps">
+						<Link style={{color:"white"}} className="nav-link" to="/registerbloodcamps">
 							Register Camp
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link" to="/profile">
+						<Link style={{color:"white"}} className="nav-link" to="/profile">
 							Update Profile
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link" to="/logout">
+						<Link style={{color:"white"}} className="nav-link" to="/logout">
 							Logout
 						</Link>
 					</li>
@@ -34,17 +34,17 @@ const Header = (props) => {
 			return (
 				<ul className="nav navbar-nav navbar-right">
 					<li className="nav-item">
-						<Link className="nav-link" to="/registerplasmadonors">
+						<Link style={{color:"white"}} className="nav-link" to="/registerplasmadonors">
 							Register Plasma Donor
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link" to="/profile">
+						<Link style={{color:"white"}} className="nav-link" to="/profile">
 							Update Profile
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link" to="/logout">
+						<Link style={{color:"white"}} className="nav-link" to="/logout">
 							Logout
 						</Link>
 					</li>
@@ -54,12 +54,12 @@ const Header = (props) => {
 			return (
 				<ul className="nav navbar-nav navbar-right">
 					<li className="nav-item">
-						<Link className="nav-link" to="/validatebbanks">
+						<Link style={{color:"white"}} className="nav-link" to="/validatebbanks">
 							Validate Blood Banks
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link" to="/logout">
+						<Link style={{color:"white"}} className="nav-link" to="/logout">
 							Logout
 						</Link>
 					</li>
@@ -69,12 +69,12 @@ const Header = (props) => {
 			return (
 				<ul className="nav navbar-nav navbar-right">
 					<li className="nav-item">
-						<Link className="nav-link" to="/signup">
+						<Link style={{color:"white"}} className="nav-link" to="/signup">
 							Sign Up
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link" to="/login">
+						<Link style={{color:"white"}} className="nav-link" to="/login">
 							Log in
 						</Link>
 					</li>
@@ -106,27 +106,27 @@ const Header = (props) => {
 					<div className={"collapse navbar-collapse"} id="mobile-nav">
 						<ul className="nav navbar-nav">
 							<li className="active nav-item">
-								<Link className="nav-link " to="/">
+								<Link style={{color:"white"}} className="nav-link " to="/">
 									Home
 								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/bloodcamps">
+								<Link style={{color:"white"}} className="nav-link" to="/bloodcamps">
 									Blood Camps
 								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/bloodbanks">
+								<Link style={{color:"white"}} className="nav-link" to="/bloodbanks">
 									Blood Banks
 								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/bloodstocks">
+								<Link style={{color:"white"}} className="nav-link" to="/bloodstocks">
 									Blood Stocks
 								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/plasmadonors">
+								<Link style={{color:"white"}} className="nav-link" to="/plasmadonors">
 									Plasma Donors
 								</Link>
 							</li>

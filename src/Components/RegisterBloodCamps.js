@@ -13,7 +13,7 @@ if (typeof window !== "undefined") {
 }
 function RegisterBloodCamps({email}) {
 	let history = useHistory();
-	console.log(email);
+	// console.log(email);
 	const [state, setState] = useState({
 		bloodCampName: "",
 		email: email,
@@ -46,9 +46,9 @@ function RegisterBloodCamps({email}) {
 				toDate: "" + state.toDate,
 				address: "" + state.address,
 			};
-			console.log(campData);
+			// console.log(campData);
 			const result = await axios.post("/bloodbank/organizeCamp", campData);
-			console.log(result);
+			// console.log(result);
 			toast.success("registered successfully", {
 				position: "bottom-right",
 				autoClose: 2000,
@@ -64,8 +64,8 @@ function RegisterBloodCamps({email}) {
 				history.push('/bloodcamps')
 			}, 2000);
 		} catch (e) {
-			console.log("youarehere");
-			console.dir(e);
+			// console.log("youarehere");
+			// console.dir(e);
 			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,

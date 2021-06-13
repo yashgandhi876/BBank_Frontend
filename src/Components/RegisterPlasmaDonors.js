@@ -21,10 +21,10 @@ function RegisterPlasmaDonors() {
 
 	async function submitHandler() {
 		// add code
-		console.log(plasma);
+		// console.log(plasma);
 		try {
 			const result = await axios.post("/user/plasmaDonorRegister", plasma);
-			console.log(result);
+			// console.log(result);
 			toast.success("registered successfully", {
 				position: "bottom-right",
 				autoClose: 2000,
@@ -39,8 +39,8 @@ function RegisterPlasmaDonors() {
 				history.push("/plasmadonors");
 			}, 2000);
 		} catch (e) {
-			console.log("youarehere");
-			console.dir(e);
+			// console.log("youarehere");
+			// console.dir(e);
 			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,

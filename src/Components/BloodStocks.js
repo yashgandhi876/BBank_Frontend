@@ -4,7 +4,7 @@ import DataTable from "react-data-table-component";
 import Card from "@material-ui/core/Card";
 import Checkbox from "@material-ui/core/Checkbox";
 import SortIcon from "@material-ui/icons/ArrowDownward";
-
+import Footer from "./Layout/Footer";
 const columns = [
 	{
 		name: "BBank Name",
@@ -83,31 +83,37 @@ function BloodStocks() {
 		async function getData() {
 			try {
 				let data = await axios.get("/user/getStock");
-				console.log(data.data);
+				// console.log(data.data);
 				setData(data.data);
 			} catch (e) {
-				console.log(e);
+				// console.log(e);
 			}
 		}
 		getData();
 	}, []);
 
 	return (
-		<div style={{ width: "95%", margin: "15px auto" }}>
-			<Card>
-				<DataTable
-					title="Blood Stocks Data"
-					columns={columns}
-					data={data}
-					defaultSortField="email"
-					sortIcon={<SortIcon />}
-					pagination
-					selectableRows
+		<div>
 
-					selectableRowsComponent={Checkbox}
-					selectableRowsComponentProps={selectableRowsComponentProps}
-				/>
-			</Card>
+			<div style={{ width: "95%", margin: "15px auto", minHeight:"50vh" }}>
+				<Card>
+					<DataTable
+						title="Blood Stocks Data"
+						columns={columns}
+						data={data}
+						defaultSortField="email"
+						sortIcon={<SortIcon />}
+						pagination
+						selectableRows
+
+						selectableRowsComponent={Checkbox}
+						selectableRowsComponentProps={selectableRowsComponentProps}
+					/>
+				</Card>
+			</div>
+			<div style={{ width: "100%", marginTop: "10px", paddingTop: "10px" }} className="m-0">
+				<Footer />
+			</div>
 		</div>
 	);
 }

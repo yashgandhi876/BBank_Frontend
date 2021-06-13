@@ -14,7 +14,7 @@ function Landing() {
 		async function getData() {
 			try {
 				let data = await axios.get("/bloodbank/count");
-				console.log(data.data);
+				// console.log(data.data);
 				let obj = {
 					users: data.data.users || 0,
 					bbanks: data.data.bbanks || 0,
@@ -117,7 +117,7 @@ function Landing() {
 							<div className="card-body">
 								<h5 className="card-title">Blood Availability</h5>
 								<p className="card-text">Get status of available blood stock in blood banks.</p>
-								<Link to="/" className="btn btn-primary">
+								<Link to="/bloodstocks" className="btn btn-primary">
 									Check Availability
 								</Link>
 							</div>
@@ -140,7 +140,18 @@ function Landing() {
 								<h5 className="card-title">Blood Camps</h5>
 								<p className="card-text">Check blood camps so you can also donate blood.</p>
 								<Link to="/bloodcamps" className="btn btn-primary">
-									Blood Donation Camps
+									Donation Camps
+								</Link>
+							</div>
+						</div>
+					</div>
+					<div className="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
+						<div className="card">
+							<div className="card-body">
+								<h5 className="card-title">Plasma Donors</h5>
+								<p className="card-text">Check plasma donors.</p>
+								<Link to="/plasmadonors" className="btn btn-primary">
+									Plasma Donors
 								</Link>
 							</div>
 						</div>
@@ -166,37 +177,37 @@ function Landing() {
 				</div>
 			</section>
 			{/*Footer Section: Temporarily here, need to move to its own seperate component*/}
-			<section id="footer">
+			<section className="mt-5" id="footer" style={{ backgroundColor: "red", color: "rgba(255,255,255,0.9)" }}>
 				<div className={"empty-container"} />
 
 				<footer className={"container"}>
 					<div className="row text-center text-xs-center text-sm-left text-md-left justify-content-center">
 						<div className="col-md-4 col-xl-5 p-2 flex-fill bd-highlight mb-5 mb-md-0">
-							<h3>BBank</h3>
-							<p>
+							<h3 style={{ color: "white" }}>BBank</h3>
+							<p style={{ color: "white" }}>
 								BBank is an application to connect all stakeholders involved in the process of blood
 								transfusion and digitize the process to streamline the workflow of blood banks across
 								the nation.
 							</p>
-							<p>
+							<p style={{ color: "white" }}>
 								@2021 BBank
 							</p>
 						</div>
 						<div className="p-2 flex-fill bd-highlight mb-3 mb-md-0">
-							<h5 className="footer-quick-links">Our Services</h5>
+							<h5 className="footer-quick-links" style={{ color: "white" }}>Our Services</h5>
 							<ul className={"footer-list"}>
-								<li className={"no-bullets"}><Link to="/bloodbanks">Nearby Blood Banks</Link></li>
-								<li className={"no-bullets"}><Link to="/bloodstocks">Blood Stocks Availability</Link></li>
-								<li className={"no-bullets"}><Link to="/bloodcamps">Blood Donation Camps</Link></li>
-								<li className={"no-bullets"}><Link to="/plasmadonors">Plasma Donors</Link></li>
+								<li className={"no-bullets"}><Link style={{ color: "white" }} to="/bloodbanks">Nearby Blood Banks</Link></li>
+								<li className={"no-bullets"}><Link style={{ color: "white" }} to="/bloodstocks">Blood Stocks Availability</Link></li>
+								<li className={"no-bullets"}><Link style={{ color: "white" }} to="/bloodcamps">Blood Donation Camps</Link></li>
+								<li className={"no-bullets"}><Link style={{ color: "white" }} to="/plasmadonors">Plasma Donors</Link></li>
 							</ul>
 						</div>
 						<div className="p-2 flex-fill bd-highlight mb-3 mb-md-0">
-							<h5 className="footer-quick-links">Get Help</h5>
+							<h5 className="footer-quick-links" style={{ color: "white" }}>Get Help</h5>
 							<ul className={"footer-list"}>
-								<li className={"no-bullets"}>Blood Donation</li>
-								<li className={"no-bullets"}>FAQs</li>
-								<li className={"no-bullets"}>Contact Us</li>
+								<li className={"no-bullets"} style={{ color: "white" }}>Blood Donation</li>
+								<li className={"no-bullets"} style={{ color: "white" }}>FAQs</li>
+								<li className={"no-bullets"} style={{ color: "white" }}>Contact Us</li>
 							</ul>
 						</div>
 					</div>
@@ -204,7 +215,7 @@ function Landing() {
 						<p className="mb-4 p-4">
 							Developed by {"  "}
 							<a
-								target="_blank"
+								target="_blank" style={{ color: "white" }}
 								rel="noopener noreferrer"
 								href="https://www.linkedin.com/in/yashgandhi876"
 							>
@@ -212,7 +223,7 @@ function Landing() {
 							</a>
 							,{"  "}
 							<a
-								target="_blank"
+								target="_blank" style={{ color: "white" }}
 								rel="noopener noreferrer"
 								href="https://www.linkedin.com/in/shriram-rajdeo-b85677193/"
 							>
@@ -220,14 +231,14 @@ function Landing() {
 							</a>
 							,{"  "}
 							<a
-								target="_blank"
+								target="_blank" style={{ color: "white" }}
 								rel="noopener noreferrer"
 								href="https://www.linkedin.com/in/harshal-dhake/"
 							>
 								Harshal
 							</a>
 							{" and "}
-							<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/gopal-mali/">
+							<a target="_blank" style={{ color: "white" }} rel="noopener noreferrer" href="https://www.linkedin.com/in/gopal-mali/">
 								Gopal
 							</a>
 						</p>

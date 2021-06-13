@@ -120,7 +120,7 @@ h6 {
 #title .container-fluid {
 	text-align: left;
 	padding: 3% 15% 7%;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./assets/img/bb0.jpg");
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./assets/img/bb0.avif");
 	background-size: cover;
 	height: 100vh;
 
@@ -133,7 +133,7 @@ h6 {
 @keyframes changeBg {
 	0%,
 	100% {
-		background-image: url("./assets/img/bb01.jpg");
+		background-image: url("./assets/img/bb01.avif");
 		background-size: auto;
 		object-fit: cover;
 		background-repeat: no-repeat;
@@ -141,7 +141,7 @@ h6 {
 		background-position: center center;
 	}
 	25% {
-		background-image: url("./assets/img/bb02.jpg");
+		background-image: url("./assets/img/bb02.avif");
 		background-size: auto;
 		object-fit: cover;
 		background-repeat: no-repeat;
@@ -149,7 +149,7 @@ h6 {
 		background-position: center center;
 	}
 	50% {
-		background-image: url("./assets/img/bb03.jpg");
+		background-image: url("./assets/img/bb03.avif");
 		background-size: auto;
 		object-fit: cover;
 		background-repeat: no-repeat;
@@ -157,7 +157,7 @@ h6 {
 		background-position: center center;
 	}
 	75% {
-		background-image: url("./assets/img/bb05.jpg");
+		background-image: url("./assets/img/bb05.avif");
 		background-size: auto;
 		object-fit: cover;
 		background-repeat: no-repeat;

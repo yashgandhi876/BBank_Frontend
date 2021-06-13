@@ -7,10 +7,10 @@ function StockModel(props) {
 	useEffect(() => {
 		async function getData() {
 			try {
-				console.log(`in get data of ${props.id}`);
+				// console.log(`in get data of ${props.id}`);
 				const data = await axios.get(`/bloodbank/getStockOfBank/${props.id}`);
-				console.log("data: ");
-				console.log(data.data);
+				// console.log("data: ");
+				// console.log(data.data);
 				let obj = {
 					Apos: data.data.Apos,
 					Aneg: data.data.Aneg,
@@ -23,8 +23,8 @@ function StockModel(props) {
 				};
 				setBlood(obj);
 			} catch (e) {
-				console.log("in catch");
-				console.dir(e);
+				// console.log("in catch");
+				// console.dir(e);
 			}
 		}
 		getData();

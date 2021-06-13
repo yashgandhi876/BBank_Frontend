@@ -20,7 +20,7 @@ function BloodBanks({ id, updateId }) {
 				console.log(data);
 				setBanks(Array.from(data));
 			} catch (e) {
-				console.log("not autheticated user");
+				// console.log("not autheticated user");
 				console.dir(e);
 			}
 		}

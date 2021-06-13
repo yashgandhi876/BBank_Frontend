@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CountryData from "../assets/json/countries.json";
+import Footer from "./Layout/Footer";
 import StateData from "../assets/json/states.json";
 import CityData from "../assets/json/cities.json";
 import "./SignUp.css";
@@ -20,6 +21,7 @@ function SignUp(props) {
 			name: "",
 			email: "",
 			password: "",
+			confPassword: "",
 			mobileNumber: "",
 			country: "",
 			state: "",
@@ -31,6 +33,7 @@ function SignUp(props) {
 			name: "",
 			email: "",
 			password: "",
+			confPassword: "",
 			mobileNumber: "",
 			gender: "",
 			bloodGroup: "",
@@ -47,6 +50,18 @@ function SignUp(props) {
 	});
 
 	async function submitBloodBankForm() {
+		if (state.bbank.password !== state.bbank.confPassword) {
+			toast.error("make sure your confirm password is same as password", {
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
+			return
+		}
 		const data = {
 			category: "" + state.selectCat,
 			bloodBankName: "" + state.bbank.name,
@@ -61,9 +76,9 @@ function SignUp(props) {
 		};
 		try {
 			const result = await axios.post("/auth/signup", data);
-			console.log("bbank token: ");
-			console.log(result);
-			console.log(result.data.token);
+			// console.log("bbank token: ");
+			// console.log(result);
+			// console.log(result.data.token);
 			toast.success("signup successful, wait until admin verify's you.", {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -96,7 +111,18 @@ function SignUp(props) {
 
 	async function submitUserForm() {
 		//add code
-
+		if (state.user.password !== state.user.confPassword) {
+			toast.error("make sure your confirm password is same as password", {
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
+			return
+		}
 		const data = {
 			category: "" + state.selectCat,
 			userName: "" + state.user.name,
@@ -114,7 +140,7 @@ function SignUp(props) {
 		};
 		try {
 			const result = await axios.post("/auth/signup", data);
-			console.log("user token: " + result.data.token);
+			// console.log("user token: " + result.data.token);
 			toast.success("signup successful", {
 				position: "bottom-right",
 				autoClose: 2000,
@@ -133,7 +159,7 @@ function SignUp(props) {
 			}, 2000);
 		} catch (e) {
 			props.auth.notLoggedIn();
-			console.log(e);
+			// console.log(e);
 			toast.error(e.response.data.message, {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -257,7 +283,18 @@ function SignUp(props) {
 						onChange={(e) => {
 							setState({ ...state, bbank: { ...state.bbank, password: e.target.value } });
 						}}
-						placeholder="password"
+						placeholder="Password"
+						required
+					/>
+					<br />
+					<input
+						type="password"
+						className="inputBox"
+						value={state.bbank.confPassword}
+						onChange={(e) => {
+							setState({ ...state, bbank: { ...state.bbank, confPassword: e.target.value } });
+						}}
+						placeholder="Confirm Password"
 						required
 					/>
 					<br />
@@ -301,7 +338,7 @@ function SignUp(props) {
 					<select className="locationdropdown" name="Country" onChange={handleCountry} id="" required>
 						<option value="">Select Country</option>
 						{CountryData.countries.map((country) => (
-							<option key={country.id} countryCode={country.id} value={country.name}>
+							<option key={country.id} value={country.name}>
 								{" "}
 								{country.name}
 							</option>
@@ -312,7 +349,7 @@ function SignUp(props) {
 					<br />
 					{listCity(state.stateCode)}
 					<br />
-					<button onClick={submitBloodBankForm} className="submitbtn" type="submit">
+					<button onClick={submitBloodBankForm} className="submitbtn mb-10" type="submit">
 						Sign Up
 					</button>
 				</div>
@@ -350,6 +387,17 @@ function SignUp(props) {
 							setState({ ...state, user: { ...state.user, password: e.target.value } });
 						}}
 						placeholder="Password"
+						required
+					/>
+					<br />
+					<input
+						type="password"
+						className="inputBox"
+						value={state.user.confPassword}
+						onChange={(e) => {
+							setState({ ...state, user: { ...state.user, confPassword: e.target.value } });
+						}}
+						placeholder="Confirm Password"
 						required
 					/>
 					<br />
@@ -449,7 +497,7 @@ function SignUp(props) {
 					<select className="locationdropdown" name="Country" onChange={handleCountry} id="" required>
 						<option value="">Select Country</option>
 						{CountryData.countries.map((country) => (
-							<option key={country.id} countrycode={country.id} value={country.name}>
+							<option key={country.id} value={country.name}>
 								{" "}
 								{country.name}
 							</option>
@@ -460,7 +508,7 @@ function SignUp(props) {
 					<br />
 					{listCity(state.stateCode)}
 					<br />
-					<button onClick={submitUserForm} className="submitbtn" type="submit">
+					<button onClick={submitUserForm} className="submitbtn mb-4" type="submit">
 						Sign Up
 					</button>
 				</div>
@@ -468,14 +516,21 @@ function SignUp(props) {
 	}
 
 	return (
-		<div className="signUpform">
-			<select className="catigoresdropdown" name="catigores" onChange={handleChangeCat} id="">
-				<option value="None">Select Account Type</option>
-				<option value="bbank">Blood Bank</option>
-				<option value="user">User</option>
-			</select>
-			{checkCat(state.selectCat)}
-			<ToastContainer position="bottom-right" />
+		<div>
+			<div className="signUpform" style={{minHeight:"50vh", marginY:"10px", paddingY:"10px"}}>
+
+				<select className="catigoresdropdown" name="catigores" onChange={handleChangeCat} id="">
+					<option value="None">Select Account Type</option>
+					<option value="bbank">Blood Bank</option>
+					<option value="user">User</option>
+				</select>
+				{checkCat(state.selectCat)}
+
+				<ToastContainer position="bottom-right" />
+			</div>
+			<div style={{ width: "100%", marginTop:"10px", paddingTop:"10px" }} className="m-0">
+				<Footer />
+			</div>
 		</div>
 	);
 }

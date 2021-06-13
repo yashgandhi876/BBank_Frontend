@@ -12,7 +12,7 @@ function BloodCamps(props) {
 	}
 
 	useEffect(() => {
-		console.log("in get camp");
+		// console.log("in get camp");
 		async function getData() {
 			try {
 				let { data } = await axios.get("/user/getCamp");

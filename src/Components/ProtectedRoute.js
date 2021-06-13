@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import NotAuth from "./NotAuth";
 
 const ProtectedRoute = ({ component: Component, login, access, ...rest }) => {
-       console.log("login: " + login);
+    //    console.log("login: " + login);
 	if (access === "both") {
 		if (login) {
 			return (

@@ -7,6 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Loader from "./Components/Loader";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Header from "./Components/Layout/Header";
+import Footer from "./Components/Layout/Footer";
+import PageNotFound from "./Components/PageNotFound";
 // import ValidateBBanks from "./Components/ValidateBBanks";
 const Landing = lazy(() => import("./pages/Landing"));
 // import Landing from "./pages/Landing";
@@ -25,11 +27,12 @@ const RegisterPlasmaDonors = lazy(() => import("./Components/RegisterPlasmaDonor
 const ValidateBBanks = lazy(() => import("./Components/ValidateBBanks"));
 
 
+
 //heroku
-// axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
+axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
 
 //localhost
-axios.defaults.baseURL = "http://localhost:5000/";
+// axios.defaults.baseURL = "http://localhost:5000/";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState("");
@@ -42,11 +45,11 @@ function App() {
 
 	const auth = {
 		loggedIn: (value) => {
-			console.log("in loggedIn: ");
+			// console.log("in loggedIn: ");
 			setLoggedIn(value);
 		},
 		notLoggedIn: () => {
-			console.log("in not loggedIn: ");
+			// console.log("in not loggedIn: ");
 			setLoggedIn("");
 		},
 	};
@@ -55,13 +58,15 @@ function App() {
 		console.log("in use effect 1 final");
 		let token = localStorage.getItem("token");
 		console.log("token app.js: " + token);
-		axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
+		if (token) {
+			axios.defaults.headers.common["authorization"] = "Bearer " + localStorage.getItem("token");
+		}
 		async function onLoggedIn() {
 			if (token) {
 				try {
 					let details = await axios.get("/auth/checkReauth");
-					console.log("details: ");
-					console.log(details);
+					// console.log("details: ");
+					// console.log(details);
 					if (details.data) {
 						auth.loggedIn(details.data.decodedToken.user);
 						setId(details.data.decodedToken.id);
@@ -212,7 +217,7 @@ function App() {
 						path={"/validatebbanks"}
 						component={() => (
 							<Suspense fallback={<Loader />}>
-								<ValidateBBanks  />
+								<ValidateBBanks />
 							</Suspense>
 						)}
 					/>
@@ -226,6 +231,9 @@ function App() {
 								<Logout auth={auth} />
 							</Suspense>
 						)}
+					/>
+					<Route
+						component={PageNotFound}
 					/>
 				</Switch>
 			</div>

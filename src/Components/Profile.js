@@ -16,6 +16,8 @@ function Profile({ loggedIn, email, id }) {
 			emailId: email,
 			mobile: "",
 			pincode: "",
+			password: "",
+			confPassword: ""
 		},
 		user: {
 			userId: id,
@@ -26,6 +28,8 @@ function Profile({ loggedIn, email, id }) {
 			bloodGr: "",
 			dob: "",
 			pincode: "",
+			password: "",
+			confPassword: ""
 		},
 	});
 
@@ -33,8 +37,8 @@ function Profile({ loggedIn, email, id }) {
 		async function getData() {
 			if (selectCat === "bbank") {
 				let data = await axios.get("/bloodbank/profile");
-				console.log("data: ");
-				console.log(data);
+				// console.log("data: ");
+				// console.log(data);
 				let tempdata = {
 					user: state.user,
 					bbank: data.data,
@@ -42,8 +46,8 @@ function Profile({ loggedIn, email, id }) {
 				setState(tempdata);
 			} else if (selectCat === "user") {
 				let data = await axios.get("/user/profile");
-				console.log("get data: ");
-				console.log(data);
+				// console.log("get data: ");
+				// console.log(data);
 				let tempdata = {
 					bank: state.bank,
 					user: data.data,
@@ -55,19 +59,32 @@ function Profile({ loggedIn, email, id }) {
 	}, []);
 
 	async function submitBloodBankForm() {
+		if (state.bbank.password !== state.bbank.confPassword) {
+			toast.error("make sure your confirm password is same as password", {
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
+			return
+		}
 		const data = {
 			bankId: state.bbank.bankId,
 			name: "" + state.bbank.name,
 			emailId: "" + state.bbank.emailId,
 			mobile: "" + state.bbank.mobile,
 			pincode: "" + state.bbank.pincode,
+			password: "" + state.bbank.password,
 		};
-		console.log("send data");
-		console.log(data);
+		// console.log("send data");
+		// console.log(data);
 		try {
 			const result = await axios.put("/bloodbank/updateProfile", data);
-			console.log("updated profile: ");
-			console.log(result);
+			// console.log("updated profile: ");
+			// console.log(result);
 			toast.success("Profile updated succefully", {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -93,7 +110,18 @@ function Profile({ loggedIn, email, id }) {
 
 	async function submitUserForm() {
 		//add code
-
+		if (state.user.password !== state.user.confPassword) {
+			toast.error("make sure your confirm password is same as password", {
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
+			return
+		}
 		const data = {
 			userId: state.user.userId,
 			name: "" + state.user.name,
@@ -103,13 +131,14 @@ function Profile({ loggedIn, email, id }) {
 			gender: "" + state.user.gender,
 			bloodGr: "" + state.user.bloodGr,
 			pincode: "" + state.user.pincode,
+			password: "" + state.user.password,
 		};
-		console.log("send data");
-		console.log(data);
+		// console.log("send data");
+		// console.log(data);
 		try {
 			const result = await axios.put("/user/updateProfile", data);
-			console.log("updated profile: ");
-			console.log(result);
+			// console.log("updated profile: ");
+			// console.log(result);
 			toast.success("Profile updated succefully", {
 				position: "bottom-right",
 				autoClose: 5000,
@@ -155,6 +184,26 @@ function Profile({ loggedIn, email, id }) {
 						readOnly
 						placeholder="Email"
 						required
+					/>
+					<br />
+					<input
+						type="password"
+						className="inputBox"
+						value={state.bbank.password}
+						onChange={(e) => {
+							setState({ ...state, bbank: { ...state.bbank, password: e.target.value } });
+						}}
+						placeholder="Password (leave empty for no change in password)"
+					/>
+					<br />
+					<input
+						type="password"
+						className="inputBox"
+						value={state.bbank.confPassword}
+						onChange={(e) => {
+							setState({ ...state, bbank: { ...state.bbank, confPassword: e.target.value } });
+						}}
+						placeholder="Confirm Password"
 					/>
 					<br />
 					<input

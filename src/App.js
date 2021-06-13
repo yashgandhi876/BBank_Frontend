@@ -29,10 +29,10 @@ const ValidateBBanks = lazy(() => import("./Components/ValidateBBanks"));
 
 
 //heroku
-axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
+// axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
 
 //localhost
-// axios.defaults.baseURL = "http://localhost:5000/";
+axios.defaults.baseURL = "http://localhost:5000/";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState("");

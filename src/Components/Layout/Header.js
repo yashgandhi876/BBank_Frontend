@@ -10,12 +10,12 @@ const Header = (props) => {
 				<ul className="nav navbar-nav navbar-right">
 					<li className="nav-item">
 						<Link style={{color:"white"}} className="nav-link" to="/updatestocks">
-							Update Blood Stocks
+							Update Blood Stock
 						</Link>
 					</li>
 					<li className="nav-item">
 						<Link style={{color:"white"}} className="nav-link" to="/registerbloodcamps">
-							Register Camp
+							Register Blood Camp
 						</Link>
 					</li>
 					<li className="nav-item">
@@ -75,7 +75,7 @@ const Header = (props) => {
 					</li>
 					<li className="nav-item">
 						<Link style={{color:"white"}} className="nav-link" to="/login">
-							Log in
+							Log In
 						</Link>
 					</li>
 				</ul>

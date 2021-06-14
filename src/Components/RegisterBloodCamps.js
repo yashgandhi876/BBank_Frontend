@@ -7,11 +7,11 @@ import axios from "axios";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
-
+import Footer from "./Layout/Footer";
 if (typeof window !== "undefined") {
 	injectStyle();
 }
-function RegisterBloodCamps({email}) {
+function RegisterBloodCamps({ email }) {
 	let history = useHistory();
 	// console.log(email);
 	const [state, setState] = useState({
@@ -124,6 +124,9 @@ function RegisterBloodCamps({email}) {
 
 	return (
 		<div className="registration">
+			<div style={{margin:"30px"}}>
+				<h1>Rigster Blood Camp</h1>
+			</div>
 			<input
 				type="text"
 				className="inputBox"
@@ -188,7 +191,7 @@ function RegisterBloodCamps({email}) {
 					className="my-0 p-0 inputbox"
 					htmlFor=""
 				>
-					Camp{ " "} ends  on
+					Camp{" "} ends  on
 				</p>
 				<input
 					type="date"
@@ -245,6 +248,9 @@ function RegisterBloodCamps({email}) {
 			<button onClick={submitHandler} className="submitbtn" type="submit">
 				Register Camp
 			</button>
+			<div style={{ width: "100%", marginTop: "10px", paddingTop: "10px" }} className="m-0 mt-2">
+				<Footer />
+			</div>
 			<ToastContainer position="bottom-right" />
 		</div>
 	);

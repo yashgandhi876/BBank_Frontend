@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import "./Landing.css"
 function Landing() {
 	const [counts, setCounts] = useState({
 		users: 0,
 		bbanks: 0,
 		camps: 0,
 		stocks: 0,
+		plasmadonors: 0
 	});
 
 	useEffect(() => {
@@ -20,6 +21,7 @@ function Landing() {
 					bbanks: data.data.bbanks || 0,
 					camps: data.data.camps || 0,
 					stocks: data.data.stocks || 0,
+					plasmadonors: data.data.plasmadonors || 0
 				};
 				setCounts(obj);
 			} catch (e) {
@@ -68,19 +70,19 @@ function Landing() {
 				</div>
 			</section>
 
-			<section className={"white-section"} id={"features"}>
+			<section className={"white-section"} id={"features"} style={{ margin: "50px auto" }}>
 				<h1>Our numbers</h1>
 				<div className="row">
 					<div className="col-sm-6 col-md-4 col-lg-2  d-flex align-items-stretch">
-						<div className="card">
+						<div className="card showtotal">
 							<div className="card-body">
 								<h1 className="card-title">{counts.users}</h1>
 								<p className="card-text">Registered Users</p>
 							</div>
 						</div>
 					</div>
-					<div className="col-sm-6 col-md-4 col-lg-2 d-flex align-items-stretch">
-						<div className="card">
+					<div className="col-sm-6  col-md-4 col-lg-2 d-flex align-items-stretch">
+						<div className="card  showtotal">
 							<div className="card-body">
 								<h1 className="card-title">{counts.bbanks}</h1>
 								<p className="card-text">Blood Banks Partners</p>
@@ -88,7 +90,7 @@ function Landing() {
 						</div>
 					</div>
 					<div className="col-sm-6 col-md-4 col-lg-2 d-flex align-items-stretch">
-						<div className="card">
+						<div className="card showtotal">
 							<div className="card-body">
 								<h1 className="card-title">{counts.camps}</h1>
 								<p className="card-text">Active Blood Camps</p>
@@ -96,7 +98,15 @@ function Landing() {
 						</div>
 					</div>
 					<div className="col-sm-6 col-md-4 col-lg-2 d-flex align-items-stretch">
-						<div className="card">
+						<div className="card showtotal">
+							<div className="card-body">
+								<h1 className="card-title">{counts.plasmadonors}</h1>
+								<p className="card-text">Total Plasma Donors</p>
+							</div>
+						</div>
+					</div>
+					<div className="col-sm-6 col-md-4 col-lg-2 d-flex align-items-stretch">
+						<div className="card showtotal">
 							<div className="card-body">
 								<h1 className="card-title">{counts.stocks}</h1>
 								<p className="card-text">Total Blood Stock</p>
@@ -107,12 +117,12 @@ function Landing() {
 			</section>
 
 			<section className={"colored-section  content-row"} id={"services"}>
-				<h1>Our Services</h1>
-				<p id={"services-description"}>
+				<h1 className="p-5">Our Services</h1>
+				<h4 id={"services-description"}>
 					BBank aims to connect, digitize and streamline the work flow of all blood banks across the country
-				</p>
+				</h4>
 				<div className="row">
-					<div className="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
+					<div className="showcard col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
 						<div className="card">
 							<div className="card-body">
 								<h5 className="card-title">Blood Availability</h5>
@@ -123,7 +133,7 @@ function Landing() {
 							</div>
 						</div>
 					</div>
-					<div className="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
+					<div className="showcard col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
 						<div className="card">
 							<div className="card-body">
 								<h5 className="card-title">Nearby Blood Banks</h5>
@@ -134,7 +144,7 @@ function Landing() {
 							</div>
 						</div>
 					</div>
-					<div className="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
+					<div className="showcard col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
 						<div className="card">
 							<div className="card-body">
 								<h5 className="card-title">Blood Camps</h5>
@@ -145,7 +155,7 @@ function Landing() {
 							</div>
 						</div>
 					</div>
-					<div className="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
+					<div className="showcard col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
 						<div className="card">
 							<div className="card-body">
 								<h5 className="card-title">Plasma Donors</h5>
@@ -177,7 +187,7 @@ function Landing() {
 				</div>
 			</section>
 			{/*Footer Section: Temporarily here, need to move to its own seperate component*/}
-			<section className="mt-5" id="footer" style={{ backgroundColor: "red", color: "rgba(255,255,255,0.9)" }}>
+			<section className="mt-5" id="footer" style={{ backgroundColor: "#dc143c", color: "rgba(255,255,255,0.9)" }}>
 				<div className={"empty-container"} />
 
 				<footer className={"container"}>

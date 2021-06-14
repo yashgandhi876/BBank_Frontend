@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./SignUp.css";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
@@ -74,7 +75,7 @@ function Login(props) {
 
 	return (
 		<div className="LoginForm" style={{ height: "100%" }}>
-			<div style={{height:"51vh"}}>
+			<div style={{ height: "51vh" }}>
 
 				<select className="catigoresdropdown" name="catigores" onChange={handleChangeCat} id="">
 					<option value="None">Select Account Type</option>
@@ -104,9 +105,13 @@ function Login(props) {
 						onChange={(e) => {
 							setPassword(e.target.value);
 						}}
-						placeholder="password"
+						placeholder="Password"
 						required
 					/>
+					<div className="m-0 p-0" style={{display:"flex", flexDirection:"row-reverse", width:"67%"}}>
+						<Link className="m-0 p-0" to="/forgotpassword">Forgot Password?</Link>
+					</div>
+
 					<br />
 					<button onClick={submitUserForm} className="submitbtn" type="submit">
 						Login

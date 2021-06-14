@@ -4,7 +4,7 @@ import axios from "axios";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
-
+import Footer from "./Layout/Footer";
 if (typeof window !== "undefined") {
 	injectStyle();
 }
@@ -55,6 +55,11 @@ function RegisterPlasmaDonors() {
 
 	return (
 		<div className="registration">
+		<div className="m-5">
+			<h1>
+				Rigster for Plasma Donation
+			</h1>
+		</div>
 			<input
 				type="text"
 				className="inputBox"
@@ -94,7 +99,7 @@ function RegisterPlasmaDonors() {
 					className="my-0 p-0 inputbox"
 					htmlFor=""
 				>
-					Date of recovery
+					Date of Recovery
 				</p>
 				<input
 					type="date"
@@ -138,13 +143,16 @@ function RegisterPlasmaDonors() {
 				onChange={(e) => {
 					setPlasma({ ...plasma, address: e.target.value });
 				}}
-				placeholder="Address"
+				placeholder="Address : City, State, Country, Pincode"
 				required
 			/>
 			<br />
 			<button onClick={submitHandler} style={{ width: "15%" }} className="submitbtn " type="submit">
 				Register Plasma Donor
 			</button>
+			<div style={{ width: "100%", marginTop: "10px", paddingTop: "10px" }} className="m-0 mt-4">
+				<Footer />
+			</div>
 			<ToastContainer position="bottom-right" />
 		</div>
 	);

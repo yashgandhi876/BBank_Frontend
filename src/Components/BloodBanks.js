@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import StockModel from "./StockModel";
 import "./BloodCamps.css";
 import NoDataFound from "./NoDataFound";
+import Footer from "./Layout/Footer";
 
 function BloodBanks({ id, updateId }) {
 	const [allBank, setAllBanks] = useState([]);
@@ -102,6 +103,10 @@ function BloodBanks({ id, updateId }) {
 						</div>
 					))) : <NoDataFound />
 			}
+
+			<div style={{ width: "100%", marginTop: "10px", paddingTop: "10px" }} className="m-0">
+				<Footer />
+			</div>
 		</div>
 	)
 }

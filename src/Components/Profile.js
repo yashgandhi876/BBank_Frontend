@@ -4,6 +4,7 @@ import axios from "axios";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
+import Footer from "./Layout/Footer";
 if (typeof window !== "undefined") {
 	injectStyle();
 }
@@ -258,6 +259,7 @@ function Profile({ loggedIn, email, id }) {
 					<input
 						type="email"
 						className="inputBox"
+						style={{background:"#cdcdcd", outline:"none", border:"1px solid gray"}}
 						value={state.user.emailId}
 						readOnly
 						placeholder="Email"
@@ -343,10 +345,18 @@ function Profile({ loggedIn, email, id }) {
 	}
 
 	return (
-		<div className="signUpform">
-			<h1 className="m-3">Update Profile</h1>
-			{checkCat(selectCat)}
-			<ToastContainer position="bottom-right" />
+		<div>
+
+			<div className="signUpform" style={{marginBottom:"30px"}}>
+				<h1 className="m-3">Update Profile</h1>
+				{checkCat(selectCat)}
+
+
+				<ToastContainer position="bottom-right" />
+			</div>
+			<div style={{ width: "100%", marginTop: "20px", paddingTop: "10px" }} className="m-0">
+				<Footer />
+			</div>
 		</div>
 	);
 }

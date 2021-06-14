@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
 	return (
-		<section id="footer" style={{ backgroundColor: "red", color: "rgba(255,255,255,0.9)", position: "relative", left:"0" }}>
+		<section id="footer" style={{ backgroundColor: "#dc143c", color: "rgba(255,255,255,0.9)", position: "relative", left:"0" }}>
 			<div className={"empty-container"} />
 
 			<footer className={"container"}>

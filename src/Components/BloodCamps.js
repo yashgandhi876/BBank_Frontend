@@ -85,7 +85,7 @@ function BloodCamps(props) {
 		})
 		setCamps(arr);
 	}
-	
+
 	function handelPast() {
 		setStyles({
 			all: 'notselected',
@@ -152,7 +152,7 @@ function BloodCamps(props) {
 											disabled={true}
 											className="interestedbtn"
 										>
-											<h4>Interested ??</h4>
+											<h4>Interested ?</h4>
 										</button>
 									</a>
 								</div>

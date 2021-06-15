@@ -159,11 +159,20 @@ function App() {
 							</Suspense>
 						)}
 					/>
-					<ProtectedRoute
+					{/* <ProtectedRoute
 						login={loggedIn}
 						exact
 						path={"/bloodstocks"}
 						access="both"
+						component={() => (
+							<Suspense fallback={<Loader />}>
+								<BloodStocks />
+							</Suspense>
+						)}
+					/> */}
+					<Route
+						exact
+						path={"/bloodstocks"}
 						component={() => (
 							<Suspense fallback={<Loader />}>
 								<BloodStocks />

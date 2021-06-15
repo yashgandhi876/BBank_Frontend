@@ -25,7 +25,7 @@ function RegisterPlasmaDonors() {
 		try {
 			const result = await axios.post("/user/plasmaDonorRegister", plasma);
 			// console.log(result);
-			toast.success("registered successfully", {
+			toast.success("Registered successfully", {
 				position: "bottom-right",
 				autoClose: 2000,
 				hideProgressBar: false,

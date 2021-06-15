@@ -51,7 +51,7 @@ function SignUp(props) {
 
 	async function submitBloodBankForm() {
 		if (state.bbank.password !== state.bbank.confPassword) {
-			toast.error("make sure your confirm password is same as password", {
+			toast.error("Password and confirm password don't match", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -79,7 +79,7 @@ function SignUp(props) {
 			// console.log("bbank token: ");
 			// console.log(result);
 			// console.log(result.data.token);
-			toast.success("signup successful, wait until admin verify's you.", {
+			toast.success("Signup successful, please wait upto 24hrs for verification.", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -112,7 +112,7 @@ function SignUp(props) {
 	async function submitUserForm() {
 		//add code
 		if (state.user.password !== state.user.confPassword) {
-			toast.error("make sure your confirm password is same as password", {
+			toast.error("Password and confirm password don't match", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -141,7 +141,7 @@ function SignUp(props) {
 		try {
 			const result = await axios.post("/auth/signup", data);
 			// console.log("user token: " + result.data.token);
-			toast.success("signup successful", {
+			toast.success("Signup successful", {
 				position: "bottom-right",
 				autoClose: 2000,
 				hideProgressBar: false,
@@ -331,7 +331,7 @@ function SignUp(props) {
 						onChange={(e) => {
 							setState({ ...state, bbank: { ...state.bbank, pincode: e.target.value } });
 						}}
-						placeholder="pincode"
+						placeholder="Pincode"
 						required
 					/>
 					<br />

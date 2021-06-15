@@ -22,7 +22,7 @@ function ForgotPassword() {
     const [totp, setTOTP] = useState(0);
     const [activebtn, setActivebtn] = useState(false);
     var tempTOTP;
-    
+
     function handleChangeCat(e) {
         setSelectCat(e.target.value);
     }
@@ -53,7 +53,7 @@ function ForgotPassword() {
             if (error) {
                 console.log("error");
                 console.dir(error)
-                toast.error("try later", {
+                toast.error("Couldn't send OTP, try again later", {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -66,9 +66,9 @@ function ForgotPassword() {
             else {
                 console.log("log");
                 console.log(body);
-                toast.success("OTP sent", {
+                toast.success("OTP Sent", {
                     position: "bottom-right",
-                    autoClose: 5000,
+                    autoClose: 2000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -88,7 +88,7 @@ function ForgotPassword() {
         console.log(tempTOTP !== +otp)
         console.log(otp);
         if (totp !== +otp) {
-            toast.error("Please type correct OTP", {
+            toast.error("Please provide correct OTP", {
                 position: "bottom-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -101,7 +101,7 @@ function ForgotPassword() {
         }
 
         if (password !== confPassword) {
-            toast.error("make sure your confirm password is same as new password", {
+            toast.error("Password and confirm password don't match", {
                 position: "bottom-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -114,7 +114,7 @@ function ForgotPassword() {
         }
 
         if (selectCat === "None") {
-            toast.error("Select Category first", {
+            toast.error("Select category first", {
                 position: "bottom-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -134,7 +134,7 @@ function ForgotPassword() {
         };
         try {
             const data = await axios.post("/auth/forgotpassword", cred);
-            toast.success("Password Changed Successfully", {
+            toast.success("Password changed successfully", {
                 position: "bottom-right",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -190,7 +190,7 @@ function ForgotPassword() {
                     onChange={(e) => {
                         setPassword(e.target.value);
                     }}
-                    placeholder="Password"
+                    placeholder="New Password"
                     required
                 />
                 <br />
@@ -230,7 +230,7 @@ function ForgotPassword() {
                     />
                 </div>
                 <div className="m-0 p-0" style={{ display: "flex", flexDirection: "row-reverse", width: "67%" }}>
-                    <Link className="m-0 p-0" to="/forgotpassword">Login</Link>
+                    <Link className="m-0 p-0" to="/login">Login</Link>
                 </div>
                 <br />
                 <button disabled={!activebtn} onClick={submitUserForm} className="submitbtn" style={{ width: "200px" }} type="submit">

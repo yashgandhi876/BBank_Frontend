@@ -25,7 +25,7 @@ function ValidateBBank() {
 			setTimeout(() => {
 				setBanks(Array.from(data));
 			}, 2000);
-			toast.success("validated successfully", {
+			toast.success("Validated successfully", {
 				position: "bottom-right",
 				autoClose: 2000,
 				hideProgressBar: false,

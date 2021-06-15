@@ -9,7 +9,7 @@ function Logout(props) {
 	let history = useHistory();
 	useEffect(() => {
 		localStorage.removeItem("token");
-		toast.success("log out successful", {
+		toast.success("Logged out successfully", {
 			position: "bottom-right",
 			autoClose: 1000,
 			hideProgressBar: false,

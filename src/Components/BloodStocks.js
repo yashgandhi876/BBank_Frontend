@@ -5,6 +5,7 @@ import Card from "@material-ui/core/Card";
 import Checkbox from "@material-ui/core/Checkbox";
 import SortIcon from "@material-ui/icons/ArrowDownward";
 import Footer from "./Layout/Footer";
+
 const columns = [
 	{
 		name: "BBank Name",
@@ -94,8 +95,7 @@ function BloodStocks() {
 
 	return (
 		<div>
-
-			<div style={{ width: "95%", margin: "15px auto", minHeight:"50vh" }}>
+			<div style={{ width: "95%", margin: "15px auto", minHeight: "50vh" }}>
 				<Card>
 					<DataTable
 						title="Blood Stocks Data"

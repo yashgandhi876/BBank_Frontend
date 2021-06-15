@@ -22,7 +22,7 @@ function Login(props) {
 
 	async function submitUserForm() {
 		if (selectCat === "None") {
-			toast.error("Select Category first", {
+			toast.error("Please select category", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -42,7 +42,7 @@ function Login(props) {
 		};
 		try {
 			const data = await axios.post("/auth/login", cred);
-			toast.success("login successful", {
+			toast.success("Login successful", {
 				position: "bottom-right",
 				autoClose: 2000,
 				hideProgressBar: false,

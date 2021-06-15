@@ -60,7 +60,7 @@ function BloodBanks({ id, updateId }) {
 					display: "flex", margin: "10px", height: "40px"
 				}}>
 					<select
-						style={{ height: "30px", padding: "5px" }}
+						style={{ height: "32px", padding: "5px" }}
 						className="catdropdown"
 						onChange={(e) => {
 							setCat(e.target.value);

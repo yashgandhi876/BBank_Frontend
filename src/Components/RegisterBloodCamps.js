@@ -49,7 +49,7 @@ function RegisterBloodCamps({ email }) {
 			// console.log(campData);
 			const result = await axios.post("/bloodbank/organizeCamp", campData);
 			// console.log(result);
-			toast.success("registered successfully", {
+			toast.success("Registered successfully", {
 				position: "bottom-right",
 				autoClose: 2000,
 				hideProgressBar: false,
@@ -125,7 +125,7 @@ function RegisterBloodCamps({ email }) {
 	return (
 		<div className="registration">
 			<div style={{margin:"30px"}}>
-				<h1>Rigster Blood Camp</h1>
+				<h1>Register Blood Camp</h1>
 			</div>
 			<input
 				type="text"

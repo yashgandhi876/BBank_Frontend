@@ -63,7 +63,7 @@ function Profile({ loggedIn, email, id }) {
 
 	async function submitBloodBankForm() {
 		if (state.bbank.password !== state.bbank.confPassword) {
-			toast.error("make sure your confirm password is same as password", {
+			toast.error("Password and confirm password don't match", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -82,13 +82,13 @@ function Profile({ loggedIn, email, id }) {
 			pincode: "" + state.bbank.pincode,
 			password: "" + state.bbank.password,
 		};
-		// console.log("send data");
-		// console.log(data);
+		console.log("send data");
+		console.log(data);
 		try {
 			const result = await axios.put("/bloodbank/updateProfile", data);
 			// console.log("updated profile: ");
 			// console.log(result);
-			toast.success("Profile updated succefully", {
+			toast.success("Profile updated successfully", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -117,7 +117,7 @@ function Profile({ loggedIn, email, id }) {
 	async function submitUserForm() {
 		//add code
 		if (state.user.password !== state.user.confPassword) {
-			toast.error("make sure your confirm password is same as password", {
+			toast.error("Password and confirm password don't match", {
 				position: "bottom-right",
 				autoClose: 5000,
 				hideProgressBar: false,
@@ -145,7 +145,7 @@ function Profile({ loggedIn, email, id }) {
 			const result = await axios.put("/user/updateProfile", data);
 			// console.log("updated profile: ");
 			// console.log(result);
-			toast.success("Profile updated succefully", {
+			toast.success("Profile updated successfully", {
 				position: "bottom-right",
 				autoClose: 2000,
 				hideProgressBar: false,
@@ -338,7 +338,7 @@ function Profile({ loggedIn, email, id }) {
 					/>
 					<br />
 					<button onClick={submitUserForm} className="submitbtn" type="submit">
-						update profile
+						Update Profile
 					</button>
 				</div>
 			);

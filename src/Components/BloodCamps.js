@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./BloodCamps.css";
 import NoDataFound from "./NoDataFound";
 import Footer from "./Layout/Footer";
+
 function BloodCamps(props) {
 	let year = new Date().getFullYear();
 	let month = new Date().getMonth();
@@ -41,6 +42,7 @@ function BloodCamps(props) {
 		})
 		setCamps(allCamps);
 	}
+
 	function handelActive() {
 		setStyles({
 			all: 'notselected',
@@ -62,6 +64,7 @@ function BloodCamps(props) {
 		})
 		setCamps(arr);
 	}
+
 	function handelUpcoming() {
 		setStyles({
 			all: 'notselected',
@@ -82,6 +85,7 @@ function BloodCamps(props) {
 		})
 		setCamps(arr);
 	}
+	
 	function handelPast() {
 		setStyles({
 			all: 'notselected',

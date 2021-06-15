@@ -12,7 +12,7 @@ function NoDataFound() {
 					style={{ alignItem: "center", width: "80%", display: "flex" }}
 					className="justify-content-center h-100 align-items-center m-auto p-4"
 				>
-					<h3 className="align-self-center shadow p-5 mb-5 bg-white rounded">We don't have any registrations yet,Rigster
+					<h3 className="align-self-center shadow p-5 mb-5 bg-white rounded">We don't have any registrations yet,
 						<h5>Please try again later.</h5></h3>
 				</div>
 			</div>

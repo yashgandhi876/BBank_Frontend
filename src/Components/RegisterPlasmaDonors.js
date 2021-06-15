@@ -57,7 +57,7 @@ function RegisterPlasmaDonors() {
 		<div className="registration">
 		<div className="m-5">
 			<h1>
-				Rigster for Plasma Donation
+				Register for Plasma Donation
 			</h1>
 		</div>
 			<input

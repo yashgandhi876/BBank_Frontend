@@ -30,10 +30,10 @@ const ForgotPassword= lazy(() => import("./Components/ForgotPassword"));
 
 
 //heroku
-// axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
+axios.defaults.baseURL = "https://bbankapplication.herokuapp.com/";
 
 //localhost
-axios.defaults.baseURL = "http://localhost:5000/";
+// axios.defaults.baseURL = "http://localhost:5000/";
 
 
 function App() {

@@ -75,7 +75,11 @@ function Landing() {
 				<div className="row">
 					<div className="col-sm-6 col-md-4 col-lg-2  d-flex align-items-stretch">
 						<div className="card showtotal">
-							<div className="card-body">
+							<div className="card-body" style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "space-evenly"
+							}}>
 								<h1 className="card-title">{counts.users}</h1>
 								<p className="card-text">Registered Users</p>
 							</div>
@@ -83,7 +87,11 @@ function Landing() {
 					</div>
 					<div className="col-sm-6  col-md-4 col-lg-2 d-flex align-items-stretch">
 						<div className="card  showtotal">
-							<div className="card-body">
+							<div className="card-body" style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "space-evenly"
+							}}>
 								<h1 className="card-title">{counts.bbanks}</h1>
 								<p className="card-text">Blood Banks Partners</p>
 							</div>
@@ -91,7 +99,11 @@ function Landing() {
 					</div>
 					<div className="col-sm-6 col-md-4 col-lg-2 d-flex align-items-stretch">
 						<div className="card showtotal">
-							<div className="card-body">
+							<div className="card-body" style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "space-evenly"
+							}}>
 								<h1 className="card-title">{counts.camps}</h1>
 								<p className="card-text">Active Blood Camps</p>
 							</div>
@@ -99,7 +111,11 @@ function Landing() {
 					</div>
 					<div className="col-sm-6 col-md-4 col-lg-2 d-flex align-items-stretch">
 						<div className="card showtotal">
-							<div className="card-body">
+							<div className="card-body" style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "space-evenly"
+							}}>
 								<h1 className="card-title">{counts.plasmadonors}</h1>
 								<p className="card-text">Total Plasma Donors</p>
 							</div>
@@ -107,7 +123,11 @@ function Landing() {
 					</div>
 					<div className="col-sm-6 col-md-4 col-lg-2 d-flex align-items-stretch">
 						<div className="card showtotal">
-							<div className="card-body">
+							<div className="card-body" style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "space-evenly"
+							}}>
 								<h1 className="card-title">{counts.stocks}</h1>
 								<p className="card-text">Total Blood Stock</p>
 							</div>
@@ -124,7 +144,11 @@ function Landing() {
 				<div className="row">
 					<div className="showcard col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
 						<div className="card">
-							<div className="card-body">
+							<div className="card-body" style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "space-evenly"
+							}}>
 								<h5 className="card-title">Blood Availability</h5>
 								<p className="card-text">Get status of available blood stock in blood banks.</p>
 								<Link to="/bloodstocks" className="btn btn-primary">
@@ -135,7 +159,11 @@ function Landing() {
 					</div>
 					<div className="showcard col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
 						<div className="card">
-							<div className="card-body">
+							<div className="card-body" style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "space-evenly"
+							}}>
 								<h5 className="card-title">Nearby Blood Banks</h5>
 								<p className="card-text">Get contact details of blood banks in your area.</p>
 								<Link className="btn btn-primary" to="/bloodbanks">
@@ -146,7 +174,11 @@ function Landing() {
 					</div>
 					<div className="showcard col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
 						<div className="card">
-							<div className="card-body">
+							<div className="card-body" style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "space-evenly"
+							}}>
 								<h5 className="card-title">Blood Camps</h5>
 								<p className="card-text">Check blood camps so you can also donate blood.</p>
 								<Link to="/bloodcamps" className="btn btn-primary">
@@ -157,7 +189,11 @@ function Landing() {
 					</div>
 					<div className="showcard col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
 						<div className="card">
-							<div className="card-body">
+							<div className="card-body" style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "space-evenly"
+							}}>
 								<h5 className="card-title">Plasma Donors</h5>
 								<p className="card-text">Check plasma donors.</p>
 								<Link to="/plasmadonors" className="btn btn-primary">

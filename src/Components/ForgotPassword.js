@@ -6,7 +6,6 @@ import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import Footer from "./Layout/Footer";
-// import mailgun from 'mailgun-js';
 
 if (typeof window !== "undefined") {
     injectStyle();
@@ -19,76 +18,31 @@ function ForgotPassword() {
     const [password, setPassword] = useState("");
     const [confPassword, setConfPassword] = useState("")
     const [otp, setOtp] = useState();
-    const [totp, setTOTP] = useState(0);
     const [activebtn, setActivebtn] = useState(false);
-    var tempTOTP;
 
     function handleChangeCat(e) {
         setSelectCat(e.target.value);
     }
 
-    function sendOTP() {
+    async function sendOTP() {
+        try{
+            const data = await axios.get(`/auth/generateotp/${email}`);
+            console.log("otp");
+            console.log(data);
+            toast.success("OTP Sent", {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setActivebtn(true);
 
-        tempTOTP = Math.floor(Math.random() * 1000000)
-        setTOTP(tempTOTP);
-        var API_KEY = '302c37325000fa26a56aa7ba3abe5259-24e2ac64-35c44edb';
-        var DOMAIN = 'sandbox8757f0fd346e40e9bc451b238d1382bc.mailgun.org';
-        var mailgun = require('mailgun-js')
-            ({ apiKey: API_KEY, domain: DOMAIN });
-        var sender_email = 'Admin BBank <yashgandhi2020@gmail.com>'
-        var receiver_email = email;
-        var email_subject = 'OTP to change password'
-        var email_body = 'Hi, here is your private OTP to change password : ' + tempTOTP + '';
-        console.log(totp);
-        const data = {
-            "from": sender_email,
-            "to": receiver_email,
-            "subject": email_subject,
-            "text": email_body
-        };
-
-        console.log(data);
-
-        mailgun.messages().send(data, (error, body) => {
-            if (error) {
-                console.log("error");
-                console.dir(error)
-                toast.error("Couldn't send OTP, try again later", {
-                    position: "bottom-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            }
-            else {
-                console.log("log");
-                console.log(body);
-                toast.success("OTP Sent", {
-                    position: "bottom-right",
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-                setActivebtn(true);
-            }
-        });
-    }
-
-
-    async function submitUserForm() {
-        console.log(typeof totp);
-        console.log(totp);
-        console.log(typeof +otp);
-        console.log(tempTOTP !== +otp)
-        console.log(otp);
-        if (totp !== +otp) {
-            toast.error("Please provide correct OTP", {
+        }catch(e){
+            console.dir(e);
+            toast.error("Couldn't send OTP, try again later", {
                 position: "bottom-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -97,9 +51,10 @@ function ForgotPassword() {
                 draggable: true,
                 progress: undefined,
             });
-            return;
         }
+    }   
 
+    async function submitUserForm() {
         if (password !== confPassword) {
             toast.error("Password and confirm password don't match", {
                 position: "bottom-right",
@@ -131,6 +86,7 @@ function ForgotPassword() {
             category: selectCat,
             emailId: email,
             password,
+            otp,
         };
         try {
             const data = await axios.post("/auth/forgotpassword", cred);

@@ -245,7 +245,7 @@ function RegisterBloodCamps({ email }) {
 			<br />
 			{listCity(state.stateCode)}
 			<br />
-			<button onClick={submitHandler} className="submitbtn" type="submit">
+			<button onClick={submitHandler} className="btn btn-primary" style={{ width: "200px", borderRadius: "50px", padding: "5px", margin: "30px auto", height: "43px", fontSize: "20px", backgroundColor: "#0979FA" }} type="submit">
 				Register Camp
 			</button>
 			<div style={{ width: "100%", marginTop: "10px", paddingTop: "10px" }} className="m-0 mt-2">

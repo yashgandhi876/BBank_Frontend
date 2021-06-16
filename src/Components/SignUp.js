@@ -349,7 +349,7 @@ function SignUp(props) {
 					<br />
 					{listCity(state.stateCode)}
 					<br />
-					<button onClick={submitBloodBankForm} className="submitbtn mb-10" type="submit">
+					<button onClick={submitBloodBankForm} className="btn btn-primary" style={{ width: "200px", borderRadius: "50px", padding: "5px", margin: "30px auto", height: "43px", fontSize: "20px", backgroundColor: "#0979FA" }} type="submit">
 						Sign Up
 					</button>
 				</div>
@@ -508,7 +508,7 @@ function SignUp(props) {
 					<br />
 					{listCity(state.stateCode)}
 					<br />
-					<button onClick={submitUserForm} className="submitbtn mb-4" type="submit">
+					<button onClick={submitUserForm} className="btn btn-primary" style={{ width: "200px", borderRadius: "50px", padding: "5px", margin: "30px auto", height: "43px", fontSize: "20px", backgroundColor: "#0979FA" }} type="submit">
 						Sign Up
 					</button>
 				</div>

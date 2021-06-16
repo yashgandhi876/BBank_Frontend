@@ -148,11 +148,12 @@ function BloodCamps(props) {
 												justifyContent: "center",
 												alignItems: "start",
 												width: "auto",
+												cursor:"pointer"
 											}}
 											disabled={true}
 											className="interestedbtn"
 										>
-											<h4>Interested ?</h4>
+											<h4 style={{margin:"0px"}}>Interested ?</h4>
 										</button>
 									</a>
 								</div>

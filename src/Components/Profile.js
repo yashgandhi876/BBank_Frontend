@@ -237,7 +237,7 @@ function Profile({ loggedIn, email, id }) {
 						required
 					/>
 					<br />
-					<button onClick={submitBloodBankForm} className="submitbtn" type="submit">
+					<button onClick={submitBloodBankForm} className="btn btn-primary" style={{ width: "200px", borderRadius: "50px", padding: "5px", margin: "30px auto", height: "43px", fontSize: "20px", backgroundColor: "#0979FA" }} type="submit">
 						Update profile
 					</button>
 				</div>
@@ -337,7 +337,7 @@ function Profile({ loggedIn, email, id }) {
 						required
 					/>
 					<br />
-					<button onClick={submitUserForm} className="submitbtn" type="submit">
+					<button onClick={submitUserForm} className="btn btn-primary" style={{ width: "200px", borderRadius: "50px", padding: "5px", margin: "30px auto", height: "43px", fontSize: "20px", backgroundColor: "#0979FA" }} type="submit">
 						Update Profile
 					</button>
 				</div>

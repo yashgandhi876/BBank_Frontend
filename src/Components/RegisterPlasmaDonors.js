@@ -147,7 +147,7 @@ function RegisterPlasmaDonors() {
 				required
 			/>
 			<br />
-			<button onClick={submitHandler} style={{ width: "15%" }} className="submitbtn " type="submit">
+			<button onClick={submitHandler} className="btn btn-primary" style={{ width: "250px", borderRadius: "50px", padding: "5px", margin: "30px auto", height: "43px", fontSize: "20px", backgroundColor: "#0979FA" }} type="submit">
 				Register Plasma Donor
 			</button>
 			<div style={{ width: "100%", marginTop: "10px", paddingTop: "10px" }} className="m-0 mt-4">

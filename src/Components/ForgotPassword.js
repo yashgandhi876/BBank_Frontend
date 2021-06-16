@@ -52,7 +52,7 @@ function ForgotPassword() {
                 progress: undefined,
             });
         }
-    }   
+    }
 
     async function submitUserForm() {
         if (password !== confPassword) {
@@ -117,7 +117,7 @@ function ForgotPassword() {
     }
 
     return (<div className="LoginForm" style={{ height: "100%" }}>
-        <div style={{ height: "51vh" }}>
+        <div style={{ height: "55vh", margin:"30px auto" }}>
 
             <select className="catigoresdropdown" name="catigores" onChange={handleChangeCat} id="">
                 <option value="None">Select Account Type</option>
@@ -189,7 +189,7 @@ function ForgotPassword() {
                     <Link className="m-0 p-0" to="/login">Login</Link>
                 </div>
                 <br />
-                <button disabled={!activebtn} onClick={submitUserForm} className="submitbtn" style={{ width: "200px" }} type="submit">
+                <button disabled={!activebtn} onClick={submitUserForm} className="btn btn-primary" style={{ width: "200px", borderRadius: "50px", padding: "5px", margin: "30px auto", height: "43px", fontSize: "20px", backgroundColor:"#0979FA" }} type="submit">
                     Change Password
                 </button>
             </div>

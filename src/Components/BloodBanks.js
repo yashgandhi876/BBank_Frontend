@@ -79,7 +79,7 @@ function BloodBanks({ id, updateId }) {
 					<br />
 				</div>
 				<div style={{ widht: "13%" }} className="input" >
-					<input value={search} onChange={searchChangeHandler} style={{ padding: "2px", width: "190%", outline: "none" }} className="inputBox" placeholder="search blood bank" type="search" />
+					<input value={search} onChange={searchChangeHandler} style={{ padding: "2px", width: "190%", outline: "none" }} className="inputBox" placeholder="Search Blood Bank" type="search" />
 				</div>
 			</div>
 			{

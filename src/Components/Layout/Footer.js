@@ -38,8 +38,8 @@ function Footer() {
 						</ul>
 					</div>
 				</div>
-				<div className="mb-4">
-					<p className="mb-4 p-4">
+				<div className="m-0">
+					<p className="m-0 p-4" style={{fontSize:"20px"}}>
 						Developed by {"  "}
 						<a
 							target="_blank" style={{ color: "white" }}

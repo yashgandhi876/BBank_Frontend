@@ -113,7 +113,7 @@ function Login(props) {
 					</div>
 
 					<br />
-					<button onClick={submitUserForm} className="submitbtn" type="submit">
+					<button onClick={submitUserForm} className="btn btn-primary" style={{ width: "120px", borderRadius: "50px", padding: "5px", height: "43px", fontSize: "20px", backgroundColor:"#0979FA"}} type="submit">
 						Login
 					</button>
 				</div>

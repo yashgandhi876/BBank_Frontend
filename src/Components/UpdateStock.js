@@ -259,8 +259,8 @@ function UpdateStock({ id }) {
 				</div>
 			</div>
 			<div className="m-4">
-				<button onClick={submitHandler} className="btn btn-success">
-					Submit stocks
+				<button onClick={submitHandler} className="btn btn-primary" style={{ width: "200px", borderRadius: "50px", padding: "5px", margin: "30px auto", height: "43px", fontSize: "20px", backgroundColor: "#0979FA" }}>
+					Update Stocks
 				</button>
 			</div>
 			<div style={{ width: "100%", marginTop: "10px", paddingTop: "10px" }} className="m-0">
